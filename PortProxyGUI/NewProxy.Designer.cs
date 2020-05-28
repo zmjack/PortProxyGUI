@@ -53,12 +53,11 @@
             // 
             // textBox_listenOn
             // 
-            this.textBox_listenOn.Enabled = false;
             this.textBox_listenOn.Location = new System.Drawing.Point(92, 12);
             this.textBox_listenOn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_listenOn.Name = "textBox_listenOn";
             this.textBox_listenOn.Size = new System.Drawing.Size(120, 23);
-            this.textBox_listenOn.TabIndex = 1;
+            this.textBox_listenOn.TabIndex = 0;
             this.textBox_listenOn.Text = "*";
             this.textBox_listenOn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
