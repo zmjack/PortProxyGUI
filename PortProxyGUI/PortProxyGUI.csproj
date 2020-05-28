@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Authors>zmjack</Authors>
+    <Company>nstandard.net</Company>
+    <Description>A manager of the netsh interface portproxy which is to evaluate TCP/IP port redirect on windows.</Description>
+    <PackageProjectUrl>https://github.com/zmjack/PortProxyGUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zmjack/PortProxyGUI</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>portproxy TCP/IP redirector</PackageTags>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <Copyright>Copyright © nstandard.net 2020</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NStandard" Version="0.4.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
