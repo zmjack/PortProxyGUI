@@ -176,7 +176,7 @@
             this.MinimizeBox = false;
             this.Name = "NewProxy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NewProxy";
+            this.Text = "New Proxy";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewProxy_FormClosing);
             this.Load += new System.EventHandler(this.NewProxy_Load);

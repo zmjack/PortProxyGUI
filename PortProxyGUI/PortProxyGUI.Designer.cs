@@ -138,7 +138,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "PortProxyGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PortProxyGUI";
+            this.Text = "Port Proxy GUI";
             this.Load += new System.EventHandler(this.PortProxyGUI_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
