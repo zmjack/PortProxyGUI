@@ -17,14 +17,45 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NStandard" Version="0.4.6" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\LICENSE.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Update="NewProxy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewProxy.Designer.cs">
+      <DependentUpon>NewProxy.cs</DependentUpon>
+    </Compile>
+    <Compile Update="PortProxyGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PortProxyGUI.Designer.cs">
+      <DependentUpon>PortProxyGUI.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewProxy.resx">
+      <DependentUpon>NewProxy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PortProxyGUI.resx">
+      <DependentUpon>PortProxyGUI.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <Import Project="..\PortProxyGUI.Shared\PortProxyGUI.Shared.projitems" Label="Shared" />
 
 </Project>

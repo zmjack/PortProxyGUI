@@ -5,7 +5,16 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortProxyGUI", "PortProxyGUI\PortProxyGUI.csproj", "{7459E9F4-8B98-42D6-92CF-E90961E05C90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortProxyGUI - FW", "PortProxyGUI - FW\PortProxyGUI - FW.csproj", "{1B166039-E98C-404A-89A5-C981364B5546}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PortProxyGUI.Shared", "PortProxyGUI.Shared\PortProxyGUI.Shared.shproj", "{B38EF2B9-E38D-4D6D-BF0D-7C1934D6CFDC}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		PortProxyGUI.Shared\PortProxyGUI.Shared.projitems*{1b166039-e98c-404a-89a5-c981364b5546}*SharedItemsImports = 4
+		PortProxyGUI.Shared\PortProxyGUI.Shared.projitems*{7459e9f4-8b98-42d6-92cf-e90961e05c90}*SharedItemsImports = 5
+		PortProxyGUI.Shared\PortProxyGUI.Shared.projitems*{b38ef2b9-e38d-4d6d-bf0d-7c1934d6cfdc}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -27,6 +36,18 @@ Global
 		{7459E9F4-8B98-42D6-92CF-E90961E05C90}.Release|x64.Build.0 = Release|Any CPU
 		{7459E9F4-8B98-42D6-92CF-E90961E05C90}.Release|x86.ActiveCfg = Release|Any CPU
 		{7459E9F4-8B98-42D6-92CF-E90961E05C90}.Release|x86.Build.0 = Release|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Debug|x64.Build.0 = Debug|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Debug|x86.Build.0 = Debug|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Release|x64.ActiveCfg = Release|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Release|x64.Build.0 = Release|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Release|x86.ActiveCfg = Release|Any CPU
+		{1B166039-E98C-404A-89A5-C981364B5546}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

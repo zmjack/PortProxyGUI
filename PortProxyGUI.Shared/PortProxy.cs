@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
-
-namespace PortProxyGUI
+﻿namespace PortProxyGUI
 {
     public class PortProxy
     {

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>b38ef2b9-e38d-4d6d-bf0d-7c1934d6cfdc</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>PortProxyGUI.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CmdRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PortProxy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProxyType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)~extern\NStandard\XString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)~extern\NStandard\XObject.cs" />
+  </ItemGroup>
+</Project>
