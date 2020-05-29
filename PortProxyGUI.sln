@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortProxyGUI - FW", "PortPr
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PortProxyGUI.Shared", "PortProxyGUI.Shared\PortProxyGUI.Shared.shproj", "{B38EF2B9-E38D-4D6D-BF0D-7C1934D6CFDC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E48EF63C-74A5-42B5-BFC5-20652E856B1F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		docs\ui.png = docs\ui.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		PortProxyGUI.Shared\PortProxyGUI.Shared.projitems*{1b166039-e98c-404a-89a5-c981364b5546}*SharedItemsImports = 4
