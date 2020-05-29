@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortProxyGUI", "PortProxyGUI\PortProxyGUI.csproj", "{7459E9F4-8B98-42D6-92CF-E90961E05C90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortProxyGUI - FW", "PortProxyGUI - FW\PortProxyGUI - FW.csproj", "{1B166039-E98C-404A-89A5-C981364B5546}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PortProxyGUI.Shared", "PortProxyGUI.Shared\PortProxyGUI.Shared.shproj", "{B38EF2B9-E38D-4D6D-BF0D-7C1934D6CFDC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E48EF63C-74A5-42B5-BFC5-20652E856B1F}"
@@ -14,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E48EF63C-7
 		README.md = README.md
 		docs\ui.png = docs\ui.png
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortProxyGUI - NET", "PortProxyGUI - NET\PortProxyGUI - NET.csproj", "{1B166039-E98C-404A-89A5-C981364B5546}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

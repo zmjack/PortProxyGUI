@@ -30,7 +30,7 @@ namespace PortProxyGUI
             {
                 var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
                 var type = subItems[0].Text;
-                var listenOn= subItems[1].Text;
+                var listenOn = subItems[1].Text;
                 var listenPort = subItems[2].Text;
                 var output = CmdRunner.Execute($"netsh interface portproxy delete {type} listenaddress={listenOn} listenport={listenPort}");
             }
@@ -88,7 +88,7 @@ namespace PortProxyGUI
 
                 switch (selected.Text)
                 {
-                    case "New":
+                    case string s when s == toolStripMenuItem1.Text:
                         if (NewProxyForm == null)
                         {
                             NewProxyForm = new NewProxy(this);
@@ -97,13 +97,13 @@ namespace PortProxyGUI
                         else NewProxyForm.Show();
                         break;
 
-                    case "Refresh": RefreshProxyList(); break;
-                    case "Delete": DeleteSelectedProxies(); break;
+                    case string s when s == toolStripMenuItem3.Text: RefreshProxyList(); break;
+                    case string s when s == toolStripMenuItem2.Text: DeleteSelectedProxies(); break;
 
-                    case "About":
+                    case string s when s == toolStripMenuItem4.Text:
                         if (AboutForm == null)
                         {
-                            AboutForm = new About();
+                            AboutForm = new About(this);
                             AboutForm.Show();
                         }
                         else AboutForm.Show();

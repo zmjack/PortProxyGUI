@@ -132,7 +132,7 @@
     <value>0</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Listen on</value>
+    <value>侦听地址</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -190,7 +190,7 @@
     <value>0</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Connect to</value>
+    <value>连接地址</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -271,7 +271,7 @@
     <value>0</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Port</value>
+    <value>端口</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -295,7 +295,7 @@
     <value>6</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
-    <value>Add</value>
+    <value>添加</value>
   </data>
   <data name="&gt;&gt;button1.Name" xml:space="preserve">
     <value>button1</value>
@@ -322,7 +322,7 @@
     <value>0</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>Type</value>
+    <value>类型</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -349,7 +349,7 @@
     <value>0</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>Port</value>
+    <value>端口</value>
   </data>
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
@@ -429,9 +429,9 @@
   <data name="&gt;&gt;comboBox_type.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>
   </data>
@@ -445,7 +445,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>New Proxy</value>
+    <value>新建映射</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>NewProxy</value>

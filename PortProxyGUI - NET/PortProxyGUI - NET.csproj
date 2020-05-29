@@ -84,11 +84,14 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="About.zh-CN.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewProxy.resx">
       <DependentUpon>NewProxy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PortProxyGUI.en-US.resx">
-      <DependentUpon>PortProxyGUI.cs</DependentUpon>
+    <EmbeddedResource Include="NewProxy.zh-CN.resx">
+      <DependentUpon>NewProxy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PortProxyGUI.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>

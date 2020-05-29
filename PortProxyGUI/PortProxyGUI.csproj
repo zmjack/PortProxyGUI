@@ -14,6 +14,7 @@
     <PackageTags>portproxy TCP/IP redirector</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Copyright>Copyright © nstandard.net 2020</Copyright>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -53,10 +54,19 @@
     <EmbeddedResource Update="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="About.zh-CN.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="NewProxy.resx">
       <DependentUpon>NewProxy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="NewProxy.zh-CN.resx">
+      <DependentUpon>NewProxy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="PortProxyGUI.resx">
+      <DependentUpon>PortProxyGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PortProxyGUI.zh-CN.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

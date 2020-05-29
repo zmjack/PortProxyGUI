@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewProxy));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_listenOn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,116 +44,71 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 11);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Listen on";
             // 
             // textBox_listenOn
             // 
-            this.textBox_listenOn.Location = new System.Drawing.Point(79, 8);
-            this.textBox_listenOn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.ApplyResources(this.textBox_listenOn, "textBox_listenOn");
             this.textBox_listenOn.Name = "textBox_listenOn";
-            this.textBox_listenOn.Size = new System.Drawing.Size(103, 21);
-            this.textBox_listenOn.TabIndex = 0;
-            this.textBox_listenOn.Text = "*";
-            this.textBox_listenOn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 35);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Connect to";
             // 
             // textBox_connectTo
             // 
-            this.textBox_connectTo.Location = new System.Drawing.Point(79, 32);
-            this.textBox_connectTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.ApplyResources(this.textBox_connectTo, "textBox_connectTo");
             this.textBox_connectTo.Name = "textBox_connectTo";
-            this.textBox_connectTo.Size = new System.Drawing.Size(103, 21);
-            this.textBox_connectTo.TabIndex = 3;
-            this.textBox_connectTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox_connectPort
             // 
-            this.textBox_connectPort.Location = new System.Drawing.Point(223, 32);
-            this.textBox_connectPort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.ApplyResources(this.textBox_connectPort, "textBox_connectPort");
             this.textBox_connectPort.Name = "textBox_connectPort";
-            this.textBox_connectPort.Size = new System.Drawing.Size(57, 21);
-            this.textBox_connectPort.TabIndex = 4;
-            this.textBox_connectPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(189, 35);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Port";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(206, 62);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 22);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 66);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Type";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(189, 11);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Port";
             // 
             // textBox_listenPort
             // 
-            this.textBox_listenPort.Location = new System.Drawing.Point(223, 8);
-            this.textBox_listenPort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.ApplyResources(this.textBox_listenPort, "textBox_listenPort");
             this.textBox_listenPort.Name = "textBox_listenPort";
-            this.textBox_listenPort.Size = new System.Drawing.Size(57, 21);
-            this.textBox_listenPort.TabIndex = 2;
-            this.textBox_listenPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // comboBox_type
             // 
-            this.comboBox_type.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            resources.ApplyResources(this.comboBox_type, "comboBox_type");
             this.comboBox_type.FormattingEnabled = true;
             this.comboBox_type.Items.AddRange(new object[] {
-            "v4tov4",
-            "v4tov6",
-            "v6tov4",
-            "v6tov6"});
-            this.comboBox_type.Location = new System.Drawing.Point(78, 64);
-            this.comboBox_type.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.GetString("comboBox_type.Items"),
+            resources.GetString("comboBox_type.Items1"),
+            resources.GetString("comboBox_type.Items2"),
+            resources.GetString("comboBox_type.Items3")});
             this.comboBox_type.Name = "comboBox_type";
-            this.comboBox_type.Size = new System.Drawing.Size(104, 20);
-            this.comboBox_type.TabIndex = 5;
             // 
             // NewProxy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 90);
             this.Controls.Add(this.comboBox_type);
             this.Controls.Add(this.textBox_listenPort);
             this.Controls.Add(this.label5);
@@ -165,12 +121,9 @@
             this.Controls.Add(this.textBox_listenOn);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewProxy";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New Proxy";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewProxy_FormClosing);
             this.Load += new System.EventHandler(this.NewProxy_Load);

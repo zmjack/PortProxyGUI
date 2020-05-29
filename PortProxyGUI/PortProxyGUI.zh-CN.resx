@@ -141,7 +141,7 @@
     <value>Fill</value>
   </data>
   <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Listen on</value>
+    <value>侦听地址</value>
   </data>
   <data name="listView1.Size" type="System.Drawing.Size, System.Drawing">
     <value>573, 262</value>
@@ -165,13 +165,13 @@
     <value>0, 0</value>
   </data>
   <data name="toolStripMenuItem2.Text" xml:space="preserve">
-    <value>Delete</value>
+    <value>删除</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 6</value>
   </data>
   <data name="columnHeader5.Text" xml:space="preserve">
-    <value>Connect port</value>
+    <value>连接端口</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 22</value>
@@ -180,7 +180,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="toolStripMenuItem1.Text" xml:space="preserve">
-    <value>New</value>
+    <value>新建</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -192,7 +192,7 @@
     <value>columnHeader1</value>
   </data>
   <data name="toolStripMenuItem3.Text" xml:space="preserve">
-    <value>Refresh</value>
+    <value>刷新</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>573, 262</value>
@@ -244,7 +244,7 @@
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolStripMenuItem4.Text" xml:space="preserve">
-    <value>About</value>
+    <value>关于</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
     <value>toolStripMenuItem2</value>
@@ -259,13 +259,13 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="columnHeader1.Text" xml:space="preserve">
-    <value>Type</value>
+    <value>类型</value>
   </data>
   <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Connect to</value>
+    <value>连接地址</value>
   </data>
   <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Listen port</value>
+    <value>侦听端口</value>
   </data>
   <data name="columnHeader3.Width" type="System.Int32, mscorlib">
     <value>100</value>
@@ -300,13 +300,13 @@
   <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
     <value>toolStripSeparator1</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>zh-Hans</value>
-  </metadata>
+  </data>
 </root>
