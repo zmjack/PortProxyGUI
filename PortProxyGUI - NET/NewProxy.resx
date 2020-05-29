@@ -154,7 +154,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="textBox_listenOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 21</value>
+    <value>125, 21</value>
   </data>
   <data name="textBox_listenOn.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -211,7 +211,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="textBox_connectTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 21</value>
+    <value>125, 21</value>
   </data>
   <data name="textBox_connectTo.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -232,7 +232,7 @@
     <value>7</value>
   </data>
   <data name="textBox_connectPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 32</value>
+    <value>244, 32</value>
   </data>
   <data name="textBox_connectPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -262,7 +262,7 @@
     <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 35</value>
+    <value>210, 35</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 12</value>
@@ -286,7 +286,7 @@
     <value>5</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>206, 62</value>
+    <value>227, 62</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 22</value>
@@ -340,7 +340,7 @@
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 11</value>
+    <value>210, 11</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 12</value>
@@ -364,7 +364,7 @@
     <value>2</value>
   </data>
   <data name="textBox_listenPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 8</value>
+    <value>244, 8</value>
   </data>
   <data name="textBox_listenPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -412,7 +412,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="comboBox_type.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 20</value>
+    <value>126, 20</value>
   </data>
   <data name="comboBox_type.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -436,7 +436,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>291, 90</value>
+    <value>313, 95</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>

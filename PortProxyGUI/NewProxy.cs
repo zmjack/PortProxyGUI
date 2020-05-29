@@ -25,8 +25,8 @@ namespace PortProxyGUI
         private void button1_Click(object sender, EventArgs e)
         {
             var type = comboBox_type.Text;
-            var listenOn = textBox_listenOn.Text;
-            var connectTo = textBox_connectTo.Text;
+            var listenOn = textBox_listenOn.Text.ToUpper();
+            var connectTo = textBox_connectTo.Text.ToUpper();
             var listenPort = textBox_listenPort.Text;
             var connectPort = textBox_connectPort.Text;
 
