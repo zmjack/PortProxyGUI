@@ -88,7 +88,7 @@ namespace PortProxyGUI
 
                 switch (selected.Text)
                 {
-                    case "New":
+                    case string s when s == toolStripMenuItem1.Text:
                         if (NewProxyForm == null)
                         {
                             NewProxyForm = new NewProxy(this);
@@ -97,10 +97,10 @@ namespace PortProxyGUI
                         else NewProxyForm.Show();
                         break;
 
-                    case "Refresh": RefreshProxyList(); break;
-                    case "Delete": DeleteSelectedProxies(); break;
+                    case string s when s == toolStripMenuItem2.Text: DeleteSelectedProxies(); break;
+                    case string s when s == toolStripMenuItem3.Text: RefreshProxyList(); break;
 
-                    case "About":
+                    case string s when s == toolStripMenuItem4.Text:
                         if (AboutForm == null)
                         {
                             AboutForm = new About();

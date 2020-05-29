@@ -87,7 +87,13 @@
     <EmbeddedResource Include="NewProxy.resx">
       <DependentUpon>NewProxy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PortProxyGUI.en-US.resx">
+      <DependentUpon>PortProxyGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PortProxyGUI.resx">
+      <DependentUpon>PortProxyGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortProxyGUI.zh-CN.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
