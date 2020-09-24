@@ -1,5 +1,6 @@
 ﻿using PortProxyGUI._extern.NStandard;
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -22,13 +23,24 @@ namespace PortProxyGUI
             Invoke((Action)(() => PortProxyGUI.RefreshProxyList()));
         }
 
+        private bool IsIPv4(string ip)
+        {
+            if (ip == "localhost" || ip == "*") return true;
+            else return ip.IsMatch(new Regex(@"^(?:\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])(?:\.(?:\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])){3}$"));
+        }
+        private bool IsIPv6(string ip)
+        {
+            if (ip == "localhost" || ip == "*") return true;
+            else return ip.IsMatch(new Regex(@"^[\dABCDEF]{2}(?::(?:[\dABCDEF]{2})){5}$"));
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            var type = comboBox_type.Text;
-            var listenOn = textBox_listenOn.Text.ToUpper();
-            var connectTo = textBox_connectTo.Text.ToUpper();
-            var listenPort = textBox_listenPort.Text;
-            var connectPort = textBox_connectPort.Text;
+            var type = comboBox_type.Text.Trim();
+            var listenOn = textBox_listenOn.Text.Trim().ToLower();
+            var connectTo = textBox_connectTo.Text.Trim().ToLower();
+            var listenPort = textBox_listenPort.Text.Trim();
+            var connectPort = textBox_connectPort.Text.Trim();
 
             if (!int.TryParse(listenPort, out var _listenPort) || _listenPort < 0 || _listenPort > 65535)
             {
@@ -42,40 +54,38 @@ namespace PortProxyGUI
                 return;
             }
 
-            var listenOn_any = listenOn == "*";
-            var listenOn_ipv4 = listenOn.IsMatch(new Regex(@"^(?:\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])(?:\.(?:\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])){3}$"));
-            var listenOn_ipv6 = listenOn.IsMatch(new Regex(@"^[\dABCDEF]{2}(?::(?:[\dABCDEF]{2})){5}$"));
-            var connectTo_ipv4 = connectTo.IsMatch(new Regex(@"^(?:\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])(?:\.(?:\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])){3}$"));
-            var connectTo_ipv6 = connectTo.IsMatch(new Regex(@"^[\dABCDEF]{2}(?::(?:[\dABCDEF]{2})){5}$"));
-
-            if (!listenOn_any && !listenOn_ipv4 && !listenOn_ipv6)
+            if (string.IsNullOrEmpty(type))
             {
-                MessageBox.Show($"The address which is connect to is neither IPv4 nor IPv6.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                if (IsIPv4(listenOn) && IsIPv4(connectTo)) type = comboBox_type.Text = "v4tov4";
+                else if (IsIPv4(listenOn) && IsIPv6(connectTo)) type = comboBox_type.Text = "v4tov6";
+                else if (IsIPv6(listenOn) && IsIPv4(connectTo)) type = comboBox_type.Text = "v6tov4";
+                else if (IsIPv6(listenOn) && IsIPv6(connectTo)) type = comboBox_type.Text = "v6tov6";
+                else
+                {
+                    MessageBox.Show($"The address which is connect to is neither IPv4 nor IPv6.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
             }
-
-            if (!connectTo_ipv4 && !connectTo_ipv6)
+            else if (new[] { "v4tov4", "v4tov6", "v6tov4", "v6tov6" }.Contains(type))
             {
-                MessageBox.Show($"The address which is connect to is neither IPv4 nor IPv6.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            if (listenOn_any && connectTo_ipv4 && !type.EndsWith("v4"))
-            {
-                MessageBox.Show($"The type must be v4tov4 or v6tov4.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            else if (listenOn_any && connectTo_ipv6 && !type.EndsWith("v6"))
-            {
-                MessageBox.Show($"The type must be v4tov6 or v6tov6.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                bool invalid = false;
+                switch (type)
+                {
+                    case "v4tov4": if (!IsIPv4(listenOn) || !IsIPv4(connectTo)) invalid = true; break;
+                    case "v4tov6": if (!IsIPv4(listenOn) || !IsIPv6(connectTo)) invalid = true; break;
+                    case "v6tov4": if (!IsIPv6(listenOn) || !IsIPv4(connectTo)) invalid = true; break;
+                    case "v6tov6": if (!IsIPv6(listenOn) || !IsIPv6(connectTo)) invalid = true; break;
+                }
+                if (invalid)
+                {
+                    MessageBox.Show($"The type ({type}) is invalid for ({listenOn} -> {connectTo}).", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
             }
             else
             {
-                if (listenOn_ipv4 && connectTo_ipv4) type = comboBox_type.Text = "v4tov4";
-                else if (listenOn_ipv4 && connectTo_ipv6) type = comboBox_type.Text = "v4tov6";
-                else if (listenOn_ipv6 && connectTo_ipv4) type = comboBox_type.Text = "v6tov4";
-                else if (listenOn_ipv6 && connectTo_ipv6) type = comboBox_type.Text = "v6tov6";
+                MessageBox.Show($"Unknow type ({type}).", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
 
             AddPortProxy(type, listenOn, listenPort, connectTo, connectPort);
