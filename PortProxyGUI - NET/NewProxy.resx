@@ -394,15 +394,18 @@
     <value>Popup</value>
   </data>
   <data name="comboBox_type.Items" xml:space="preserve">
-    <value>v4tov4</value>
+    <value>(Auto)</value>
   </data>
   <data name="comboBox_type.Items1" xml:space="preserve">
-    <value>v4tov6</value>
+    <value>v4tov4</value>
   </data>
   <data name="comboBox_type.Items2" xml:space="preserve">
-    <value>v6tov4</value>
+    <value>v4tov6</value>
   </data>
   <data name="comboBox_type.Items3" xml:space="preserve">
+    <value>v6tov4</value>
+  </data>
+  <data name="comboBox_type.Items4" xml:space="preserve">
     <value>v6tov6</value>
   </data>
   <data name="comboBox_type.Location" type="System.Drawing.Point, System.Drawing">

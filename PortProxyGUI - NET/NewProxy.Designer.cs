@@ -102,7 +102,8 @@
             resources.GetString("comboBox_type.Items"),
             resources.GetString("comboBox_type.Items1"),
             resources.GetString("comboBox_type.Items2"),
-            resources.GetString("comboBox_type.Items3")});
+            resources.GetString("comboBox_type.Items3"),
+            resources.GetString("comboBox_type.Items4")});
             this.comboBox_type.Name = "comboBox_type";
             // 
             // NewProxy
