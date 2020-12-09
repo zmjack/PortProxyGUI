@@ -1,6 +1,6 @@
 ﻿namespace PortProxyGUI
 {
-    partial class NewProxy
+    partial class SetProxyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewProxy));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetProxyForm));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_listenOn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_connectTo = new System.Windows.Forms.TextBox();
             this.textBox_connectPort = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_submit = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_listenPort = new System.Windows.Forms.TextBox();
@@ -72,12 +72,12 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // button1
+            // button_submit
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            resources.ApplyResources(this.button_submit, "button_submit");
+            this.button_submit.Name = "button_submit";
+            this.button_submit.UseVisualStyleBackColor = true;
+            this.button_submit.Click += new System.EventHandler(this.button_submit_Click);
             // 
             // label4
             // 
@@ -106,16 +106,16 @@
             resources.GetString("comboBox_type.Items4")});
             this.comboBox_type.Name = "comboBox_type";
             // 
-            // NewProxy
+            // SetProxyForm
             // 
-            this.AcceptButton = this.button1;
+            this.AcceptButton = this.button_submit;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.comboBox_type);
             this.Controls.Add(this.textBox_listenPort);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_submit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox_connectPort);
             this.Controls.Add(this.textBox_connectTo);
@@ -125,10 +125,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "NewProxy";
+            this.Name = "SetProxyForm";
             this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewProxy_FormClosing);
-            this.Load += new System.EventHandler(this.NewProxy_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetProxyForm_FormClosing);
+            this.Load += new System.EventHandler(this.SetProxyForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,7 +142,7 @@
         private System.Windows.Forms.TextBox textBox_connectTo;
         private System.Windows.Forms.TextBox textBox_connectPort;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_submit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox_listenPort;

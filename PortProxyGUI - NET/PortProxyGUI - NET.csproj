@@ -25,6 +25,7 @@
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -52,6 +53,21 @@
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>BEF27898E4C102E806F3241497048E740EC39033</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PortProxyGUI - NET_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,11 +86,11 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewProxy.cs">
+    <Compile Include="SetProxyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewProxy.Designer.cs">
-      <DependentUpon>NewProxy.cs</DependentUpon>
+    <Compile Include="SetProxyForm.Designer.cs">
+      <DependentUpon>SetProxyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PortProxyGUI.cs">
       <SubType>Form</SubType>
@@ -90,11 +106,11 @@
     <EmbeddedResource Include="About.zh-CN.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewProxy.resx">
-      <DependentUpon>NewProxy.cs</DependentUpon>
+    <EmbeddedResource Include="SetProxyForm.resx">
+      <DependentUpon>SetProxyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewProxy.zh-CN.resx">
-      <DependentUpon>NewProxy.cs</DependentUpon>
+    <EmbeddedResource Include="SetProxyForm.zh-CN.resx">
+      <DependentUpon>SetProxyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PortProxyGUI.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>

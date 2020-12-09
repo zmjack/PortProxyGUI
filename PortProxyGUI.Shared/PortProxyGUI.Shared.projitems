@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CmdRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ListViewColumnSorter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PortProxy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProxyType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)~extern\NStandard\XString.cs" />

@@ -14,7 +14,7 @@
     <PackageTags>portproxy TCP/IP redirector</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Copyright>Copyright © nstandard.net 2020</Copyright>
-    <Version>1.0.3</Version>
+    <Version>1.0.5</Version>
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
 
@@ -42,17 +42,17 @@
     <Compile Update="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Update="NewProxy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="NewProxy.Designer.cs">
-      <DependentUpon>NewProxy.cs</DependentUpon>
-    </Compile>
     <Compile Update="PortProxyGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PortProxyGUI.Designer.cs">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Update="SetProxyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SetProxyForm.Designer.cs">
+      <DependentUpon>SetProxyForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -63,17 +63,17 @@
     <EmbeddedResource Update="About.zh-CN.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="NewProxy.resx">
-      <DependentUpon>NewProxy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="NewProxy.zh-CN.resx">
-      <DependentUpon>NewProxy.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Update="PortProxyGUI.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="PortProxyGUI.zh-CN.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SetProxyForm.resx">
+      <DependentUpon>SetProxyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SetProxyForm.zh-CN.resx">
+      <DependentUpon>SetProxyForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
 

@@ -10,12 +10,15 @@ namespace PortProxyGUI
 {
     public partial class PortProxyGUI : Form
     {
-        public NewProxy NewProxyForm;
+        public SetProxyForm SetProxyForm;
         public About AboutForm;
+        private ListViewColumnSorter lvwColumnSorter;
 
         public PortProxyGUI()
         {
             InitializeComponent();
+            lvwColumnSorter = new ListViewColumnSorter();
+            listView1.ListViewItemSorter = lvwColumnSorter;
         }
 
         private void PortProxyGUI_Load(object sender, EventArgs e)
@@ -34,8 +37,21 @@ namespace PortProxyGUI
                 var listenPort = subItems[2].Text;
                 var output = CmdRunner.Execute($"netsh interface portproxy delete {type} listenaddress={listenOn} listenport={listenPort}");
             }
-
             RefreshProxyList();
+        }
+
+        private void SetProxyForUpdate(SetProxyForm form)
+        {
+            var item = listView1.SelectedItems.OfType<ListViewItem>().FirstOrDefault();
+            {
+                var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
+                var type = subItems[0].Text;
+                var listenOn = subItems[1].Text;
+                var listenPort = subItems[2].Text;
+                var connectTo = subItems[3].Text;
+                var connectPort = subItems[4].Text;
+                form.UseUpdateMode(type, listenOn, listenPort, connectTo, connectPort);
+            }
         }
 
         public void RefreshProxyList()
@@ -88,19 +104,22 @@ namespace PortProxyGUI
 
                 switch (selected.Text)
                 {
-                    case string s when s == toolStripMenuItem1.Text:
-                        if (NewProxyForm == null)
-                        {
-                            NewProxyForm = new NewProxy(this);
-                            NewProxyForm.Show();
-                        }
-                        else NewProxyForm.Show();
+                    case string s when s == toolStripMenuItem_New.Text:
+                        if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
+                        SetProxyForm.UseNormalMode();
+                        SetProxyForm.Show();
                         break;
 
-                    case string s when s == toolStripMenuItem3.Text: RefreshProxyList(); break;
-                    case string s when s == toolStripMenuItem2.Text: DeleteSelectedProxies(); break;
+                    case string s when s == toolStripMenuItem_Modify.Text:
+                        if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
+                        SetProxyForUpdate(SetProxyForm);
+                        SetProxyForm.Show();
+                        break;
 
-                    case string s when s == toolStripMenuItem4.Text:
+                    case string s when s == toolStripMenuItem_Refresh.Text: RefreshProxyList(); break;
+                    case string s when s == toolStripMenuItem_Delete.Text: DeleteSelectedProxies(); break;
+
+                    case string s when s == toolStripMenuItem_About.Text:
                         if (AboutForm == null)
                         {
                             AboutForm = new About(this);
@@ -116,10 +135,50 @@ namespace PortProxyGUI
         {
             if (sender is ListView _sender)
             {
-                if (e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Any())
-                    toolStripMenuItem2.Enabled = true;
-                else toolStripMenuItem2.Enabled = false;
+                var selectAny = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Any();
+                toolStripMenuItem_Delete.Enabled = selectAny;
+                toolStripMenuItem_Modify.Enabled = selectAny;
             }
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (sender is ListView _sender)
+            {
+                var selectAny = _sender.SelectedItems.OfType<ListViewItem>().Any();
+                if (selectAny)
+                {
+                    if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
+                    SetProxyForUpdate(SetProxyForm);
+                    SetProxyForm.Show();
+                }
+            }
+        }
+
+        private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            // Determine if clicked column is already the column that is being sorted.
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+
+            // Perform the sort with these new sort options.
+            listView1.Sort();
         }
     }
 }
