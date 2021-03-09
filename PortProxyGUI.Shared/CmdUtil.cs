@@ -1,4 +1,4 @@
-﻿using PortProxyGUI._extern.NStandard;
+﻿using NStandard;
 using PortProxyGUI.Data;
 using System;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace PortProxyGUI
             var proxies = types.SelectMany(type =>
             {
                 var typeProxies = output
-                    .Project(new Regex($@"{type.From}:[^\n]+?{type.To}:\r\n\r\n.+?\r\n--------------- ----------  --------------- ----------\r\n(.+?)\r\n\r\n", RegexOptions.Singleline))
+                    .ExtractFirst(new Regex($@"{type.From}:[^\n]+?{type.To}:\r\n\r\n.+?\r\n--------------- ----------  --------------- ----------\r\n(.+?)\r\n\r\n", RegexOptions.Singleline))
                     ?.Split(new[] { Environment.NewLine }, StringSplitOptions.None)
                     .Select(line =>
                     {

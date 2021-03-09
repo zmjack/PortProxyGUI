@@ -18,7 +18,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Rule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ListViewColumnSorter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProxyType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)~extern\NStandard\XString.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)~extern\NStandard\XObject.cs" />
   </ItemGroup>
 </Project>

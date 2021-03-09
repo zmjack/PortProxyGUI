@@ -1,4 +1,4 @@
-﻿using PortProxyGUI._extern.NStandard;
+﻿using NStandard;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
