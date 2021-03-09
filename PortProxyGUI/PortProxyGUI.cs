@@ -2,7 +2,6 @@
 using System;
 using System.Data;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
 
@@ -18,80 +17,81 @@ namespace PortProxyGUI
         {
             InitializeComponent();
             lvwColumnSorter = new ListViewColumnSorter();
-            listView1.ListViewItemSorter = lvwColumnSorter;
+            listViewProxies.ListViewItemSorter = lvwColumnSorter;
         }
 
         private void PortProxyGUI_Load(object sender, EventArgs e)
         {
+        }
+
+        private void PortProxyGUI_Shown(object sender, EventArgs e)
+        {
             RefreshProxyList();
+        }
+
+        private void EnableSelectedProxies()
+        {
+            var items = listViewProxies.SelectedItems.OfType<ListViewItem>();
+            foreach (var item in items)
+            {
+                item.ImageIndex = 1;
+                var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
+                CmdUtil.AddProxy("add", subItems[1].Text, subItems[2].Text, int.Parse(subItems[3].Text), subItems[4].Text, int.Parse(subItems[5].Text));
+            }
+        }
+
+        private void DisableSelectedProxies()
+        {
+            var items = listViewProxies.SelectedItems.OfType<ListViewItem>();
+            foreach (var item in items)
+            {
+                item.ImageIndex = 0;
+                var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
+                CmdUtil.DeleteProxy(subItems[1].Text, subItems[2].Text, int.Parse(subItems[3].Text));
+            }
         }
 
         private void DeleteSelectedProxies()
         {
-            var items = listView1.SelectedItems.OfType<ListViewItem>();
-            foreach (var item in items)
-            {
-                var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
-                var type = subItems[0].Text;
-                var listenOn = subItems[1].Text;
-                var listenPort = subItems[2].Text;
-                var output = CmdRunner.Execute($"netsh interface portproxy delete {type} listenaddress={listenOn} listenport={listenPort}");
-            }
-            RefreshProxyList();
+            var items = listViewProxies.SelectedItems.OfType<ListViewItem>();
+            DisableSelectedProxies();
+            Program.SqliteDbScope.RemoveRange(items.Select(x => new Data.Rule { Id = x.Tag.ToString() }));
+            foreach (var item in items) listViewProxies.Items.Remove(item);
         }
 
         private void SetProxyForUpdate(SetProxyForm form)
         {
-            var item = listView1.SelectedItems.OfType<ListViewItem>().FirstOrDefault();
-            {
-                var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
-                var type = subItems[0].Text;
-                var listenOn = subItems[1].Text;
-                var listenPort = subItems[2].Text;
-                var connectTo = subItems[3].Text;
-                var connectPort = subItems[4].Text;
-                form.UseUpdateMode(type, listenOn, listenPort, connectTo, connectPort);
-            }
+            var item = listViewProxies.SelectedItems.OfType<ListViewItem>().FirstOrDefault();
+            var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
+            form.UseUpdateMode(item, subItems[1].Text, subItems[2].Text, subItems[3].Text, subItems[4].Text, subItems[5].Text);
         }
 
         public void RefreshProxyList()
         {
-            var output = CmdRunner.Execute("netsh interface portproxy show all");
-            var types = new[]
-            {
-                new ProxyType("ipv4", "ipv4"),
-                new ProxyType("ipv4", "ipv6"),
-                new ProxyType("ipv6", "ipv4"),
-                new ProxyType("ipv6", "ipv6"),
-            };
-
-            var proxies = types.SelectMany(type =>
-            {
-                var typeProxies = output
-                    .Project(new Regex($@"{type.From}:[^\n]+?{type.To}:\r\n\r\n.+?\r\n--------------- ----------  --------------- ----------\r\n(.+?)\r\n\r\n", RegexOptions.Singleline))
-                    ?.Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                    .Select(line =>
-                    {
-                        var parts = line.Resolve(new Regex(@"^([^\s]+)\s+([^\s]+)\s+([^\s]+)\s+([^\s]+)$"));
-                        return new PortProxy
-                        {
-                            Type = type.Type,
-                            ListenOn = parts[1].FirstOrDefault(),
-                            ListenPort = parts[2].FirstOrDefault(),
-                            ConnectTo = parts[3].FirstOrDefault(),
-                            ConnectPort = parts[4].FirstOrDefault(),
-                        };
-                    });
-                return typeProxies ?? new PortProxy[0];
-            });
-
-            listView1.Items.Clear();
+            var proxies = CmdUtil.GetProxies();
+            var rules = Program.SqliteDbScope.Rules;
             foreach (var proxy in proxies)
             {
-                listView1.Items.Add(new ListViewItem(proxy.Type).Then(vitem =>
+                var matchedRule = rules.FirstOrDefault(r => r.EqualsWithKeys(proxy));
+                proxy.Id = matchedRule?.Id;
+            }
+
+            var pendingAdds = proxies.Where(x => x.Id == null);
+            var pendingUpdates = proxies.Where(x => x.Id != null && !x.Equals(rules.First(r => r.Id == x.Id)));
+
+            Program.SqliteDbScope.AddRange(pendingAdds);
+            Program.SqliteDbScope.UpdateRange(pendingUpdates);
+
+            listViewProxies.Items.Clear();
+            rules = Program.SqliteDbScope.Rules;
+            foreach (var rule in rules)
+            {
+                var imageIndex = proxies.Any(p => p.EqualsWithKeys(rule)) ? 1 : 0;
+                var item = new ListViewItem { ImageIndex = imageIndex, Tag = rule.Id }.Then(vitem =>
                 {
-                    vitem.SubItems.AddRange(new[] { proxy.ListenOn, proxy.ListenPort, proxy.ConnectTo, proxy.ConnectPort });
-                }));
+                    vitem.SubItems.AddRange(new[] { rule.Type, rule.ListenOn, rule.ListenPort.ToString(), rule.ConnectTo, rule.ConnectPort.ToString() });
+                });
+                listViewProxies.Items.Add(item);
             }
         }
 
@@ -99,27 +99,33 @@ namespace PortProxyGUI
         {
             if (sender is ContextMenuStrip _sender)
             {
-                var selected = _sender.Items.OfType<ToolStripItem>().Where(x => x.Selected).FirstOrDefault();
+                var selected = _sender.Items.OfType<ToolStripMenuItem>().Where(x => x.Selected).FirstOrDefault();
                 if (selected is null || !selected.Enabled) return;
 
-                switch (selected.Text)
+                switch (selected)
                 {
-                    case string s when s == toolStripMenuItem_New.Text:
+                    case ToolStripMenuItem item when item == toolStripMenuItem_Enable: EnableSelectedProxies(); break;
+                    case ToolStripMenuItem item when item == toolStripMenuItem_Disable: DisableSelectedProxies(); break;
+
+                    case ToolStripMenuItem item when item == toolStripMenuItem_New:
                         if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
                         SetProxyForm.UseNormalMode();
                         SetProxyForm.Show();
                         break;
 
-                    case string s when s == toolStripMenuItem_Modify.Text:
+                    case ToolStripMenuItem item when item == toolStripMenuItem_Modify:
                         if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
                         SetProxyForUpdate(SetProxyForm);
                         SetProxyForm.Show();
                         break;
 
-                    case string s when s == toolStripMenuItem_Refresh.Text: RefreshProxyList(); break;
-                    case string s when s == toolStripMenuItem_Delete.Text: DeleteSelectedProxies(); break;
+                    case ToolStripMenuItem item when item == toolStripMenuItem_Refresh:
+                        RefreshProxyList();
+                        break;
 
-                    case string s when s == toolStripMenuItem_About.Text:
+                    case ToolStripMenuItem item when item == toolStripMenuItem_Delete: DeleteSelectedProxies(); break;
+
+                    case ToolStripMenuItem item when item == toolStripMenuItem_About:
                         if (AboutForm == null)
                         {
                             AboutForm = new About(this);
@@ -135,9 +141,11 @@ namespace PortProxyGUI
         {
             if (sender is ListView _sender)
             {
-                var selectAny = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Any();
-                toolStripMenuItem_Delete.Enabled = selectAny;
-                toolStripMenuItem_Modify.Enabled = selectAny;
+                toolStripMenuItem_Enable.Enabled = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Any(x => x.ImageIndex == 0);
+                toolStripMenuItem_Disable.Enabled = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Any(x => x.ImageIndex == 1);
+
+                toolStripMenuItem_Delete.Enabled = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Any();
+                toolStripMenuItem_Modify.Enabled = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Count() == 1;
             }
         }
 
@@ -178,7 +186,8 @@ namespace PortProxyGUI
             }
 
             // Perform the sort with these new sort options.
-            listView1.Sort();
+            listViewProxies.Sort();
         }
+
     }
 }

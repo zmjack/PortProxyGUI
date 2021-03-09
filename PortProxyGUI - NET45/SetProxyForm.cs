@@ -9,8 +9,8 @@ namespace PortProxyGUI
     public partial class SetProxyForm : Form
     {
         public readonly PortProxyGUI PortProxyGUI;
-        public bool UpdateMode { get; private set; }
         private string AutoTypeString { get; }
+        private ListViewItem _updateLiveViewItem;
 
         public SetProxyForm(PortProxyGUI portProxyGUI)
         {
@@ -29,11 +29,11 @@ namespace PortProxyGUI
             textBox_listenPort.Text = "";
             textBox_connectTo.Text = "";
             textBox_connectPort.Text = "";
-            UpdateMode = false;
         }
 
-        public void UseUpdateMode(string type, string listenOn, string listenPort, string connectTo, string connectPort)
+        public void UseUpdateMode(ListViewItem item, string type, string listenOn, string listenPort, string connectTo, string connectPort)
         {
+            _updateLiveViewItem = item;
             comboBox_type.Enabled = false;
             textBox_listenOn.Enabled = false;
             textBox_listenPort.Enabled = false;
@@ -42,19 +42,8 @@ namespace PortProxyGUI
             textBox_listenPort.Text = listenPort;
             textBox_connectTo.Text = connectTo;
             textBox_connectPort.Text = connectPort;
-            UpdateMode = true;
         }
 
-        private void SetPortProxy(string type, string action, string listenOn, string listenPort, string connectTo, string connectPort)
-        {
-            var output = CmdRunner.Execute($"netsh interface portproxy {action} {type} listenaddress={listenOn} listenport={listenPort} connectaddress={connectTo} connectport={connectPort}");
-            Invoke((Action)(() => PortProxyGUI.RefreshProxyList()));
-        }
-
-        private bool IsIPv4(string ip)
-        {
-            return ip.IsMatch(new Regex(@"^(?:\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])(?:\.(?:\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])){3}$"));
-        }
         private bool IsIPv6(string ip)
         {
             return ip.IsMatch(new Regex(@"^[\dABCDEF]{2}(?::(?:[\dABCDEF]{2})){5}$"));
@@ -95,7 +84,28 @@ namespace PortProxyGUI
                 return;
             }
 
-            SetPortProxy(type, UpdateMode ? "set" : "add", listenOn, listenPort, connectTo, connectPort);
+            if (_updateLiveViewItem != null)
+            {
+                var rule = Program.SqliteDbScope.GetRule(type, listenOn, _listenPort);
+                rule.ConnectTo = connectTo;
+                rule.ConnectPort = _connectPort;
+                Program.SqliteDbScope.Update(rule);
+                CmdUtil.AddProxy("set", type, listenOn, _listenPort, connectTo, _connectPort);
+
+                _updateLiveViewItem.ImageIndex = 1;
+                var subItems = _updateLiveViewItem.SubItems;
+                subItems[1].Text = type;
+                subItems[2].Text = listenOn;
+                subItems[3].Text = _listenPort.ToString();
+                subItems[4].Text = connectTo;
+                subItems[5].Text = _connectPort.ToString();
+            }
+            else
+            {
+                CmdUtil.AddProxy("add", type, listenOn, _listenPort, connectTo, _connectPort);
+                PortProxyGUI.RefreshProxyList();
+            }
+
             Close();
         }
 

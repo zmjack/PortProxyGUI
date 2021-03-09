@@ -14,7 +14,7 @@
     <PackageTags>portproxy TCP/IP redirector</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Copyright>Copyright © nstandard.net 2020</Copyright>
-    <Version>1.0.6-alpha1</Version>
+    <Version>1.1.0</Version>
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
 
@@ -33,6 +33,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SQLib.Sqlite" Version="0.8.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +69,7 @@
     </EmbeddedResource>
     <EmbeddedResource Update="PortProxyGUI.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Update="PortProxyGUI.zh-CN.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>

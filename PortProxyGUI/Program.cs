@@ -1,18 +1,20 @@
+using PortProxyGUI.Data;
 using System;
-using System.Globalization;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace PortProxyGUI
 {
     static class Program
     {
+        public static readonly ApplicationDbScope SqliteDbScope = ApplicationDbScope.UseDefault();
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            SqliteDbScope.Migrate();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
