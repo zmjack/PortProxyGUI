@@ -8,22 +8,30 @@ namespace PortProxyGUI
 {
     public partial class SetProxyForm : Form
     {
-        public readonly PortProxyGUI PortProxyGUI;
+        public readonly PortProxyGUI ParentWindow;
         private string AutoTypeString { get; }
-        private ListViewItem _updateLiveViewItem;
 
-        public SetProxyForm(PortProxyGUI portProxyGUI)
+        private bool _updateMode;
+        private ListViewItem _updateLiveViewItem;
+        private string _oldType;
+        private string _oldListenOn;
+        private int _oldListenPort;
+
+        public SetProxyForm(PortProxyGUI parent)
         {
-            PortProxyGUI = portProxyGUI;
+            ParentWindow = parent;
             InitializeComponent();
             AutoTypeString = comboBox_type.Text = comboBox_type.Items.OfType<string>().First();
         }
 
         public void UseNormalMode()
         {
-            comboBox_type.Enabled = true;
-            textBox_listenOn.Enabled = true;
-            textBox_listenPort.Enabled = true;
+            _updateMode = false;
+            _updateLiveViewItem = null;
+            _oldType = null;
+            _oldListenOn = null;
+            _oldListenPort = 0;
+
             comboBox_type.Text = AutoTypeString;
             textBox_listenOn.Text = "*";
             textBox_listenPort.Text = "";
@@ -31,15 +39,17 @@ namespace PortProxyGUI
             textBox_connectPort.Text = "";
         }
 
-        public void UseUpdateMode(ListViewItem item, string type, string listenOn, string listenPort, string connectTo, string connectPort)
+        public void UseUpdateMode(ListViewItem item, string type, string listenOn, int listenPort, string connectTo, string connectPort)
         {
+            _updateMode = true;
             _updateLiveViewItem = item;
-            comboBox_type.Enabled = false;
-            textBox_listenOn.Enabled = false;
-            textBox_listenPort.Enabled = false;
+            _oldType = type;
+            _oldListenOn = listenOn.Trim().ToLower();
+            _oldListenPort = listenPort;
+
             comboBox_type.Text = type;
-            textBox_listenOn.Text = listenOn;
-            textBox_listenPort.Text = listenPort;
+            textBox_listenOn.Text = listenOn.ToString();
+            textBox_listenPort.Text = listenPort.ToString();
             textBox_connectTo.Text = connectTo;
             textBox_connectPort.Text = connectPort;
         }
@@ -84,13 +94,20 @@ namespace PortProxyGUI
                 return;
             }
 
-            if (_updateLiveViewItem != null)
+            if (_updateMode)
             {
-                var rule = Program.SqliteDbScope.GetRule(type, listenOn, _listenPort);
+                var rule = Program.SqliteDbScope.GetRule(_oldType, _oldListenOn, _oldListenPort);
+                CmdUtil.DeleteProxy(_oldType, _oldListenOn, _oldListenPort);
+                Program.SqliteDbScope.Remove(rule);
+
+                rule.Type = type;
+                rule.ListenOn = listenOn;
+                rule.ListenPort = _listenPort;
                 rule.ConnectTo = connectTo;
                 rule.ConnectPort = _connectPort;
-                Program.SqliteDbScope.Update(rule);
-                CmdUtil.AddProxy("set", type, listenOn, _listenPort, connectTo, _connectPort);
+
+                CmdUtil.AddProxy("add", type, listenOn, _listenPort, connectTo, _connectPort);
+                Program.SqliteDbScope.Add(rule);
 
                 _updateLiveViewItem.ImageIndex = 1;
                 var subItems = _updateLiveViewItem.SubItems;
@@ -103,7 +120,7 @@ namespace PortProxyGUI
             else
             {
                 CmdUtil.AddProxy("add", type, listenOn, _listenPort, connectTo, _connectPort);
-                PortProxyGUI.RefreshProxyList();
+                ParentWindow.RefreshProxyList();
             }
 
             Close();
@@ -111,13 +128,13 @@ namespace PortProxyGUI
 
         private void SetProxyForm_Load(object sender, EventArgs e)
         {
-            Top = PortProxyGUI.Top + (PortProxyGUI.Height - Height) / 2;
-            Left = PortProxyGUI.Left + (PortProxyGUI.Width - Width) / 2;
+            Top = ParentWindow.Top + (ParentWindow.Height - Height) / 2;
+            Left = ParentWindow.Left + (ParentWindow.Width - Width) / 2;
         }
 
         private void SetProxyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            PortProxyGUI.SetProxyForm = null;
+            ParentWindow.SetProxyForm = null;
         }
 
     }

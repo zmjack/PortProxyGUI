@@ -63,7 +63,12 @@ namespace PortProxyGUI
         {
             var item = listViewProxies.SelectedItems.OfType<ListViewItem>().FirstOrDefault();
             var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
-            form.UseUpdateMode(item, subItems[1].Text, subItems[2].Text, subItems[3].Text, subItems[4].Text, subItems[5].Text);
+
+            if (int.TryParse(subItems[3].Text, out var listenPort) && 0 < listenPort && listenPort < 65536)
+            {
+                form.UseUpdateMode(item, subItems[1].Text, subItems[2].Text, listenPort, subItems[4].Text, subItems[5].Text);
+            }
+            else MessageBox.Show("无效端口号。", "无效端口号", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         public void RefreshProxyList()
@@ -110,13 +115,13 @@ namespace PortProxyGUI
                     case ToolStripMenuItem item when item == toolStripMenuItem_New:
                         if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
                         SetProxyForm.UseNormalMode();
-                        SetProxyForm.Show();
+                        SetProxyForm.ShowDialog();
                         break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_Modify:
                         if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
                         SetProxyForUpdate(SetProxyForm);
-                        SetProxyForm.Show();
+                        SetProxyForm.ShowDialog();
                         break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_Refresh:
@@ -158,7 +163,7 @@ namespace PortProxyGUI
                 {
                     if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
                     SetProxyForUpdate(SetProxyForm);
-                    SetProxyForm.Show();
+                    SetProxyForm.ShowDialog();
                 }
             }
         }
