@@ -211,7 +211,7 @@
     <value>2</value>
   </data>
   <data name="label_Star.Text" xml:space="preserve">
-    <value>为我点星：</value>
+    <value>点星鼓励：</value>
   </data>
   <data name="label_Star.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
