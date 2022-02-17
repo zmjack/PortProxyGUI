@@ -1,4 +1,5 @@
 ﻿using NStandard;
+using PortProxyGUI.Data;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -12,46 +13,47 @@ namespace PortProxyGUI
         private string AutoTypeString { get; }
 
         private bool _updateMode;
-        private ListViewItem _updateLiveViewItem;
-        private string _oldType;
-        private string _oldListenOn;
-        private int _oldListenPort;
+        private ListViewItem _listViewItem;
+        private Rule _itemRule;
 
         public SetProxyForm(PortProxyGUI parent)
         {
             ParentWindow = parent;
             InitializeComponent();
-            AutoTypeString = comboBox_type.Text = comboBox_type.Items.OfType<string>().First();
+            AutoTypeString = comboBox_Type.Text = comboBox_Type.Items.OfType<string>().First();
         }
 
         public void UseNormalMode()
         {
             _updateMode = false;
-            _updateLiveViewItem = null;
-            _oldType = null;
-            _oldListenOn = null;
-            _oldListenPort = 0;
+            _listViewItem = null;
+            _itemRule = null;
 
-            comboBox_type.Text = AutoTypeString;
-            textBox_listenOn.Text = "*";
-            textBox_listenPort.Text = "";
-            textBox_connectTo.Text = "";
-            textBox_connectPort.Text = "";
+            comboBox_Type.Text = AutoTypeString;
+            comboBox_Group.Text = "";
+
+            textBox_ListenOn.Text = "*";
+            textBox_ListenPort.Text = "";
+            textBox_ConnectTo.Text = "";
+            textBox_ConnectPort.Text = "";
+            textBox_Note.Text = "";
         }
 
-        public void UseUpdateMode(ListViewItem item, string type, string listenOn, int listenPort, string connectTo, string connectPort)
+        public void UseUpdateMode(ListViewItem item, Rule rule)
         {
             _updateMode = true;
-            _updateLiveViewItem = item;
-            _oldType = type;
-            _oldListenOn = listenOn.Trim().ToLower();
-            _oldListenPort = listenPort;
+            _listViewItem = item;
 
-            comboBox_type.Text = type;
-            textBox_listenOn.Text = listenOn.ToString();
-            textBox_listenPort.Text = listenPort.ToString();
-            textBox_connectTo.Text = connectTo;
-            textBox_connectPort.Text = connectPort;
+            _itemRule = rule;
+
+            comboBox_Type.Text = rule.Type;
+            comboBox_Group.Text = rule.Group;
+
+            textBox_ListenOn.Text = rule.ListenOn;
+            textBox_ListenPort.Text = rule.ListenPort.ToString();
+            textBox_ConnectTo.Text = rule.ConnectTo;
+            textBox_ConnectPort.Text = rule.ConnectPort.ToString();
+            textBox_Note.Text = rule.Note;
         }
 
         private bool IsIPv6(string ip)
@@ -66,60 +68,75 @@ namespace PortProxyGUI
             return $"{from}to{to}";
         }
 
-        private void button_submit_Click(object sender, EventArgs e)
+        private void button_Set_Click(object sender, EventArgs e)
         {
-            var type = comboBox_type.Text.Trim();
-            var listenOn = textBox_listenOn.Text.Trim().ToLower();
-            var connectTo = textBox_connectTo.Text.Trim().ToLower();
-            var listenPort = textBox_listenPort.Text.Trim();
-            var connectPort = textBox_connectPort.Text.Trim();
+            int listenPort, connectPort;
 
-            if (!int.TryParse(listenPort, out var _listenPort) || _listenPort < 0 || _listenPort > 65535)
+            try
             {
-                MessageBox.Show($"The listen port is invalid.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                listenPort = Rule.ParsePort(textBox_ListenPort.Text);
+                connectPort = Rule.ParsePort(textBox_ConnectPort.Text);
+            }
+            catch (NotSupportedException ex)
+            {
+                MessageBox.Show(ex.Message, "Invalid port", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            if (!int.TryParse(connectPort, out var _connectPort) || _connectPort < 0 || _connectPort > 65535)
+            var rule = new Rule
             {
-                MessageBox.Show($"The connect port is invalid.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+                Type = comboBox_Type.Text.Trim(),
+                ListenOn = textBox_ListenOn.Text.Trim(),
+                ListenPort = listenPort,
+                ConnectTo = textBox_ConnectTo.Text.Trim(),
+                ConnectPort = connectPort,
+                Note = textBox_Note.Text.Trim(),
+                Group = comboBox_Group.Text.Trim(),
+            };
 
-            if (type == AutoTypeString) type = GetPassType(listenOn, connectTo);
+            if (rule.Type == AutoTypeString) rule.Type = GetPassType(rule.ListenOn, rule.ConnectTo);
 
-            if (!new[] { "v4tov4", "v4tov6", "v6tov4", "v6tov6" }.Contains(type))
+            if (!new[] { "v4tov4", "v4tov6", "v6tov4", "v6tov6" }.Contains(rule.Type))
             {
-                MessageBox.Show($"Unknow type for ({listenOn} -> {connectTo}).", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Unknow type for ({rule.ListenOn} -> {rule.ConnectTo}).", "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             if (_updateMode)
             {
-                var rule = Program.SqliteDbScope.GetRule(_oldType, _oldListenOn, _oldListenPort);
-                CmdUtil.DeleteProxy(_oldType, _oldListenOn, _oldListenPort);
-                Program.SqliteDbScope.Remove(rule);
+                var oldRule = Program.SqliteDbScope.GetRule(_itemRule.Type, _itemRule.ListenOn, _itemRule.ListenPort);
+                CmdUtil.DeleteProxy(oldRule);
+                Program.SqliteDbScope.Remove(oldRule);
 
-                rule.Type = type;
-                rule.ListenOn = listenOn;
-                rule.ListenPort = _listenPort;
-                rule.ConnectTo = connectTo;
-                rule.ConnectPort = _connectPort;
-
-                CmdUtil.AddProxy("add", type, listenOn, _listenPort, connectTo, _connectPort);
+                CmdUtil.AddOrUpdateProxy(rule);
                 Program.SqliteDbScope.Add(rule);
 
-                _updateLiveViewItem.ImageIndex = 1;
-                var subItems = _updateLiveViewItem.SubItems;
-                subItems[1].Text = type;
-                subItems[2].Text = listenOn;
-                subItems[3].Text = _listenPort.ToString();
-                subItems[4].Text = connectTo;
-                subItems[5].Text = _connectPort.ToString();
+                _listViewItem.ImageIndex = 1;
+                var subItems = _listViewItem.SubItems;
+                subItems[1].Text = rule.Type;
+                subItems[2].Text = rule.ListenOn;
+                subItems[3].Text = rule.ListenPort.ToString();
+                subItems[4].Text = rule.ConnectTo;
+                subItems[5].Text = rule.ConnectPort.ToString();
+                subItems[6].Text = rule.Note;
+
+                if (rule.Group == null) _listViewItem.Group = null;
+                else
+                {
+                    var listView = ParentWindow.listViewProxies;
+                    var group = listView.Groups.OfType<ListViewGroup>().FirstOrDefault(x => x.Name == rule.Group);
+                    if (group == null)
+                    {
+                        group = new ListViewGroup(rule.Group);
+                        listView.Groups.Add(group);
+                    }
+
+                    _listViewItem.Group = group;
+                }
             }
             else
             {
-                CmdUtil.AddProxy("add", type, listenOn, _listenPort, connectTo, _connectPort);
+                CmdUtil.AddOrUpdateProxy(rule);
                 ParentWindow.RefreshProxyList();
             }
 

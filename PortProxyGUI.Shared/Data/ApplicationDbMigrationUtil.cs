@@ -71,6 +71,12 @@ namespace PortProxyGUI.Data
 );",
                 "CREATE UNIQUE INDEX IX_Rules_Type_ListenOn_ListenPort ON Rules(Type, ListenOn, ListenPort);",
             },
+
+            [new MigrationKey { MigrationId = "202201172103", ProductVersion = "1.2.0" }] = new[]
+            {
+                "ALTER TABLE rules ADD Note text;",
+                "ALTER TABLE rules ADD `Group` text;",
+            },
         };
     }
 }

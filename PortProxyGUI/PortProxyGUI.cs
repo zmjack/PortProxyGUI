@@ -29,14 +29,44 @@ namespace PortProxyGUI
             RefreshProxyList();
         }
 
+        private Data.Rule ParseRule(ListViewItem item)
+        {
+            var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
+            int listenPort, connectPort;
+
+            listenPort = Data.Rule.ParsePort(subItems[3].Text);
+            connectPort = Data.Rule.ParsePort(subItems[5].Text);
+
+            var rule = new Data.Rule
+            {
+                Type = subItems[1].Text.Trim(),
+                ListenOn = subItems[2].Text.Trim(),
+                ListenPort = listenPort,
+                ConnectTo = subItems[4].Text.Trim(),
+                ConnectPort = connectPort,
+                Note = subItems[6].Text.Trim(),
+                Group = item.Group?.Header.Trim(),
+            };
+            return rule;
+        }
+
         private void EnableSelectedProxies()
         {
             var items = listViewProxies.SelectedItems.OfType<ListViewItem>();
             foreach (var item in items)
             {
                 item.ImageIndex = 1;
-                var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
-                CmdUtil.AddProxy("add", subItems[1].Text, subItems[2].Text, int.Parse(subItems[3].Text), subItems[4].Text, int.Parse(subItems[5].Text));
+
+                try
+                {
+                    var rule = ParseRule(item);
+                    CmdUtil.AddOrUpdateProxy(rule);
+                }
+                catch (NotSupportedException ex)
+                {
+                    MessageBox.Show(ex.Message, "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
             }
         }
 
@@ -46,8 +76,17 @@ namespace PortProxyGUI
             foreach (var item in items)
             {
                 item.ImageIndex = 0;
-                var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
-                CmdUtil.DeleteProxy(subItems[1].Text, subItems[2].Text, int.Parse(subItems[3].Text));
+
+                try
+                {
+                    var rule = ParseRule(item);
+                    CmdUtil.DeleteProxy(rule);
+                }
+                catch (NotSupportedException ex)
+                {
+                    MessageBox.Show(ex.Message, "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
             }
         }
 
@@ -62,19 +101,57 @@ namespace PortProxyGUI
         private void SetProxyForUpdate(SetProxyForm form)
         {
             var item = listViewProxies.SelectedItems.OfType<ListViewItem>().FirstOrDefault();
-            var subItems = item.SubItems.OfType<ListViewSubItem>().ToArray();
-
-            if (int.TryParse(subItems[3].Text, out var listenPort) && 0 < listenPort && listenPort < 65536)
+            try
             {
-                form.UseUpdateMode(item, subItems[1].Text, subItems[2].Text, listenPort, subItems[4].Text, subItems[5].Text);
+                var rule = ParseRule(item);
+                form.UseUpdateMode(item, rule);
             }
-            else MessageBox.Show("无效端口号。", "无效端口号", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            catch (NotSupportedException ex)
+            {
+                MessageBox.Show(ex.Message, "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+        }
+
+        private void InitProxyGroups(Data.Rule[] rules)
+        {
+            listViewProxies.Groups.Clear();
+            var groups = rules.GroupBy(x => x.Group).Select(x => new ListViewGroup(x.Key)).ToArray();
+            listViewProxies.Groups.AddRange(groups);
+            listViewProxies.ShowGroups = groups.Any(x => !x.Name.IsNullOrEmpty());
+        }
+
+        private void InitProxyItems(Data.Rule[] rules, Data.Rule[] proxies)
+        {
+            listViewProxies.Items.Clear();
+            foreach (var rule in rules)
+            {
+                var imageIndex = proxies.Any(p => p.EqualsWithKeys(rule)) ? 1 : 0;
+                var group = listViewProxies.Groups.OfType<ListViewGroup>().FirstOrDefault(x => x.Header == rule.Group);
+
+                var item = new ListViewItem
+                {
+                    ImageIndex = imageIndex,
+                    Tag = rule.Id,
+                    Group = group,
+                };
+                item.SubItems.AddRange(new[]
+                {
+                    rule.Type,
+                    rule.ListenOn,
+                    rule.ListenPort.ToString(),
+                    rule.ConnectTo,
+                    rule.ConnectPort.ToString(),
+                    rule.Note ?? "",
+                });
+                listViewProxies.Items.Add(item);
+            }
         }
 
         public void RefreshProxyList()
         {
             var proxies = CmdUtil.GetProxies();
-            var rules = Program.SqliteDbScope.Rules;
+            var rules = Program.SqliteDbScope.Rules.ToArray();
             foreach (var proxy in proxies)
             {
                 var matchedRule = rules.FirstOrDefault(r => r.EqualsWithKeys(proxy));
@@ -87,17 +164,9 @@ namespace PortProxyGUI
             Program.SqliteDbScope.AddRange(pendingAdds);
             Program.SqliteDbScope.UpdateRange(pendingUpdates);
 
-            listViewProxies.Items.Clear();
-            rules = Program.SqliteDbScope.Rules;
-            foreach (var rule in rules)
-            {
-                var imageIndex = proxies.Any(p => p.EqualsWithKeys(rule)) ? 1 : 0;
-                var item = new ListViewItem { ImageIndex = imageIndex, Tag = rule.Id }.Then(vitem =>
-                {
-                    vitem.SubItems.AddRange(new[] { rule.Type, rule.ListenOn, rule.ListenPort.ToString(), rule.ConnectTo, rule.ConnectPort.ToString() });
-                });
-                listViewProxies.Items.Add(item);
-            }
+            rules = Program.SqliteDbScope.Rules.ToArray();
+            InitProxyGroups(rules);
+            InitProxyItems(rules, proxies);
         }
 
         private void contextMenuStrip1_MouseClick(object sender, MouseEventArgs e)

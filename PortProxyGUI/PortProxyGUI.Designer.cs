@@ -31,22 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PortProxyGUI));
             this.listViewProxies = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem_Enable = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Disable = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem_Refresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_New = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Modify = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem_Refresh = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
             this.imageListProxies = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip1.SuspendLayout();
@@ -61,7 +62,8 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader7});
             this.listViewProxies.ContextMenuStrip = this.contextMenuStrip1;
             resources.ApplyResources(this.listViewProxies, "listViewProxies");
             this.listViewProxies.FullRowSelect = true;
@@ -98,6 +100,10 @@
             // 
             resources.ApplyResources(this.columnHeader6, "columnHeader6");
             // 
+            // columnHeader7
+            // 
+            resources.ApplyResources(this.columnHeader7, "columnHeader7");
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -130,6 +136,16 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
+            // toolStripMenuItem_Refresh
+            // 
+            this.toolStripMenuItem_Refresh.Name = "toolStripMenuItem_Refresh";
+            resources.ApplyResources(this.toolStripMenuItem_Refresh, "toolStripMenuItem_Refresh");
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
             // toolStripMenuItem_New
             // 
             this.toolStripMenuItem_New.Name = "toolStripMenuItem_New";
@@ -150,16 +166,6 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
-            // toolStripMenuItem_Refresh
-            // 
-            this.toolStripMenuItem_Refresh.Name = "toolStripMenuItem_Refresh";
-            resources.ApplyResources(this.toolStripMenuItem_Refresh, "toolStripMenuItem_Refresh");
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
-            // 
             // toolStripMenuItem_About
             // 
             this.toolStripMenuItem_About.Name = "toolStripMenuItem_About";
@@ -167,6 +173,7 @@
             // 
             // imageListProxies
             // 
+            this.imageListProxies.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageListProxies.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProxies.ImageStream")));
             this.imageListProxies.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListProxies.Images.SetKeyName(0, "disable.png");
@@ -186,8 +193,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listViewProxies;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -206,6 +211,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Enable;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Disable;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        internal System.Windows.Forms.ListView listViewProxies;
     }
 }
 

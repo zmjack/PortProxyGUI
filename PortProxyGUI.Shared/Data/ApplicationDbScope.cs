@@ -41,12 +41,10 @@ namespace PortProxyGUI.Data
         public void Add<T>(T obj) where T : class
         {
             var newid = Guid.NewGuid().ToString();
-            switch (obj)
-            {
-                case Rule rule:
-                    Sql($"INSERT INTO Rules (Id, Type, ListenOn, ListenPort, ConnectTo, ConnectPort) VALUES ({newid}, {rule.Type}, {rule.ListenOn}, {rule.ListenPort}, {rule.ConnectTo}, {rule.ConnectPort});");
-                    break;
-            }
+
+            if (obj is Rule rule)
+                Sql($"INSERT INTO Rules (Id, Type, ListenOn, ListenPort, ConnectTo, ConnectPort, Note, `Group`) VALUES ({newid}, {rule.Type}, {rule.ListenOn}, {rule.ListenPort}, {rule.ConnectTo}, {rule.ConnectPort}, {rule.Note ?? ""}, {rule.Group ?? ""});");
+            else throw new NotSupportedException($"Adding {obj.GetType().FullName} is not supported.");
         }
         public void AddRange<T>(IEnumerable<T> objs) where T : class
         {
@@ -55,12 +53,8 @@ namespace PortProxyGUI.Data
 
         public void Update<T>(T obj) where T : class
         {
-            switch (obj)
-            {
-                case Rule rule:
-                    Sql($"UPDATE Rules SET Type={rule.Type}, ListenOn={rule.ListenOn}, ListenPort={rule.ListenPort}, ConnectTo={rule.ConnectTo}, ConnectPort={rule.ConnectPort} WHERE Id={rule.Id};");
-                    break;
-            }
+            if (obj is Rule rule) Sql($"UPDATE Rules SET Type={rule.Type}, ListenOn={rule.ListenOn}, ListenPort={rule.ListenPort}, ConnectTo={rule.ConnectTo}, ConnectPort={rule.ConnectPort}, Note={rule.Note ?? ""}, `Group`={rule.Group ?? ""} WHERE Id={rule.Id};");
+            else throw new NotSupportedException($"Updating {obj.GetType().FullName} is not supported.");
         }
         public void UpdateRange<T>(IEnumerable<T> objs) where T : class
         {
@@ -69,12 +63,8 @@ namespace PortProxyGUI.Data
 
         public void Remove<T>(T obj) where T : class
         {
-            switch (obj)
-            {
-                case Rule rule:
-                    Sql($"DELETE FROM Rules WHERE Id={rule.Id};");
-                    break;
-            }
+            if (obj is Rule rule) Sql($"DELETE FROM Rules WHERE Id={rule.Id};");
+            else throw new NotSupportedException($"Removing {obj.GetType().FullName} is not supported.");
         }
         public void RemoveRange<T>(IEnumerable<T> objs) where T : class
         {

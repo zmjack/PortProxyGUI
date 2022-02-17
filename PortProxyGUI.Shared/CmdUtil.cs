@@ -55,14 +55,14 @@ namespace PortProxyGUI
             return proxies.ToArray();
         }
 
-        public static void AddProxy(string action, string type, string listenOn, int listenPort, string connectTo, int connectPort)
+        public static void AddOrUpdateProxy(Rule rule)
         {
-            CmdRunner.Execute($"netsh interface portproxy {action} {type} listenaddress={listenOn} listenport={listenPort} connectaddress={connectTo} connectport={connectPort}");
+            CmdRunner.Execute($"netsh interface portproxy add {rule.Type} listenaddress={rule.ListenOn} listenport={rule.ListenPort} connectaddress={rule.ConnectTo} connectport={rule.ConnectPort}");
         }
 
-        public static void DeleteProxy(string type, string listenOn, int listenPort)
+        public static void DeleteProxy(Rule rule)
         {
-            CmdRunner.Execute($"netsh interface portproxy delete {type} listenaddress={listenOn} listenport={listenPort}");
+            CmdRunner.Execute($"netsh interface portproxy delete {rule.Type} listenaddress={rule.ListenOn} listenport={rule.ListenPort}");
         }
 
     }

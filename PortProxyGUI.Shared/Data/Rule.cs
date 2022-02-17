@@ -10,7 +10,9 @@ namespace PortProxyGUI.Data
         public string ListenOn { get; set; }
         public int ListenPort { get; set; }
         public string ConnectTo { get; set; }
-        public long ConnectPort { get; set; }
+        public int ConnectPort { get; set; }
+        public string Note { get; set; }
+        public string Group { get; set; }
 
         public bool Equals(Rule other)
         {
@@ -19,7 +21,9 @@ namespace PortProxyGUI.Data
                 && ListenOn == other.ListenOn
                 && ListenPort == other.ListenPort
                 && ConnectTo == other.ConnectTo
-                && ConnectPort == other.ConnectPort;
+                && ConnectPort == other.ConnectPort
+                && Note == other.Note
+                && Group == other.Group;
         }
 
         public bool EqualsWithKeys(Rule other)
@@ -29,5 +33,10 @@ namespace PortProxyGUI.Data
                 && ListenPort == other.ListenPort;
         }
 
+        public static int ParsePort(string portString)
+        {
+            if (int.TryParse(portString, out var port) && 0 < port && port < 65536) return port;
+            else throw new NotSupportedException($"Invalid port string. ({portString})");
+        }
     }
 }
