@@ -6,6 +6,14 @@ A manager for netsh interface portproxy, which is to evaluate TCP/IP port redire
 
 <br/>
 
+## Upgrade
+
+- **v1.3.0**
+  - Update display, provide comments and grouping.
+  - Fix the problem that the window size is not the same in different runtimes.
+
+<br/>
+
 ## Information
 
 The configuration file will be generated at:
