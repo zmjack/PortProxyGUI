@@ -1,13 +1,14 @@
 ﻿using NStandard;
 using PortProxyGUI.Data;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace PortProxyGUI
 {
-    public partial class SetProxyForm : Form
+    public partial class SetProxy : Form
     {
         public readonly PortProxyGUI ParentWindow;
         private string AutoTypeString { get; }
@@ -16,11 +17,21 @@ namespace PortProxyGUI
         private ListViewItem _listViewItem;
         private Rule _itemRule;
 
-        public SetProxyForm(PortProxyGUI parent)
+        public SetProxy(PortProxyGUI parent)
         {
             ParentWindow = parent;
+
             InitializeComponent();
+            Font = Util.UiFont;
+
             AutoTypeString = comboBox_Type.Text = comboBox_Type.Items.OfType<string>().First();
+            var groupNames = (
+                from g in parent.listViewProxies.Groups.OfType<ListViewGroup>()
+                let header = g.Header
+                where !header.IsNullOrWhiteSpace()
+                select header
+            ).ToArray();
+            comboBox_Group.Items.AddRange(groupNames);
         }
 
         public void UseNormalMode()
@@ -36,7 +47,7 @@ namespace PortProxyGUI
             textBox_ListenPort.Text = "";
             textBox_ConnectTo.Text = "";
             textBox_ConnectPort.Text = "";
-            textBox_Note.Text = "";
+            textBox_Comment.Text = "";
         }
 
         public void UseUpdateMode(ListViewItem item, Rule rule)
@@ -53,7 +64,7 @@ namespace PortProxyGUI
             textBox_ListenPort.Text = rule.ListenPort.ToString();
             textBox_ConnectTo.Text = rule.ConnectTo;
             textBox_ConnectPort.Text = rule.ConnectPort.ToString();
-            textBox_Note.Text = rule.Note;
+            textBox_Comment.Text = rule.Comment;
         }
 
         private bool IsIPv6(string ip)
@@ -90,7 +101,7 @@ namespace PortProxyGUI
                 ListenPort = listenPort,
                 ConnectTo = textBox_ConnectTo.Text.Trim(),
                 ConnectPort = connectPort,
-                Note = textBox_Note.Text.Trim(),
+                Comment = textBox_Comment.Text.Trim(),
                 Group = comboBox_Group.Text.Trim(),
             };
 
@@ -111,32 +122,13 @@ namespace PortProxyGUI
                 CmdUtil.AddOrUpdateProxy(rule);
                 Program.SqliteDbScope.Add(rule);
 
-                _listViewItem.ImageIndex = 1;
-                var subItems = _listViewItem.SubItems;
-                subItems[1].Text = rule.Type;
-                subItems[2].Text = rule.ListenOn;
-                subItems[3].Text = rule.ListenPort.ToString();
-                subItems[4].Text = rule.ConnectTo;
-                subItems[5].Text = rule.ConnectPort.ToString();
-                subItems[6].Text = rule.Note;
-
-                if (rule.Group == null) _listViewItem.Group = null;
-                else
-                {
-                    var listView = ParentWindow.listViewProxies;
-                    var group = listView.Groups.OfType<ListViewGroup>().FirstOrDefault(x => x.Name == rule.Group);
-                    if (group == null)
-                    {
-                        group = new ListViewGroup(rule.Group);
-                        listView.Groups.Add(group);
-                    }
-
-                    _listViewItem.Group = group;
-                }
+                ParentWindow.UpdateListViewItem(_listViewItem, rule, 1);
             }
             else
             {
                 CmdUtil.AddOrUpdateProxy(rule);
+                Program.SqliteDbScope.Add(rule);
+
                 ParentWindow.RefreshProxyList();
             }
 

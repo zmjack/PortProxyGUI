@@ -65,7 +65,7 @@
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -95,55 +95,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\PortProxyGUI\About.cs">
-      <Link>About.cs</Link>
+    <Compile Include="About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\PortProxyGUI\About.designer.cs">
-      <Link>About.designer.cs</Link>
+    <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\PortProxyGUI\PortProxyGUI.cs">
-      <Link>PortProxyGUI.cs</Link>
+    <Compile Include="PortProxyGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\PortProxyGUI\PortProxyGUI.designer.cs">
-      <Link>PortProxyGUI.designer.cs</Link>
+    <Compile Include="PortProxyGUI.Designer.cs">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\PortProxyGUI\SetProxyForm.cs">
-      <Link>SetProxyForm.cs</Link>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\PortProxyGUI\SetProxyForm.designer.cs">
-      <Link>SetProxyForm.designer.cs</Link>
-      <DependentUpon>SetProxyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="..\PortProxyGUI\About.resx">
-      <Link>About.resx</Link>
+    <Compile Include="SetProxy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetProxy.Designer.cs">
+      <DependentUpon>SetProxy.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\About.zh-CN.resx">
-      <Link>About.zh-CN.resx</Link>
+    <EmbeddedResource Include="About.zh-CN.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\PortProxyGUI.resx">
-      <Link>PortProxyGUI.resx</Link>
+    <EmbeddedResource Include="PortProxyGUI.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\PortProxyGUI.zh-CN.resx">
-      <Link>PortProxyGUI.zh-CN.resx</Link>
+    <EmbeddedResource Include="PortProxyGUI.zh-CN.resx">
       <DependentUpon>PortProxyGUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\SetProxyForm.resx">
-      <Link>SetProxyForm.resx</Link>
-      <DependentUpon>SetProxyForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\SetProxyForm.zh-CN.resx">
-      <Link>SetProxyForm.zh-CN.resx</Link>
-      <DependentUpon>SetProxyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -155,6 +137,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SetProxy.resx">
+      <DependentUpon>SetProxy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetProxy.zh-CN.resx">
+      <DependentUpon>SetProxy.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="app.manifest" />
     <None Include="packages.config" />

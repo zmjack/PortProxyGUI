@@ -11,7 +11,7 @@ namespace PortProxyGUI.Data
         public int ListenPort { get; set; }
         public string ConnectTo { get; set; }
         public int ConnectPort { get; set; }
-        public string Note { get; set; }
+        public string Comment { get; set; }
         public string Group { get; set; }
 
         public bool Equals(Rule other)
@@ -22,7 +22,7 @@ namespace PortProxyGUI.Data
                 && ListenPort == other.ListenPort
                 && ConnectTo == other.ConnectTo
                 && ConnectPort == other.ConnectPort
-                && Note == other.Note
+                && Comment == other.Comment
                 && Group == other.Group;
         }
 

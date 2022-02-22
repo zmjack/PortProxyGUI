@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PortProxyGUI));
             this.listViewProxies = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem_Enable = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Disable = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,6 +74,7 @@
             this.listViewProxies.View = System.Windows.Forms.View.Details;
             this.listViewProxies.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
             this.listViewProxies.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            this.listViewProxies.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listViewProxies_KeyUp);
             this.listViewProxies.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseUp);
             // 
             // columnHeader1
@@ -90,6 +91,7 @@
             // 
             // columnHeader4
             // 
+            this.columnHeader4.Tag = "";
             resources.ApplyResources(this.columnHeader4, "columnHeader4");
             // 
             // columnHeader5
@@ -98,6 +100,7 @@
             // 
             // columnHeader6
             // 
+            this.columnHeader6.Tag = "";
             resources.ApplyResources(this.columnHeader6, "columnHeader6");
             // 
             // columnHeader7
@@ -173,7 +176,6 @@
             // 
             // imageListProxies
             // 
-            this.imageListProxies.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageListProxies.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProxies.ImageStream")));
             this.imageListProxies.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListProxies.Images.SetKeyName(0, "disable.png");

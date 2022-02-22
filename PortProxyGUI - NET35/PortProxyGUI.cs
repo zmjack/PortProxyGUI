@@ -1,6 +1,7 @@
 ﻿using NStandard;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
@@ -9,13 +10,15 @@ namespace PortProxyGUI
 {
     public partial class PortProxyGUI : Form
     {
-        public SetProxyForm SetProxyForm;
+        public SetProxy SetProxyForm;
         public About AboutForm;
         private ListViewColumnSorter lvwColumnSorter;
 
         public PortProxyGUI()
         {
             InitializeComponent();
+            Font = Util.UiFont;
+
             lvwColumnSorter = new ListViewColumnSorter();
             listViewProxies.ListViewItemSorter = lvwColumnSorter;
         }
@@ -44,7 +47,7 @@ namespace PortProxyGUI
                 ListenPort = listenPort,
                 ConnectTo = subItems[4].Text.Trim(),
                 ConnectPort = connectPort,
-                Note = subItems[6].Text.Trim(),
+                Comment = subItems[6].Text.Trim(),
                 Group = item.Group?.Header.Trim(),
             };
             return rule;
@@ -98,7 +101,7 @@ namespace PortProxyGUI
             foreach (var item in items) listViewProxies.Items.Remove(item);
         }
 
-        private void SetProxyForUpdate(SetProxyForm form)
+        private void SetProxyForUpdate(SetProxy form)
         {
             var item = listViewProxies.SelectedItems.OfType<ListViewItem>().FirstOrDefault();
             try
@@ -116,9 +119,14 @@ namespace PortProxyGUI
         private void InitProxyGroups(Data.Rule[] rules)
         {
             listViewProxies.Groups.Clear();
-            var groups = rules.GroupBy(x => x.Group).Select(x => new ListViewGroup(x.Key)).ToArray();
+            var groups = (
+                from g in rules.GroupBy(x => x.Group)
+                let name = g.Key
+                where !name.IsNullOrWhiteSpace()
+                orderby name
+                select new ListViewGroup(name)
+            ).ToArray();
             listViewProxies.Groups.AddRange(groups);
-            listViewProxies.ShowGroups = groups.Any(x => !x.Name.IsNullOrEmpty());
         }
 
         private void InitProxyItems(Data.Rule[] rules, Data.Rule[] proxies)
@@ -129,22 +137,37 @@ namespace PortProxyGUI
                 var imageIndex = proxies.Any(p => p.EqualsWithKeys(rule)) ? 1 : 0;
                 var group = listViewProxies.Groups.OfType<ListViewGroup>().FirstOrDefault(x => x.Header == rule.Group);
 
-                var item = new ListViewItem
-                {
-                    ImageIndex = imageIndex,
-                    Tag = rule.Id,
-                    Group = group,
-                };
-                item.SubItems.AddRange(new[]
-                {
-                    rule.Type,
-                    rule.ListenOn,
-                    rule.ListenPort.ToString(),
-                    rule.ConnectTo,
-                    rule.ConnectPort.ToString(),
-                    rule.Note ?? "",
-                });
+                var item = new ListViewItem();
+                UpdateListViewItem(item, rule, imageIndex);
                 listViewProxies.Items.Add(item);
+            }
+        }
+
+        public void UpdateListViewItem(ListViewItem item, Data.Rule rule, int imageIndex)
+        {
+            item.ImageIndex = imageIndex;
+            item.Tag = rule.Id;
+            item.SubItems.Clear();
+            item.SubItems.AddRange(new[]
+            {
+                new ListViewSubItem(item, rule.Type),
+                new ListViewSubItem(item, rule.ListenOn),
+                new ListViewSubItem(item, rule.ListenPort.ToString()) { Tag = "Number" },
+                new ListViewSubItem(item, rule.ConnectTo),
+                new ListViewSubItem(item, rule.ConnectPort.ToString ()) { Tag = "Number" },
+                new ListViewSubItem(item, rule.Comment ?? ""),
+            });
+
+            if (rule.Group.IsNullOrWhiteSpace()) item.Group = null;
+            else
+            {
+                var group = listViewProxies.Groups.OfType<ListViewGroup>().FirstOrDefault(x => x.Header == rule.Group);
+                if (group == null)
+                {
+                    group = new ListViewGroup(rule.Group);
+                    listViewProxies.Groups.Add(group);
+                }
+                item.Group = group;
             }
         }
 
@@ -182,13 +205,13 @@ namespace PortProxyGUI
                     case ToolStripMenuItem item when item == toolStripMenuItem_Disable: DisableSelectedProxies(); break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_New:
-                        if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
+                        if (SetProxyForm == null) SetProxyForm = new SetProxy(this);
                         SetProxyForm.UseNormalMode();
                         SetProxyForm.ShowDialog();
                         break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_Modify:
-                        if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
+                        if (SetProxyForm == null) SetProxyForm = new SetProxy(this);
                         SetProxyForUpdate(SetProxyForm);
                         SetProxyForm.ShowDialog();
                         break;
@@ -230,7 +253,7 @@ namespace PortProxyGUI
                 var selectAny = _sender.SelectedItems.OfType<ListViewItem>().Any();
                 if (selectAny)
                 {
-                    if (SetProxyForm == null) SetProxyForm = new SetProxyForm(this);
+                    if (SetProxyForm == null) SetProxyForm = new SetProxy(this);
                     SetProxyForUpdate(SetProxyForm);
                     SetProxyForm.ShowDialog();
                 }
@@ -263,5 +286,12 @@ namespace PortProxyGUI
             listViewProxies.Sort();
         }
 
+        private void listViewProxies_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (sender is ListView)
+            {
+                if (e.KeyCode == Keys.Delete) DeleteSelectedProxies();
+            }
+        }
     }
 }

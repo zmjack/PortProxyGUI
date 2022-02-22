@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Authors>zmjack</Authors>
@@ -16,6 +16,8 @@
     <Copyright>Copyright © nstandard.net 2020</Copyright>
     <Version>1.3.0</Version>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <AssemblyName>PortProxyGUI</AssemblyName>
+    <RootNamespace>PortProxyGUI</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -27,6 +29,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="PortProxyGUI.resx" />
+    <EmbeddedResource Remove="SetProxy.resx" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Include="..\PortProxyGUI - NET35\About.cs" Link="About.cs" />
@@ -58,9 +65,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PortProxyGUI - NET35\PortProxyGUI - NET35 - UI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="PortProxyGUI.cs">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="PortProxyGUI.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 
   <Import Project="..\PortProxyGUI.Shared\PortProxyGUI.Shared.projitems" Label="Shared" />

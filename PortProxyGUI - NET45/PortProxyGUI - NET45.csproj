@@ -68,7 +68,7 @@
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -100,55 +100,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\PortProxyGUI\About.cs">
+    <Compile Include="..\PortProxyGUI - NET35\About.cs">
       <Link>About.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\PortProxyGUI\About.designer.cs">
-      <Link>About.designer.cs</Link>
-      <DependentUpon>About.cs</DependentUpon>
+    <Compile Include="..\PortProxyGUI - NET35\About.Designer.cs">
+      <Link>About.Designer.cs</Link>
     </Compile>
-    <Compile Include="..\PortProxyGUI\PortProxyGUI.cs">
+    <Compile Include="..\PortProxyGUI - NET35\PortProxyGUI.cs">
       <Link>PortProxyGUI.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\PortProxyGUI\PortProxyGUI.designer.cs">
-      <Link>PortProxyGUI.designer.cs</Link>
-      <DependentUpon>PortProxyGUI.cs</DependentUpon>
+    <Compile Include="..\PortProxyGUI - NET35\PortProxyGUI.Designer.cs">
+      <Link>PortProxyGUI.Designer.cs</Link>
     </Compile>
-    <Compile Include="..\PortProxyGUI\SetProxyForm.cs">
-      <Link>SetProxyForm.cs</Link>
+    <Compile Include="..\PortProxyGUI - NET35\SetProxy.cs">
+      <Link>SetProxy.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\PortProxyGUI\SetProxyForm.designer.cs">
-      <Link>SetProxyForm.designer.cs</Link>
-      <DependentUpon>SetProxyForm.cs</DependentUpon>
+    <Compile Include="..\PortProxyGUI - NET35\SetProxy.Designer.cs">
+      <Link>SetProxy.Designer.cs</Link>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="..\PortProxyGUI\About.resx">
+    <EmbeddedResource Include="..\PortProxyGUI - NET35\About.resx">
       <Link>About.resx</Link>
-      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\About.zh-CN.resx">
+    <EmbeddedResource Include="..\PortProxyGUI - NET35\About.zh-CN.resx">
       <Link>About.zh-CN.resx</Link>
-      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\PortProxyGUI.resx">
+    <EmbeddedResource Include="..\PortProxyGUI - NET35\PortProxyGUI.resx">
       <Link>PortProxyGUI.resx</Link>
-      <DependentUpon>PortProxyGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\PortProxyGUI.zh-CN.resx">
+    <EmbeddedResource Include="..\PortProxyGUI - NET35\PortProxyGUI.zh-CN.resx">
       <Link>PortProxyGUI.zh-CN.resx</Link>
-      <DependentUpon>PortProxyGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\SetProxyForm.resx">
-      <Link>SetProxyForm.resx</Link>
-      <DependentUpon>SetProxyForm.cs</DependentUpon>
+    <EmbeddedResource Include="..\PortProxyGUI - NET35\SetProxy.resx">
+      <Link>SetProxy.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\PortProxyGUI\SetProxyForm.zh-CN.resx">
-      <Link>SetProxyForm.zh-CN.resx</Link>
-      <DependentUpon>SetProxyForm.cs</DependentUpon>
+    <EmbeddedResource Include="..\PortProxyGUI - NET35\SetProxy.zh-CN.resx">
+      <Link>SetProxy.zh-CN.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

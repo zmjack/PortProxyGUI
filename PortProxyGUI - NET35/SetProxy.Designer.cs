@@ -1,6 +1,6 @@
 ﻿namespace PortProxyGUI
 {
-    partial class SetProxyForm
+    partial class SetProxy
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetProxyForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetProxy));
             this.label_ListenOn = new System.Windows.Forms.Label();
             this.textBox_ListenOn = new System.Windows.Forms.TextBox();
             this.label_ConnectTo = new System.Windows.Forms.Label();
@@ -40,9 +40,9 @@
             this.label_ListenPort = new System.Windows.Forms.Label();
             this.textBox_ListenPort = new System.Windows.Forms.TextBox();
             this.comboBox_Type = new System.Windows.Forms.ComboBox();
-            this.label_Note = new System.Windows.Forms.Label();
-            this.textBox_Note = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_Comment = new System.Windows.Forms.Label();
+            this.textBox_Comment = new System.Windows.Forms.TextBox();
+            this.label_Group = new System.Windows.Forms.Label();
             this.comboBox_Group = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -110,20 +110,20 @@
             resources.GetString("comboBox_Type.Items4")});
             this.comboBox_Type.Name = "comboBox_Type";
             // 
-            // label_Note
+            // label_Comment
             // 
-            resources.ApplyResources(this.label_Note, "label_Note");
-            this.label_Note.Name = "label_Note";
+            resources.ApplyResources(this.label_Comment, "label_Comment");
+            this.label_Comment.Name = "label_Comment";
             // 
             // textBox_Note
             // 
-            resources.ApplyResources(this.textBox_Note, "textBox_Note");
-            this.textBox_Note.Name = "textBox_Note";
+            resources.ApplyResources(this.textBox_Comment, "textBox_Note");
+            this.textBox_Comment.Name = "textBox_Note";
             // 
-            // label1
+            // label_Group
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.label_Group, "label_Group");
+            this.label_Group.Name = "label_Group";
             // 
             // comboBox_Group
             // 
@@ -131,15 +131,15 @@
             this.comboBox_Group.FormattingEnabled = true;
             this.comboBox_Group.Name = "comboBox_Group";
             // 
-            // SetProxyForm
+            // SetProxy
             // 
             this.AcceptButton = this.button_Set;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.comboBox_Group);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox_Note);
-            this.Controls.Add(this.label_Note);
+            this.Controls.Add(this.label_Group);
+            this.Controls.Add(this.textBox_Comment);
+            this.Controls.Add(this.label_Comment);
             this.Controls.Add(this.comboBox_Type);
             this.Controls.Add(this.textBox_ListenPort);
             this.Controls.Add(this.label_ListenPort);
@@ -154,7 +154,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SetProxyForm";
+            this.Name = "SetProxy";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetProxyForm_FormClosing);
             this.Load += new System.EventHandler(this.SetProxyForm_Load);
@@ -176,9 +176,9 @@
         private System.Windows.Forms.Label label_ListenPort;
         private System.Windows.Forms.TextBox textBox_ListenPort;
         private System.Windows.Forms.ComboBox comboBox_Type;
-        private System.Windows.Forms.Label label_Note;
-        private System.Windows.Forms.TextBox textBox_Note;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_Comment;
+        private System.Windows.Forms.TextBox textBox_Comment;
+        private System.Windows.Forms.Label label_Group;
         private System.Windows.Forms.ComboBox comboBox_Group;
     }
 }

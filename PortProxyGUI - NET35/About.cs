@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PortProxyGUI
@@ -11,7 +12,10 @@ namespace PortProxyGUI
         public About(PortProxyGUI portProxyGUI)
         {
             PortProxyGUI = portProxyGUI;
+
             InitializeComponent();
+            Font = Util.UiFont;
+
             label_version.Text = label_version.Text + "  v" + Application.ProductVersion;
         }
 
