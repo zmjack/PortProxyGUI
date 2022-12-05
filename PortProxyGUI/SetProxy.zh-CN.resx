@@ -112,23 +112,23 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label_ListenOn.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label_ListenOn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="label_ListenOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 57</value>
+    <value>14, 62</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label_ListenOn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
@@ -145,7 +145,7 @@
     <value>label_ListenOn</value>
   </data>
   <data name="&gt;&gt;label_ListenOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label_ListenOn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -157,7 +157,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="textBox_ListenOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 54</value>
+    <value>97, 58</value>
   </data>
   <data name="textBox_ListenOn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -178,7 +178,7 @@
     <value>textBox_ListenOn</value>
   </data>
   <data name="&gt;&gt;textBox_ListenOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBox_ListenOn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -193,7 +193,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="label_ConnectTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 86</value>
+    <value>14, 93</value>
   </data>
   <data name="label_ConnectTo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -205,13 +205,13 @@
     <value>0</value>
   </data>
   <data name="label_ConnectTo.Text" xml:space="preserve">
-    <value>转发地址</value>
+    <value>连接地址</value>
   </data>
   <data name="&gt;&gt;label_ConnectTo.Name" xml:space="preserve">
     <value>label_ConnectTo</value>
   </data>
   <data name="&gt;&gt;label_ConnectTo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label_ConnectTo.Parent" xml:space="preserve">
     <value>$this</value>
@@ -223,7 +223,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="textBox_ConnectTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 83</value>
+    <value>97, 90</value>
   </data>
   <data name="textBox_ConnectTo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -232,7 +232,7 @@
     <value>146, 23</value>
   </data>
   <data name="textBox_ConnectTo.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="textBox_ConnectTo.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -241,7 +241,7 @@
     <value>textBox_ConnectTo</value>
   </data>
   <data name="&gt;&gt;textBox_ConnectTo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBox_ConnectTo.Parent" xml:space="preserve">
     <value>$this</value>
@@ -253,7 +253,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="textBox_ConnectPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 83</value>
+    <value>299, 90</value>
   </data>
   <data name="textBox_ConnectPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -262,7 +262,7 @@
     <value>84, 23</value>
   </data>
   <data name="textBox_ConnectPort.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="textBox_ConnectPort.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -271,7 +271,7 @@
     <value>textBox_ConnectPort</value>
   </data>
   <data name="&gt;&gt;textBox_ConnectPort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBox_ConnectPort.Parent" xml:space="preserve">
     <value>$this</value>
@@ -286,7 +286,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="label_ConnectPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 86</value>
+    <value>251, 93</value>
   </data>
   <data name="label_ConnectPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -304,7 +304,7 @@
     <value>label_ConnectPort</value>
   </data>
   <data name="&gt;&gt;label_ConnectPort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label_ConnectPort.Parent" xml:space="preserve">
     <value>$this</value>
@@ -316,16 +316,16 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="button_Set.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 122</value>
+    <value>260, 134</value>
   </data>
   <data name="button_Set.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="button_Set.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 32</value>
+    <value>125, 31</value>
   </data>
   <data name="button_Set.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="button_Set.Text" xml:space="preserve">
     <value>设置</value>
@@ -334,7 +334,7 @@
     <value>button_Set</value>
   </data>
   <data name="&gt;&gt;button_Set.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button_Set.Parent" xml:space="preserve">
     <value>$this</value>
@@ -349,7 +349,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="label_Type.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 15</value>
+    <value>14, 16</value>
   </data>
   <data name="label_Type.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -367,7 +367,7 @@
     <value>label_Type</value>
   </data>
   <data name="&gt;&gt;label_Type.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label_Type.Parent" xml:space="preserve">
     <value>$this</value>
@@ -382,7 +382,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="label_ListenPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 57</value>
+    <value>251, 62</value>
   </data>
   <data name="label_ListenPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -400,7 +400,7 @@
     <value>label_ListenPort</value>
   </data>
   <data name="&gt;&gt;label_ListenPort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label_ListenPort.Parent" xml:space="preserve">
     <value>$this</value>
@@ -412,7 +412,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="textBox_ListenPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 54</value>
+    <value>299, 58</value>
   </data>
   <data name="textBox_ListenPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -421,7 +421,7 @@
     <value>84, 23</value>
   </data>
   <data name="textBox_ListenPort.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="textBox_ListenPort.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -430,7 +430,7 @@
     <value>textBox_ListenPort</value>
   </data>
   <data name="&gt;&gt;textBox_ListenPort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBox_ListenPort.Parent" xml:space="preserve">
     <value>$this</value>
@@ -442,7 +442,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="comboBox_Type.Items" xml:space="preserve">
-    <value>（自动）</value>
+    <value>(自动)</value>
   </data>
   <data name="comboBox_Type.Items1" xml:space="preserve">
     <value>v4tov4</value>
@@ -457,7 +457,7 @@
     <value>v6tov6</value>
   </data>
   <data name="comboBox_Type.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 12</value>
+    <value>97, 13</value>
   </data>
   <data name="comboBox_Type.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -472,7 +472,7 @@
     <value>comboBox_Type</value>
   </data>
   <data name="&gt;&gt;comboBox_Type.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;comboBox_Type.Parent" xml:space="preserve">
     <value>$this</value>
@@ -490,7 +490,7 @@
     <value>NoControl</value>
   </data>
   <data name="label_Comment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 130</value>
+    <value>14, 141</value>
   </data>
   <data name="label_Comment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -508,7 +508,7 @@
     <value>label_Comment</value>
   </data>
   <data name="&gt;&gt;label_Comment.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label_Comment.Parent" xml:space="preserve">
     <value>$this</value>
@@ -516,34 +516,34 @@
   <data name="&gt;&gt;label_Comment.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="textBox_Note.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="textBox_Comment.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
-  <data name="textBox_Note.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 127</value>
+  <data name="textBox_Comment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 138</value>
   </data>
-  <data name="textBox_Note.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="textBox_Comment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
-  <data name="textBox_Note.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="textBox_Comment.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 23</value>
   </data>
-  <data name="textBox_Note.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="textBox_Comment.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="textBox_Note.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="textBox_Comment.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="&gt;&gt;textBox_Note.Name" xml:space="preserve">
-    <value>textBox_Note</value>
+  <data name="&gt;&gt;textBox_Comment.Name" xml:space="preserve">
+    <value>textBox_Comment</value>
   </data>
-  <data name="&gt;&gt;textBox_Note.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;textBox_Comment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox_Note.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBox_Comment.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox_Note.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBox_Comment.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="label_Group.AutoSize" type="System.Boolean, mscorlib">
@@ -556,7 +556,7 @@
     <value>NoControl</value>
   </data>
   <data name="label_Group.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 15</value>
+    <value>251, 16</value>
   </data>
   <data name="label_Group.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -574,7 +574,7 @@
     <value>label_Group</value>
   </data>
   <data name="&gt;&gt;label_Group.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label_Group.Parent" xml:space="preserve">
     <value>$this</value>
@@ -586,7 +586,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="comboBox_Group.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 12</value>
+    <value>299, 13</value>
   </data>
   <data name="comboBox_Group.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -595,13 +595,13 @@
     <value>84, 25</value>
   </data>
   <data name="comboBox_Group.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;comboBox_Group.Name" xml:space="preserve">
     <value>comboBox_Group</value>
   </data>
   <data name="&gt;&gt;comboBox_Group.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;comboBox_Group.Parent" xml:space="preserve">
     <value>$this</value>
@@ -613,10 +613,10 @@
     <value>True</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>398, 169</value>
+    <value>398, 183</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2789,6 +2789,6 @@
     <value>SetProxy</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

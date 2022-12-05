@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows;netcoreapp3.1;net35;net451</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Authors>zmjack</Authors>
@@ -14,8 +14,11 @@
     <PackageTags>portproxy TCP/IP redirector</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Copyright>Copyright © nstandard.net 2020</Copyright>
-    <Version>1.3.0</Version>
+    <Version>1.3.1</Version>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationDefaultFont>Microsoft Sans Serif, 8pt</ApplicationDefaultFont>
+    <AssemblyName>PPGUI</AssemblyName>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -29,24 +32,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\PortProxyGUI - NET35\About.cs" Link="About.cs" />
-    <Compile Include="..\PortProxyGUI - NET35\About.Designer.cs" Link="About.Designer.cs" />
-    <Compile Include="..\PortProxyGUI - NET35\PortProxyGUI.cs" Link="PortProxyGUI.cs" />
-    <Compile Include="..\PortProxyGUI - NET35\PortProxyGUI.Designer.cs" Link="PortProxyGUI.Designer.cs" />
-    <Compile Include="..\PortProxyGUI - NET35\SetProxy.cs" Link="SetProxy.cs" />
-    <Compile Include="..\PortProxyGUI - NET35\SetProxy.Designer.cs" Link="SetProxy.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="..\PortProxyGUI - NET35\About.resx" Link="About.resx" />
-    <EmbeddedResource Include="..\PortProxyGUI - NET35\About.zh-CN.resx" Link="About.zh-CN.resx" />
-    <EmbeddedResource Include="..\PortProxyGUI - NET35\PortProxyGUI.resx" Link="PortProxyGUI.resx" />
-    <EmbeddedResource Include="..\PortProxyGUI - NET35\PortProxyGUI.zh-CN.resx" Link="PortProxyGUI.zh-CN.resx" />
-    <EmbeddedResource Include="..\PortProxyGUI - NET35\SetProxy.resx" Link="SetProxy.resx" />
-    <EmbeddedResource Include="..\PortProxyGUI - NET35\SetProxy.zh-CN.resx" Link="SetProxy.zh-CN.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\LICENSE.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -56,13 +41,5 @@
   <ItemGroup>
     <PackageReference Include="SQLib.Sqlite" Version="0.8.6" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="PortProxyGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-  </ItemGroup>
-
-  <Import Project="..\PortProxyGUI.Shared\PortProxyGUI.Shared.projitems" Label="Shared" />
 
 </Project>

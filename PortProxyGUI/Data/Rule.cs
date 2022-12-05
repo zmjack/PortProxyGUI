@@ -14,6 +14,28 @@ namespace PortProxyGUI.Data
         public string Comment { get; set; }
         public string Group { get; set; }
 
+        public bool Valid => ListenPort > 0 && ConnectPort > 0;
+
+        private string _realListenPort;
+        /// <summary>
+        /// Not mapped
+        /// </summary>
+        public string RealListenPort
+        {
+            get => ListenPort > 0 ? ListenPort.ToString() : _realListenPort;
+            set => _realListenPort = value;
+        }
+
+        private string _realConnectPort;
+        /// <summary>
+        /// Not mapped
+        /// </summary>
+        public string RealConnectPort
+        {
+            get => ConnectPort > 0 ? ConnectPort.ToString() : _realConnectPort;
+            set => _realConnectPort = value;
+        }
+
         public bool Equals(Rule other)
         {
             return Id == other.Id

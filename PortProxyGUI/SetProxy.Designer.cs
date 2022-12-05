@@ -115,10 +115,10 @@
             resources.ApplyResources(this.label_Comment, "label_Comment");
             this.label_Comment.Name = "label_Comment";
             // 
-            // textBox_Note
+            // textBox_Comment
             // 
-            resources.ApplyResources(this.textBox_Comment, "textBox_Note");
-            this.textBox_Comment.Name = "textBox_Note";
+            resources.ApplyResources(this.textBox_Comment, "textBox_Comment");
+            this.textBox_Comment.Name = "textBox_Comment";
             // 
             // label_Group
             // 

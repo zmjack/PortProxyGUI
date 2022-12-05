@@ -22,6 +22,8 @@ namespace PortProxyGUI
             ["ipv6 to ipv6"] = GetRegex("ipv6", "ipv6"),
         };
 
+        private static readonly Regex LineRegex = new(@"^(.*?)\s{1,}(.*?)\s{1,}(.*?)\s{1,}(.*?)$");
+
         public static Rule[] GetProxies()
         {
             var output = CmdRunner.Execute("netsh interface portproxy show all");
@@ -33,26 +35,39 @@ namespace PortProxyGUI
                 new ProxyType("ipv6", "ipv6"),
             };
 
-            var proxies = types.SelectMany(type =>
+            var list = new List<Rule>();
+            foreach (var type in types)
             {
                 var regex = RegexList[$"{type.From} to {type.To}"];
-                var typeProxies = output.ExtractFirst(regex)
-                    ?.Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                    .Select(line =>
+                var settings = output.ExtractFirst(regex);
+                var lines = settings?.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+
+                if (lines is not null)
+                {
+                    foreach (var line in lines)
                     {
-                        var parts = line.Resolve(new Regex(@"^([^\s]+)\s+([^\s]+)\s+([^\s]+)\s+([^\s]+)$"));
-                        return new Rule
+                        if (line.TryResolve(LineRegex, out var parts))
                         {
-                            Type = type.Type,
-                            ListenOn = parts[1].First(),
-                            ListenPort = int.Parse(parts[2].First()),
-                            ConnectTo = parts[3].First(),
-                            ConnectPort = int.Parse(parts[4].First()),
-                        };
-                    });
-                return typeProxies ?? new Rule[0];
-            });
-            return proxies.ToArray();
+                            var realListenPort = parts[2].First();
+                            var realConnectPort = parts[4].First();
+
+                            _ = int.TryParse(realListenPort, out var listenPort);
+                            _ = int.TryParse(realConnectPort, out var connectPort);
+
+                            list.Add(new Rule
+                            {
+                                Type = type.Type,
+                                ListenOn = parts[1].First(),
+                                ListenPort = listenPort,
+                                ConnectTo = parts[3].First(),
+                                ConnectPort = connectPort,
+                            });
+                        }
+                    }
+                }
+            }
+
+            return list.ToArray();
         }
 
         public static void AddOrUpdateProxy(Rule rule)

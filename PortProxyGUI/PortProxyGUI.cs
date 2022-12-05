@@ -181,8 +181,8 @@ namespace PortProxyGUI
                 proxy.Id = matchedRule?.Id;
             }
 
-            var pendingAdds = proxies.Where(x => x.Id == null);
-            var pendingUpdates = proxies.Where(x => x.Id != null && !x.Equals(rules.First(r => r.Id == x.Id)));
+            var pendingAdds = proxies.Where(x => x.Valid && x.Id == null);
+            var pendingUpdates = proxies.Where(x => x.Valid && x.Id != null && !x.Equals(rules.First(r => r.Id == x.Id)));
 
             Program.SqliteDbScope.AddRange(pendingAdds);
             Program.SqliteDbScope.UpdateRange(pendingUpdates);
