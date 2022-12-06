@@ -8,7 +8,7 @@ A manager for netsh interface portproxy, which is to evaluate TCP/IP port redire
 
 ## Upgrade
 
-- **v1.3.1**
+- **v1.3.1 - v1.3.2**
   - Fix program crash caused by wrong rules.
 - **v1.3.0**
   - Update display, provide comments and grouping.
