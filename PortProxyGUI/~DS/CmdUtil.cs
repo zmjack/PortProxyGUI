@@ -81,5 +81,9 @@ namespace PortProxyGUI
             CmdRunner.Execute($"netsh interface portproxy delete {rule.Type} listenaddress={rule.ListenOn} listenport={rule.ListenPort}");
         }
 
+        public static string FlushDNSCache()
+        {
+            return CmdRunner.Execute("ipconfig /flushdns");
+        }
     }
 }

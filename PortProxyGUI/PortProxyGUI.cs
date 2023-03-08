@@ -1,7 +1,6 @@
 ﻿using NStandard;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
@@ -197,6 +196,20 @@ namespace PortProxyGUI
             InitProxyItems(rules, proxies);
         }
 
+        public void FlushDnsCache()
+        {
+            try
+            {
+                CmdUtil.FlushDNSCache();
+                RefreshProxyList();
+            }
+            catch (NotSupportedException ex)
+            {
+                MessageBox.Show(ex.Message, "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+        }
+
         private void contextMenuStrip1_MouseClick(object sender, MouseEventArgs e)
         {
             if (sender is ContextMenuStrip _sender)
@@ -223,6 +236,9 @@ namespace PortProxyGUI
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_Refresh:
                         RefreshProxyList();
+                        break;
+                    case ToolStripMenuItem item when item == toolStripMenuItem_FlushDnsCache:
+                        FlushDnsCache();
                         break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_Delete: DeleteSelectedProxies(); break;
