@@ -116,17 +116,17 @@ namespace PortProxyGUI
             if (_updateMode)
             {
                 var oldRule = Program.SqliteDbScope.GetRule(_itemRule.Type, _itemRule.ListenOn, _itemRule.ListenPort);
-                CmdUtil.DeleteProxy(oldRule);
+                PortProxyUtil.DeleteProxy(oldRule);
                 Program.SqliteDbScope.Remove(oldRule);
 
-                CmdUtil.AddOrUpdateProxy(rule);
+                PortProxyUtil.AddOrUpdateProxy(rule);
                 Program.SqliteDbScope.Add(rule);
 
                 ParentWindow.UpdateListViewItem(_listViewItem, rule, 1);
             }
             else
             {
-                CmdUtil.AddOrUpdateProxy(rule);
+                PortProxyUtil.AddOrUpdateProxy(rule);
                 Program.SqliteDbScope.Add(rule);
 
                 ParentWindow.RefreshProxyList();

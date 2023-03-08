@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace PortProxyGUI
 {
+    [Obsolete("The method of creating a new process is no longer used.", true)]
     public static class CmdUtil
     {
         private static Regex GetRegex(string fromType, string toType)

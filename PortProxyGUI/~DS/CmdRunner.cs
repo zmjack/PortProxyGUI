@@ -1,7 +1,9 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace PortProxyGUI
 {
+    [Obsolete("The method of creating a new process is no longer used.")]
     public static class CmdRunner
     {
         public static string Execute(string cmd)

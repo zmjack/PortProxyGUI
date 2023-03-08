@@ -63,7 +63,7 @@ namespace PortProxyGUI
                 try
                 {
                     var rule = ParseRule(item);
-                    CmdUtil.AddOrUpdateProxy(rule);
+                    PortProxyUtil.AddOrUpdateProxy(rule);
                 }
                 catch (NotSupportedException ex)
                 {
@@ -83,7 +83,7 @@ namespace PortProxyGUI
                 try
                 {
                     var rule = ParseRule(item);
-                    CmdUtil.DeleteProxy(rule);
+                    PortProxyUtil.DeleteProxy(rule);
                 }
                 catch (NotSupportedException ex)
                 {
@@ -173,7 +173,7 @@ namespace PortProxyGUI
 
         public void RefreshProxyList()
         {
-            var proxies = CmdUtil.GetProxies();
+            var proxies = PortProxyUtil.GetProxies();
             var rules = Program.SqliteDbScope.Rules.ToArray();
             foreach (var proxy in proxies)
             {
