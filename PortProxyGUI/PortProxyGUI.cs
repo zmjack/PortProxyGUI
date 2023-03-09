@@ -46,12 +46,12 @@ namespace PortProxyGUI
 
             var rule = new Data.Rule
             {
+                Id = item.Tag?.ToString(),
                 Type = subItems[1].Text.Trim(),
                 ListenOn = subItems[2].Text.Trim(),
                 ListenPort = listenPort,
                 ConnectTo = subItems[4].Text.Trim(),
                 ConnectPort = connectPort,
-                PingStatus = subItems[6].Text.Trim(),
                 Comment = subItems[7].Text.Trim(),
                 Group = item.Group?.Header.Trim(),
             };
@@ -101,8 +101,9 @@ namespace PortProxyGUI
         private void DeleteSelectedProxies()
         {
             var items = listViewProxies.SelectedItems.OfType<ListViewItem>();
+            if (items == null) return;
             DisableSelectedProxies();
-            Program.SqliteDbScope.RemoveRange(items.Select(x => new Data.Rule { Id = x.Tag.ToString() }));
+            Program.SqliteDbScope.RemoveRange(items.Select(x => new Data.Rule { Id = x.Tag?.ToString() }));
             foreach (var item in items) listViewProxies.Items.Remove(item);
         }
 
@@ -148,7 +149,7 @@ namespace PortProxyGUI
             }
         }
 
-        public void UpdateListViewItem(ListViewItem item, Data.Rule rule, int imageIndex)
+        public void UpdateListViewItem(ListViewItem item, Data.Rule rule, int imageIndex, string pingStatus = "Not checked")
         {
             item.ImageIndex = imageIndex;
             item.Tag = rule.Id;
@@ -160,11 +161,11 @@ namespace PortProxyGUI
                 new ListViewSubItem(item, rule.ListenPort.ToString()) { Tag = "Number" },
                 new ListViewSubItem(item, rule.ConnectTo),
                 new ListViewSubItem(item, rule.ConnectPort.ToString ()) { Tag = "Number" },
-                new ListViewSubItem(item, rule.PingStatus ?? string.Empty)
+                new ListViewSubItem(item, pingStatus ?? string.Empty)
                 {
                     Tag ="Connect To Ping Status",
-                    ForeColor = rule.PingStatus.Equals("Success") ?  Color.Green
-                             :  rule.PingStatus.Equals("Pending") ? Color.DarkGray
+                    ForeColor = pingStatus.Equals("Success") ?  Color.Green
+                             :  pingStatus.Equals("Pending") ? Color.DarkGray
                              :  Color.MediumVioletRed
                 },
                 new ListViewSubItem(item, rule.Comment ?? string.Empty)
@@ -358,16 +359,14 @@ namespace PortProxyGUI
                         if (!string.IsNullOrEmpty(alreadyChkdHost.Key))
                         {
                             //Skip Checking Status since already checked
-                            rule.PingStatus = alreadyChkdHost.Value.ToString();
-                            UpdateListViewItem(item, rule, item.ImageIndex);
+                            UpdateListViewItem(item, rule, item.ImageIndex, alreadyChkdHost.Value.ToString());
                         }
                         else
                         {
                             //If not yet checked
                             PingCheckerUtil.GetPingResult(rule.ConnectTo, 2, out IPStatus ipStatus, out _, out _);
                             hostStatus.Add(new KeyValuePair<string, IPStatus>(rule.ConnectTo, ipStatus));
-                            rule.PingStatus = ipStatus.ToString();
-                            UpdateListViewItem(item, rule, item.ImageIndex);
+                            UpdateListViewItem(item, rule, item.ImageIndex, ipStatus.ToString());
                         }
                     }
                     catch { }
