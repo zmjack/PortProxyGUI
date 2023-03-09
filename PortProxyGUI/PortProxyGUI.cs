@@ -1,6 +1,8 @@
 ﻿using NStandard;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
@@ -13,7 +15,7 @@ namespace PortProxyGUI
         public SetProxy SetProxyForm;
         public About AboutForm;
         private ListViewColumnSorter lvwColumnSorter;
-
+        private List<KeyValuePair<string, IPStatus>> hostStatus { get; set; } = new List<KeyValuePair<string, IPStatus>>();
         public PortProxyGUI()
         {
             InitializeComponent();
@@ -156,7 +158,13 @@ namespace PortProxyGUI
                 new ListViewSubItem(item, rule.ListenPort.ToString()) { Tag = "Number" },
                 new ListViewSubItem(item, rule.ConnectTo),
                 new ListViewSubItem(item, rule.ConnectPort.ToString ()) { Tag = "Number" },
-                new ListViewSubItem(item, rule.PingStatus ?? string.Empty),
+                new ListViewSubItem(item, rule.PingStatus ?? string.Empty)
+                {
+                    Tag ="Connect To Ping Status",
+                    ForeColor = rule.PingStatus.Equals("Success") ?  Color.Green
+                             :  rule.PingStatus.Equals("Checking...") ? Color.DarkGray
+                             :  Color.MediumVioletRed
+                },
                 new ListViewSubItem(item, rule.Comment ?? string.Empty)
             });
 
@@ -324,15 +332,31 @@ namespace PortProxyGUI
             try
             {
                 var items = listViewProxies.Items.OfType<ListViewItem>();
+                hostStatus = new List<KeyValuePair<string, IPStatus>>();
                 foreach (var item in items)
                 {
                     try
                     {
-                        var rule = ParseRule(item);
-                        //Ping Host
-                        PingCheckerUtil.GetPingResult(rule.ConnectTo, 2, out IPStatus ipStatus, out _, out _);
-                        rule.PingStatus = ipStatus.ToString();
-                        UpdateListViewItem(item, rule, item.ImageIndex);
+                        //Custom Color for cells
+                        item.UseItemStyleForSubItems = false;
+                        //Proceed
+                        Data.Rule rule = ParseRule(item);
+                        //Check if host already pinged host
+                        var alreadyChkdHost = hostStatus.FirstOrDefault(x => x.Key.Equals(rule.ConnectTo, StringComparison.OrdinalIgnoreCase));
+                        if (!string.IsNullOrEmpty(alreadyChkdHost.Key))
+                        {
+                            //Skip Checking Status since already checked
+                            rule.PingStatus = alreadyChkdHost.Value.ToString();
+                            UpdateListViewItem(item, rule, item.ImageIndex);
+                        }
+                        else
+                        {
+                            //If not yet checked
+                            PingCheckerUtil.GetPingResult(rule.ConnectTo, 2, out IPStatus ipStatus, out _, out _);
+                            hostStatus.Add(new KeyValuePair<string, IPStatus>(rule.ConnectTo, ipStatus));
+                            rule.PingStatus = ipStatus.ToString();
+                            UpdateListViewItem(item, rule, item.ImageIndex);
+                        }
                     }
                     catch { }
                 }
