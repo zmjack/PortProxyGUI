@@ -37,12 +37,14 @@
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnPingStatus = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem_Enable = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Disable = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_Refresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_RefreshPingStatus = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_FlushDnsCache = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_New = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +66,7 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
+            this.columnPingStatus,
             this.columnHeader7});
             this.listViewProxies.ContextMenuStrip = this.contextMenuStrip1;
             resources.ApplyResources(this.listViewProxies, "listViewProxies");
@@ -104,6 +107,10 @@
             this.columnHeader6.Tag = "";
             resources.ApplyResources(this.columnHeader6, "columnHeader6");
             // 
+            // columnPingStatus
+            // 
+            resources.ApplyResources(this.columnPingStatus, "columnPingStatus");
+            // 
             // columnHeader7
             // 
             resources.ApplyResources(this.columnHeader7, "columnHeader7");
@@ -115,6 +122,7 @@
             this.toolStripMenuItem_Disable,
             this.toolStripSeparator3,
             this.toolStripMenuItem_Refresh,
+            this.toolStripMenuItem_RefreshPingStatus,
             this.toolStripMenuItem_FlushDnsCache,
             this.toolStripSeparator2,
             this.toolStripMenuItem_New,
@@ -145,6 +153,11 @@
             // 
             this.toolStripMenuItem_Refresh.Name = "toolStripMenuItem_Refresh";
             resources.ApplyResources(this.toolStripMenuItem_Refresh, "toolStripMenuItem_Refresh");
+            // 
+            // toolStripMenuItem_RefreshPingStatus
+            // 
+            this.toolStripMenuItem_RefreshPingStatus.Name = "toolStripMenuItem_RefreshPingStatus";
+            resources.ApplyResources(this.toolStripMenuItem_RefreshPingStatus, "toolStripMenuItem_RefreshPingStatus");
             // 
             // toolStripMenuItem_FlushDnsCache
             // 
@@ -224,6 +237,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         internal System.Windows.Forms.ListView listViewProxies;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_FlushDnsCache;
+        private System.Windows.Forms.ColumnHeader columnPingStatus;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_RefreshPingStatus;
     }
 }
 

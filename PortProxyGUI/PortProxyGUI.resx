@@ -94,6 +94,12 @@
   <data name="columnHeader6.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
+  <data name="columnPingStatus.Text" xml:space="preserve">
+    <value>Ping Status</value>
+  </data>
+  <data name="columnPingStatus.Width" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
   <data name="columnHeader7.Text" xml:space="preserve">
     <value>Comment</value>
   </data>
@@ -125,6 +131,18 @@
   <data name="toolStripMenuItem_Refresh.Text" xml:space="preserve">
     <value>Refresh (&amp;F)</value>
   </data>
+  <data name="toolStripMenuItem_Refresh.ToolTipText" xml:space="preserve">
+    <value>Refresh Port Proxies</value>
+  </data>
+  <data name="toolStripMenuItem_RefreshPingStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="toolStripMenuItem_RefreshPingStatus.Text" xml:space="preserve">
+    <value>Refresh Ping Status</value>
+  </data>
+  <data name="toolStripMenuItem_RefreshPingStatus.ToolTipText" xml:space="preserve">
+    <value>Refresh Host Ping Statuses</value>
+  </data>
   <data name="toolStripMenuItem_FlushDnsCache.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
   </data>
@@ -132,7 +150,7 @@
     <value>Flush DNS Cache</value>
   </data>
   <data name="toolStripMenuItem_FlushDnsCache.ToolTipText" xml:space="preserve">
-    <value>Will perform ipconfig/flushDNS</value>
+    <value>Perform ipconfig/flushDNS</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>177, 6</value>
@@ -165,7 +183,7 @@
     <value>About</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 220</value>
+    <value>181, 242</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -184,10 +202,10 @@
     <value>0, 0</value>
   </data>
   <data name="listViewProxies.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+    <value>5, 3, 5, 3</value>
   </data>
   <data name="listViewProxies.Size" type="System.Drawing.Size, System.Drawing">
-    <value>704, 456</value>
+    <value>797, 456</value>
   </data>
   <metadata name="imageListProxies.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>182, 17</value>
@@ -197,7 +215,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZTeXN0ZW0uV2luZG93cy5Gb3JtcywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAmU3lzdGVtLldpbmRvd3MuRm9ybXMu
         SW1hZ2VMaXN0U3RyZWFtZXIBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA3AgAAAJNU0Z0AUkBTAIBAQIB
-        AAEwAQEBMAEBARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAEQAwABAQEAAQgG
+        AAF4AQEBeAEBARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAEQAwABAQEAAQgG
         AAEEGAABgAIAAYADAAKAAQABgAMAAYABAAGAAQACgAIAA8ABAAHAAdwBwAEAAfABygGmAQABMwUAATMB
         AAEzAQABMwEAAjMCAAMWAQADHAEAAyIBAAMpAQADVQEAA00BAANCAQADOQEAAYABfAH/AQACUAH/AQAB
         kwEAAdYBAAH/AewBzAEAAcYB1gHvAQAB1gLnAQABkAGpAa0CAAH/ATMDAAFmAwABmQMAAcwCAAEzAwAC
@@ -256,10 +274,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>704, 456</value>
+    <value>797, 456</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2464,6 +2485,12 @@
   <data name="&gt;&gt;columnHeader6.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;columnPingStatus.Name" xml:space="preserve">
+    <value>columnPingStatus</value>
+  </data>
+  <data name="&gt;&gt;columnPingStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;columnHeader7.Name" xml:space="preserve">
     <value>columnHeader7</value>
   </data>
@@ -2492,6 +2519,12 @@
     <value>toolStripMenuItem_Refresh</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem_Refresh.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem_RefreshPingStatus.Name" xml:space="preserve">
+    <value>toolStripMenuItem_RefreshPingStatus</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem_RefreshPingStatus.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem_FlushDnsCache.Name" xml:space="preserve">
