@@ -111,67 +111,85 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="toolStripMenuItem_Enable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="toolStripMenuItem_Enable.Text" xml:space="preserve">
     <value>Enable (&amp;E)</value>
   </data>
+  <data name="toolStripMenuItem_Enable.ToolTipText" xml:space="preserve">
+    <value>Enable current Proxy</value>
+  </data>
   <data name="toolStripMenuItem_Disable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="toolStripMenuItem_Disable.Text" xml:space="preserve">
     <value>Disable (&amp;I)</value>
   </data>
+  <data name="toolStripMenuItem_Disable.ToolTipText" xml:space="preserve">
+    <value>Disable Current Proxy</value>
+  </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="toolStripMenuItem_Refresh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="toolStripMenuItem_Refresh.Text" xml:space="preserve">
     <value>Refresh (&amp;F)</value>
   </data>
+  <data name="toolStripMenuItem_Refresh.ToolTipText" xml:space="preserve">
+    <value>Refresh Port Proxies</value>
+  </data>
+  <data name="toolStripMenuItem_RefreshPingStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="toolStripMenuItem_RefreshPingStatus.Text" xml:space="preserve">
+    <value>Refresh Ping Status</value>
+  </data>
+  <data name="toolStripMenuItem_RefreshPingStatus.ToolTipText" xml:space="preserve">
+    <value>Refresh Host Ping Statuses</value>
+  </data>
   <data name="toolStripMenuItem_FlushDnsCache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="toolStripMenuItem_FlushDnsCache.Text" xml:space="preserve">
     <value>Flush DNS Cache</value>
   </data>
   <data name="toolStripMenuItem_FlushDnsCache.ToolTipText" xml:space="preserve">
-    <value>Will perform ipconfig/flushDNS</value>
+    <value>Click to perform ipconfig/flushDNS</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="toolStripMenuItem_New.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="toolStripMenuItem_New.Text" xml:space="preserve">
     <value>New (&amp;N) ...</value>
   </data>
   <data name="toolStripMenuItem_Modify.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="toolStripMenuItem_Modify.Text" xml:space="preserve">
     <value>Modify (&amp;M) ...</value>
   </data>
   <data name="toolStripMenuItem_Delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="toolStripMenuItem_Delete.Text" xml:space="preserve">
     <value>Delete (&amp;D)</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="toolStripMenuItem_About.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="toolStripMenuItem_About.Text" xml:space="preserve">
     <value>About</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 198</value>
+    <value>181, 242</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -203,7 +221,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZTeXN0ZW0uV2luZG93cy5Gb3JtcywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAmU3lzdGVtLldpbmRvd3MuRm9ybXMu
         SW1hZ2VMaXN0U3RyZWFtZXIBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA3AgAAAJNU0Z0AUkBTAIBAQIB
-        AAFYAQEBWAEBARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAEQAwABAQEAAQgG
+        AAFwAQEBcAEBARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAEQAwABAQEAAQgG
         AAEEGAABgAIAAYADAAKAAQABgAMAAYABAAGAAQACgAIAA8ABAAHAAdwBwAEAAfABygGmAQABMwUAATMB
         AAEzAQABMwEAAjMCAAMWAQADHAEAAyIBAAMpAQADVQEAA00BAANCAQADOQEAAYABfAH/AQACUAH/AQAB
         kwEAAdYBAAH/AewBzAEAAcYB1gHvAQAB1gLnAQABkAGpAa0CAAH/ATMDAAFmAwABmQMAAcwCAAEzAwAC
@@ -258,9 +276,6 @@
   <data name="&gt;&gt;listViewProxies.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="TimerPingTargets.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>324, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2512,6 +2527,12 @@
   <data name="&gt;&gt;toolStripMenuItem_Refresh.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripMenuItem_RefreshPingStatus.Name" xml:space="preserve">
+    <value>toolStripMenuItem_RefreshPingStatus</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem_RefreshPingStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripMenuItem_FlushDnsCache.Name" xml:space="preserve">
     <value>toolStripMenuItem_FlushDnsCache</value>
   </data>
@@ -2559,12 +2580,6 @@
   </data>
   <data name="&gt;&gt;imageListProxies.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TimerPingTargets.Name" xml:space="preserve">
-    <value>TimerPingTargets</value>
-  </data>
-  <data name="&gt;&gt;TimerPingTargets.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>PortProxyGUI</value>

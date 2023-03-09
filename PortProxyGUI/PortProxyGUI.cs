@@ -162,7 +162,7 @@ namespace PortProxyGUI
                 {
                     Tag ="Connect To Ping Status",
                     ForeColor = rule.PingStatus.Equals("Success") ?  Color.Green
-                             :  rule.PingStatus.Equals("Checking...") ? Color.DarkGray
+                             :  rule.PingStatus.Equals("Pending") ? Color.DarkGray
                              :  Color.MediumVioletRed
                 },
                 new ListViewSubItem(item, rule.Comment ?? string.Empty)
@@ -183,28 +183,36 @@ namespace PortProxyGUI
 
         public void RefreshProxyList()
         {
-            var proxies = CmdUtil.GetProxies();
-            var rules = Program.SqliteDbScope.Rules.ToArray();
-            foreach (var proxy in proxies)
+            try
             {
-                var matchedRule = rules.FirstOrDefault(r => r.EqualsWithKeys(proxy));
-                proxy.Id = matchedRule?.Id;
+
+                var proxies = CmdUtil.GetProxies();
+                var rules = Program.SqliteDbScope.Rules.ToArray();
+                foreach (var proxy in proxies)
+                {
+                    var matchedRule = rules.FirstOrDefault(r => r.EqualsWithKeys(proxy));
+                    proxy.Id = matchedRule?.Id;
+                }
+
+                var pendingAdds = proxies.Where(x => x.Valid && x.Id == null);
+                var pendingUpdates =
+                    from proxy in proxies
+                    let exsist = rules.FirstOrDefault(r => r.Id == proxy.Id)
+                    where exsist is not null
+                    where proxy.Valid && proxy.Id is not null
+                    select proxy;
+
+                Program.SqliteDbScope.AddRange(pendingAdds);
+                Program.SqliteDbScope.UpdateRange(pendingUpdates);
+
+                rules = Program.SqliteDbScope.Rules.ToArray();
+                InitProxyGroups(rules);
+                InitProxyItems(rules, proxies);
             }
-
-            var pendingAdds = proxies.Where(x => x.Valid && x.Id == null);
-            var pendingUpdates =
-                from proxy in proxies
-                let exsist = rules.FirstOrDefault(r => r.Id == proxy.Id)
-                where exsist is not null
-                where proxy.Valid && proxy.Id is not null
-                select proxy;
-
-            Program.SqliteDbScope.AddRange(pendingAdds);
-            Program.SqliteDbScope.UpdateRange(pendingUpdates);
-
-            rules = Program.SqliteDbScope.Rules.ToArray();
-            InitProxyGroups(rules);
-            InitProxyItems(rules, proxies);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Refreshing");
+            }
         }
 
         public void FlushDnsCache()
@@ -247,6 +255,9 @@ namespace PortProxyGUI
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_Refresh:
                         RefreshProxyList();
+                        break;
+                    case ToolStripMenuItem item when item == toolStripMenuItem_RefreshPingStatus:
+                        RefreshConnectHostPingStatus();
                         break;
                     case ToolStripMenuItem item when item == toolStripMenuItem_FlushDnsCache:
                         FlushDnsCache();
@@ -326,9 +337,8 @@ namespace PortProxyGUI
             }
         }
 
-        private void TimerPingTargets_Tick(object sender, EventArgs e)
+        private void RefreshConnectHostPingStatus()
         {
-            TimerPingTargets.Stop();
             try
             {
                 var items = listViewProxies.Items.OfType<ListViewItem>();
@@ -362,7 +372,6 @@ namespace PortProxyGUI
                 }
             }
             catch { }
-            TimerPingTargets.Start();
         }
     }
 }
