@@ -27,6 +27,8 @@ namespace PortProxyGUI
 
         private void PortProxyGUI_Load(object sender, EventArgs e)
         {
+            this.Text = string.Format("Port Proxy GUI v{0}", Program.AppVersion);
+            this.Size = new System.Drawing.Size(797, 456);
         }
 
         private void PortProxyGUI_Shown(object sender, EventArgs e)

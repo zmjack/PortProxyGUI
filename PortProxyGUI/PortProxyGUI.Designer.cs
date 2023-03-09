@@ -208,6 +208,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listViewProxies);
             this.Name = "PortProxyGUI";
+            this.Opacity = 0.98D;
             this.Load += new System.EventHandler(this.PortProxyGUI_Load);
             this.Shown += new System.EventHandler(this.PortProxyGUI_Shown);
             this.contextMenuStrip1.ResumeLayout(false);
