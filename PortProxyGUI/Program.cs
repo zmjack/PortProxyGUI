@@ -9,7 +9,13 @@ namespace PortProxyGUI
 {
     static class Program
     {
-        public static readonly ApplicationDbScope Database = ApplicationDbScope.FromFile(ApplicationDbScope.AppDbFile);
+        public static readonly ApplicationDbScope Database = ApplicationDbScope.FromFile(
+            Path.Combine(
+                Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                    "PortProxyGUI"
+                ), "config.db"
+            ));
 
         /// <summary>
         ///  The main entry point for the application.

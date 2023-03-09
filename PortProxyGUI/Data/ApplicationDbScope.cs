@@ -15,10 +15,9 @@ namespace PortProxyGUI.Data
         public static ApplicationDbScope FromFile(string file)
         {
             var dir = Path.GetDirectoryName(file);
-            var fileName = Path.GetFileName(file);
 
             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
-            if (!File.Exists(fileName))
+            if (!File.Exists(file))
             {
 #if NETCOREAPP3_0_OR_GREATER
 #else
