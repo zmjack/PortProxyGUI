@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace PortProxyGUI
+namespace PortProxyGUI.Utils
 {
-    public class Util
+    public class InterfaceUtil
     {
         /// <summary>
         /// Compatibility between .NET Framework and .NET Core.
@@ -15,3 +15,4 @@ namespace PortProxyGUI
 
     }
 }
+

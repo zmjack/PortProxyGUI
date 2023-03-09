@@ -14,7 +14,7 @@
     <PackageTags>portproxy TCP/IP redirector</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Copyright>Copyright © nstandard.net 2020</Copyright>
-    <Version>1.3.2</Version>
+    <Version>1.4.0</Version>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <ApplicationDefaultFont>Microsoft Sans Serif, 8pt</ApplicationDefaultFont>
     <AssemblyName>PPGUI</AssemblyName>
@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SQLib.Sqlite" Version="0.8.6" />
+    <PackageReference Include="SQLib.Sqlite" Version="0.11.0" />
   </ItemGroup>
 
 </Project>

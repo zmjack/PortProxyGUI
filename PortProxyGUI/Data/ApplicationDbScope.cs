@@ -1,4 +1,5 @@
-﻿using SQLib.Sqlite;
+﻿using NStandard;
+using SQLib.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,11 +9,27 @@ namespace PortProxyGUI.Data
 {
     public class ApplicationDbScope : SqliteScope<ApplicationDbScope>
     {
-        public static readonly string DbDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PortProxyGUI");
-        public static readonly string DbFile = Path.Combine(DbDirectory, "config.db");
-        private static readonly string ConnectionString = $"Data Source={DbFile}";
+        public static readonly string AppDbDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PortProxyGUI");
+        public static readonly string AppDbFile = Path.Combine(AppDbDirectory, "config.db");
 
-        public static ApplicationDbScope UseDefault() => new ApplicationDbScope(ConnectionString);
+        public static ApplicationDbScope FromFile(string file)
+        {
+            var dir = Path.GetDirectoryName(file);
+            var fileName = Path.GetFileName(file);
+
+            if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+            if (!File.Exists(fileName))
+            {
+#if NETCOREAPP3_0_OR_GREATER
+#else
+                System.Data.SQLite.SQLiteConnection.CreateFile(file);
+#endif
+            }
+
+            var scope = new ApplicationDbScope($"Data Source=\"{file}\"");
+            scope.Migrate();
+            return scope;
+        }
 
         public ApplicationDbScope(string connectionString) : base(connectionString)
         {
@@ -20,16 +37,14 @@ namespace PortProxyGUI.Data
 
         public override void Initialize()
         {
-            if (!Directory.Exists(DbDirectory)) Directory.CreateDirectory(DbDirectory);
-            if (!File.Exists(DbFile))
-            {
-#if NET35 || NET45
-                System.Data.SQLite.SQLiteConnection.CreateFile(DbFile);
-#endif
-            }
         }
 
-        public void Migrate() => new ApplicationDbMigrationUtil(this).MigrateToLast();
+        public void Migrate() => new MigrationUtil(this).MigrateToLast();
+
+        public Migration GetLastMigration()
+        {
+            return SqlQuery<Migration>($"SELECT * FROM __history ORDER BY MigrationId DESC LIMIT 1;").First();
+        }
 
         public IEnumerable<Rule> Rules => SqlQuery<Rule>($"SELECT * FROM Rules;");
 
@@ -77,6 +92,22 @@ namespace PortProxyGUI.Data
         public void RemoveRange<T>(IEnumerable<T> objs) where T : class
         {
             foreach (var obj in objs) Remove(obj);
+        }
+
+        public AppConfig GetAppConfig()
+        {
+            var configRows = SqlQuery<Config>($"SELECT * FROM Configs;");
+            var appConfig = new AppConfig(configRows);
+            return appConfig;
+        }
+
+        public void SaveAppConfig(AppConfig appConfig)
+        {
+            Sql($"UPDATE Configs SET Value = {appConfig.MainWindowSize.Width} WHERE Item = 'MainWindow' AND `Key` = 'Width';");
+            Sql($"UPDATE Configs SET Value = {appConfig.MainWindowSize.Height} WHERE Item = 'MainWindow' AND `Key` = 'Height';");
+
+            var s_portProxyColumnWidths = $"[{appConfig.PortProxyColumnWidths.Select(x => x.ToString()).Join(", ")}]";
+            Sql($"UPDATE Configs SET Value = {s_portProxyColumnWidths} WHERE Item = 'PortProxy' AND `Key` = 'ColumnWidths';");
         }
 
     }

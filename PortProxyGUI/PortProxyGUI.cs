@@ -1,6 +1,11 @@
 ﻿using NStandard;
+using PortProxyGUI.Data;
+using PortProxyGUI.UI;
+using PortProxyGUI.Utils;
 using System;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
@@ -9,26 +14,49 @@ namespace PortProxyGUI
 {
     public partial class PortProxyGUI : Form
     {
+        private readonly ListViewColumnSorter lvwColumnSorter = new ListViewColumnSorter();
+
         public SetProxy SetProxyForm;
         public About AboutForm;
-        private ListViewColumnSorter lvwColumnSorter;
+        private AppConfig AppConfig;
 
         public PortProxyGUI()
         {
             InitializeComponent();
-            Font = Util.UiFont;
+            Font = InterfaceUtil.UiFont;
 
-            lvwColumnSorter = new ListViewColumnSorter();
             listViewProxies.ListViewItemSorter = lvwColumnSorter;
         }
 
         private void PortProxyGUI_Load(object sender, EventArgs e)
         {
+            AppConfig = Program.Database.GetAppConfig();
+
+            var size = AppConfig.MainWindowSize;
+            Left -= (size.Width - Width) / 2;
+            Top -= (size.Height - Height) / 2;
+
+            ResetWindowSize();
         }
 
         private void PortProxyGUI_Shown(object sender, EventArgs e)
         {
             RefreshProxyList();
+        }
+
+        private void ResetWindowSize()
+        {
+            Size = AppConfig.MainWindowSize;
+
+            if (AppConfig.PortProxyColumnWidths.Length != listViewProxies.Columns.Count)
+            {
+                Any.ReDim(ref AppConfig.PortProxyColumnWidths, listViewProxies.Columns.Count);
+            }
+
+            foreach (var (column, configWidth) in Any.Zip(listViewProxies.Columns.OfType<ColumnHeader>(), AppConfig.PortProxyColumnWidths))
+            {
+                column.Width = configWidth;
+            }
         }
 
         private Data.Rule ParseRule(ListViewItem item)
@@ -62,7 +90,7 @@ namespace PortProxyGUI
                 try
                 {
                     var rule = ParseRule(item);
-                    PortProxyUtil.AddOrUpdateProxy(rule);
+                    PortPorxyUtil.AddOrUpdateProxy(rule);
                 }
                 catch (NotSupportedException ex)
                 {
@@ -70,6 +98,7 @@ namespace PortProxyGUI
                     return;
                 }
             }
+            PortPorxyUtil.ParamChange();
         }
 
         private void DisableSelectedProxies()
@@ -82,7 +111,7 @@ namespace PortProxyGUI
                 try
                 {
                     var rule = ParseRule(item);
-                    PortProxyUtil.DeleteProxy(rule);
+                    PortPorxyUtil.DeleteProxy(rule);
                 }
                 catch (NotSupportedException ex)
                 {
@@ -90,13 +119,14 @@ namespace PortProxyGUI
                     return;
                 }
             }
+            PortPorxyUtil.ParamChange();
         }
 
         private void DeleteSelectedProxies()
         {
             var items = listViewProxies.SelectedItems.OfType<ListViewItem>();
             DisableSelectedProxies();
-            Program.SqliteDbScope.RemoveRange(items.Select(x => new Data.Rule { Id = x.Tag.ToString() }));
+            Program.Database.RemoveRange(items.Select(x => new Data.Rule { Id = x.Tag.ToString() }));
             foreach (var item in items) listViewProxies.Items.Remove(item);
         }
 
@@ -172,8 +202,8 @@ namespace PortProxyGUI
 
         public void RefreshProxyList()
         {
-            var proxies = PortProxyUtil.GetProxies();
-            var rules = Program.SqliteDbScope.Rules.ToArray();
+            var proxies = PortPorxyUtil.GetProxies();
+            var rules = Program.Database.Rules.ToArray();
             foreach (var proxy in proxies)
             {
                 var matchedRule = rules.FirstOrDefault(r => r.EqualsWithKeys(proxy));
@@ -188,33 +218,19 @@ namespace PortProxyGUI
                 where proxy.Valid && proxy.Id is not null
                 select proxy;
 
-            Program.SqliteDbScope.AddRange(pendingAdds);
-            Program.SqliteDbScope.UpdateRange(pendingUpdates);
+            Program.Database.AddRange(pendingAdds);
+            Program.Database.UpdateRange(pendingUpdates);
 
-            rules = Program.SqliteDbScope.Rules.ToArray();
+            rules = Program.Database.Rules.ToArray();
             InitProxyGroups(rules);
             InitProxyItems(rules, proxies);
         }
 
-        public void FlushDnsCache()
+        private void contextMenuStrip_RightClick_MouseClick(object sender, MouseEventArgs e)
         {
-            try
+            if (sender is ContextMenuStrip strip)
             {
-                CmdUtil.FlushDNSCache();
-                RefreshProxyList();
-            }
-            catch (NotSupportedException ex)
-            {
-                MessageBox.Show(ex.Message, "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-        }
-
-        private void contextMenuStrip1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (sender is ContextMenuStrip _sender)
-            {
-                var selected = _sender.Items.OfType<ToolStripMenuItem>().Where(x => x.Selected).FirstOrDefault();
+                var selected = strip.Items.OfType<ToolStripMenuItem>().Where(x => x.Selected).FirstOrDefault();
                 if (selected is null || !selected.Enabled) return;
 
                 switch (selected)
@@ -238,7 +254,7 @@ namespace PortProxyGUI
                         RefreshProxyList();
                         break;
                     case ToolStripMenuItem item when item == toolStripMenuItem_FlushDnsCache:
-                        FlushDnsCache();
+                        DnsUtil.FlushCache();
                         break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_Delete: DeleteSelectedProxies(); break;
@@ -257,21 +273,21 @@ namespace PortProxyGUI
 
         private void listView1_MouseUp(object sender, MouseEventArgs e)
         {
-            if (sender is ListView _sender)
+            if (sender is ListView listView)
             {
-                toolStripMenuItem_Enable.Enabled = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Any(x => x.ImageIndex == 0);
-                toolStripMenuItem_Disable.Enabled = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Any(x => x.ImageIndex == 1);
+                toolStripMenuItem_Enable.Enabled = e.Button == MouseButtons.Right && listView.SelectedItems.OfType<ListViewItem>().Any(x => x.ImageIndex == 0);
+                toolStripMenuItem_Disable.Enabled = e.Button == MouseButtons.Right && listView.SelectedItems.OfType<ListViewItem>().Any(x => x.ImageIndex == 1);
 
-                toolStripMenuItem_Delete.Enabled = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Any();
-                toolStripMenuItem_Modify.Enabled = e.Button == MouseButtons.Right && _sender.SelectedItems.OfType<ListViewItem>().Count() == 1;
+                toolStripMenuItem_Delete.Enabled = e.Button == MouseButtons.Right && listView.SelectedItems.OfType<ListViewItem>().Any();
+                toolStripMenuItem_Modify.Enabled = e.Button == MouseButtons.Right && listView.SelectedItems.OfType<ListViewItem>().Count() == 1;
             }
         }
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            if (sender is ListView _sender)
+            if (sender is ListView listView)
             {
-                var selectAny = _sender.SelectedItems.OfType<ListViewItem>().Any();
+                var selectAny = listView.SelectedItems.OfType<ListViewItem>().Any();
                 if (selectAny)
                 {
                     if (SetProxyForm == null) SetProxyForm = new SetProxy(this);
@@ -313,6 +329,70 @@ namespace PortProxyGUI
             {
                 if (e.KeyCode == Keys.Delete) DeleteSelectedProxies();
             }
+        }
+
+        private void listViewProxies_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
+        {
+            if (AppConfig is not null && sender is ListView listView)
+            {
+                AppConfig.PortProxyColumnWidths[e.ColumnIndex] = listView.Columns[e.ColumnIndex].Width;
+            }
+        }
+
+        private void PortProxyGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.Database.SaveAppConfig(AppConfig);
+        }
+
+        private void PortProxyGUI_Resize(object sender, EventArgs e)
+        {
+            if (AppConfig is not null && sender is Form form)
+            {
+                AppConfig.MainWindowSize = form.Size;
+            }
+        }
+
+        private void toolStripMenuItem_Export_Click(object sender, EventArgs e)
+        {
+            using var dialog = saveFileDialog_Export;
+
+            var result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var fileName = dialog.FileName;
+                File.Copy(ApplicationDbScope.AppDbFile, fileName, true);
+            }
+        }
+
+        private void toolStripMenuItem_Import_Click(object sender, EventArgs e)
+        {
+            using var dialog = openFileDialog_Import;
+
+            var result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var fileName = dialog.FileName;
+                using (var scope = ApplicationDbScope.FromFile(fileName))
+                {
+                    foreach (var rule in scope.Rules)
+                    {
+                        var exsist = Program.Database.GetRule(rule.Type, rule.ListenOn, rule.ListenPort);
+                        if (exsist is null)
+                        {
+                            rule.Id = Guid.NewGuid().ToString();
+                            Program.Database.Add(rule);
+                        }
+                    }
+                }
+
+                RefreshProxyList();
+            }
+        }
+
+        private void toolStripMenuItem_ResetWindowSize_Click(object sender, EventArgs e)
+        {
+            AppConfig = new AppConfig();
+            ResetWindowSize();
         }
     }
 }

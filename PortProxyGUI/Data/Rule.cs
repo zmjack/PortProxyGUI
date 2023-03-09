@@ -60,5 +60,10 @@ namespace PortProxyGUI.Data
             if (int.TryParse(portString, out var port) && 0 < port && port < 65536) return port;
             else throw new NotSupportedException($"Invalid port string. ({portString})");
         }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Rule);
+        }
     }
 }

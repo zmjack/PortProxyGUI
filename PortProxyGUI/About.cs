@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PortProxyGUI.Utils;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace PortProxyGUI
             PortProxyGUI = portProxyGUI;
 
             InitializeComponent();
-            Font = Util.UiFont;
+            Font = InterfaceUtil.UiFont;
 
             label_version.Text = label_version.Text + "  v" + Application.ProductVersion;
         }

@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace PortProxyGUI.Data
 {
-    public class ApplicationDbMigrationUtil
+    public class MigrationUtil
     {
         public ApplicationDbScope DbScope { get; private set; }
 
-        public ApplicationDbMigrationUtil(ApplicationDbScope context)
+        public MigrationUtil(ApplicationDbScope context)
         {
             DbScope = context;
             EnsureHistoryTable();
@@ -29,7 +29,7 @@ namespace PortProxyGUI.Data
 
         public void EnsureUpdateVersion()
         {
-            var migration = GetLastMigration();
+            var migration = DbScope.GetLastMigration();
             var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
 
             if (new Version(migration.ProductVersion) > assemblyVersion)
@@ -47,14 +47,9 @@ Would you like to download it now?", "Upgrade", MessageBoxButtons.YesNo, Message
             }
         }
 
-        public Migration GetLastMigration()
-        {
-            return DbScope.SqlQuery<Migration>($"SELECT * FROM __history ORDER BY MigrationId DESC LIMIT 1;").First();
-        }
-
         public void MigrateToLast()
         {
-            var migration = GetLastMigration();
+            var migration = DbScope.GetLastMigration();
             var migrationId = migration.MigrationId;
             var pendingMigrations = migrationId != "000000000000"
                 ? History.SkipWhile(pair => pair.Key.MigrationId != migrationId).Skip(1)
@@ -111,6 +106,21 @@ Would you like to download it now?", "Upgrade", MessageBoxButtons.YesNo, Message
 
                 "INSERT INTO rules SELECT Id, Type, ListenOn, ListenPort, ConnectTo, ConnectPort, Note, `Group` FROM rulesOld;",
                 "DROP TABLE rulesOld;",
+            },
+
+            [new MigrationKey { MigrationId = "202303092024", ProductVersion = "1.4.0" }] = new[]
+            {
+                @"CREATE TABLE configs (
+	Item text,
+	`Key` text,
+	Value text
+);",
+
+"CREATE UNIQUE INDEX IX_Configs_Key ON configs ( Item, `Key` );",
+
+"INSERT INTO configs ( Item, `Key`, Value ) VALUES ( 'MainWindow', 'Width', '720' );",
+"INSERT INTO configs ( Item, `Key`, Value ) VALUES ( 'MainWindow', 'Height', '500' );",
+"INSERT INTO configs ( Item, `Key`, Value ) VALUES ( 'PortProxy', 'ColumnWidths', '[24, 64, 140, 100, 140, 100, 100]' );",
             },
         };
     }

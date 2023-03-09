@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Windows.Forms;
 
-namespace PortProxyGUI
+namespace PortProxyGUI.UI
 {
     public class ListViewColumnSorter : IComparer
     {
@@ -68,7 +68,7 @@ namespace PortProxyGUI
             else if (OrderOfSort == SortOrder.Descending)
             {
                 // Descending sort is selected, return negative result of compare operation
-                return (-compareResult);
+                return -compareResult;
             }
             else
             {

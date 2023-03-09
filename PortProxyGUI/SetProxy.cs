@@ -1,5 +1,6 @@
 ﻿using NStandard;
 using PortProxyGUI.Data;
+using PortProxyGUI.Utils;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace PortProxyGUI
             ParentWindow = parent;
 
             InitializeComponent();
-            Font = Util.UiFont;
+            Font = InterfaceUtil.UiFont;
 
             AutoTypeString = comboBox_Type.Text = comboBox_Type.Items.OfType<string>().First();
             var groupNames = (
@@ -115,22 +116,23 @@ namespace PortProxyGUI
 
             if (_updateMode)
             {
-                var oldRule = Program.SqliteDbScope.GetRule(_itemRule.Type, _itemRule.ListenOn, _itemRule.ListenPort);
-                PortProxyUtil.DeleteProxy(oldRule);
-                Program.SqliteDbScope.Remove(oldRule);
+                var oldRule = Program.Database.GetRule(_itemRule.Type, _itemRule.ListenOn, _itemRule.ListenPort);
+                PortPorxyUtil.DeleteProxy(oldRule);
+                Program.Database.Remove(oldRule);
 
-                PortProxyUtil.AddOrUpdateProxy(rule);
-                Program.SqliteDbScope.Add(rule);
+                PortPorxyUtil.AddOrUpdateProxy(rule);
+                Program.Database.Add(rule);
 
                 ParentWindow.UpdateListViewItem(_listViewItem, rule, 1);
             }
             else
             {
-                PortProxyUtil.AddOrUpdateProxy(rule);
-                Program.SqliteDbScope.Add(rule);
+                PortPorxyUtil.AddOrUpdateProxy(rule);
+                Program.Database.Add(rule);
 
                 ParentWindow.RefreshProxyList();
             }
+            PortPorxyUtil.ParamChange();
 
             Close();
         }
