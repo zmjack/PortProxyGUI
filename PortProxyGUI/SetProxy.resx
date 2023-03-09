@@ -63,17 +63,17 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label_ListenOn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
+    <value>Microsoft YaHei UI, 9.75pt</value>
   </data>
   <data name="label_ListenOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 62</value>
+    <value>8, 13</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label_ListenOn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_ListenOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 17</value>
+    <value>65, 19</value>
   </data>
   <data name="label_ListenOn.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -97,13 +97,13 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="textBox_ListenOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 58</value>
+    <value>97, 12</value>
   </data>
   <data name="textBox_ListenOn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="textBox_ListenOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 23</value>
+    <value>220, 23</value>
   </data>
   <data name="textBox_ListenOn.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -130,16 +130,16 @@
     <value>True</value>
   </data>
   <data name="label_ConnectTo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
+    <value>Microsoft YaHei UI, 9.75pt</value>
   </data>
   <data name="label_ConnectTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 93</value>
+    <value>8, 55</value>
   </data>
   <data name="label_ConnectTo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_ConnectTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 17</value>
+    <value>78, 19</value>
   </data>
   <data name="label_ConnectTo.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -163,13 +163,13 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="textBox_ConnectTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 90</value>
+    <value>97, 54</value>
   </data>
   <data name="textBox_ConnectTo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="textBox_ConnectTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 23</value>
+    <value>220, 23</value>
   </data>
   <data name="textBox_ConnectTo.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -193,7 +193,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="textBox_ConnectPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 90</value>
+    <value>368, 54</value>
   </data>
   <data name="textBox_ConnectPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -223,16 +223,16 @@
     <value>True</value>
   </data>
   <data name="label_ConnectPort.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
+    <value>Microsoft YaHei UI, 9.75pt</value>
   </data>
   <data name="label_ConnectPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 93</value>
+    <value>325, 57</value>
   </data>
   <data name="label_ConnectPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_ConnectPort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 17</value>
+    <value>35, 19</value>
   </data>
   <data name="label_ConnectPort.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -252,23 +252,26 @@
   <data name="&gt;&gt;label_ConnectPort.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="button_Set.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="button_Set.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
+    <value>Microsoft YaHei UI, 11.25pt</value>
   </data>
   <data name="button_Set.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 134</value>
+    <value>122, 172</value>
   </data>
   <data name="button_Set.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
   </data>
   <data name="button_Set.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 31</value>
+    <value>214, 31</value>
   </data>
   <data name="button_Set.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="button_Set.Text" xml:space="preserve">
-    <value>Set</value>
+    <value>Set Proxy</value>
   </data>
   <data name="&gt;&gt;button_Set.Name" xml:space="preserve">
     <value>button_Set</value>
@@ -286,16 +289,16 @@
     <value>True</value>
   </data>
   <data name="label_Type.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
+    <value>Microsoft YaHei UI, 9.75pt</value>
   </data>
   <data name="label_Type.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 16</value>
+    <value>8, 131</value>
   </data>
   <data name="label_Type.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_Type.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 17</value>
+    <value>38, 19</value>
   </data>
   <data name="label_Type.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -319,16 +322,16 @@
     <value>True</value>
   </data>
   <data name="label_ListenPort.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
+    <value>Microsoft YaHei UI, 9.75pt</value>
   </data>
   <data name="label_ListenPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 62</value>
+    <value>325, 13</value>
   </data>
   <data name="label_ListenPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_ListenPort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 17</value>
+    <value>35, 19</value>
   </data>
   <data name="label_ListenPort.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -352,7 +355,7 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="textBox_ListenPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 58</value>
+    <value>368, 12</value>
   </data>
   <data name="textBox_ListenPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -397,13 +400,13 @@
     <value>v6tov6</value>
   </data>
   <data name="comboBox_Type.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 13</value>
+    <value>97, 130</value>
   </data>
   <data name="comboBox_Type.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="comboBox_Type.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 25</value>
+    <value>129, 25</value>
   </data>
   <data name="comboBox_Type.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -424,19 +427,19 @@
     <value>True</value>
   </data>
   <data name="label_Comment.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
+    <value>Microsoft YaHei UI, 9.75pt</value>
   </data>
   <data name="label_Comment.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label_Comment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 141</value>
+    <value>8, 93</value>
   </data>
   <data name="label_Comment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_Comment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 17</value>
+    <value>70, 19</value>
   </data>
   <data name="label_Comment.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -460,13 +463,13 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="textBox_Comment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 138</value>
+    <value>97, 92</value>
   </data>
   <data name="textBox_Comment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="textBox_Comment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 23</value>
+    <value>357, 23</value>
   </data>
   <data name="textBox_Comment.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -490,19 +493,19 @@
     <value>True</value>
   </data>
   <data name="label_Group.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
+    <value>Microsoft YaHei UI, 9.75pt</value>
   </data>
   <data name="label_Group.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label_Group.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 16</value>
+    <value>251, 132</value>
   </data>
   <data name="label_Group.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label_Group.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 17</value>
+    <value>48, 19</value>
   </data>
   <data name="label_Group.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -526,13 +529,13 @@
     <value>Microsoft YaHei UI, 9pt</value>
   </data>
   <data name="comboBox_Group.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 13</value>
+    <value>310, 130</value>
   </data>
   <data name="comboBox_Group.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="comboBox_Group.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 25</value>
+    <value>144, 25</value>
   </data>
   <data name="comboBox_Group.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -556,7 +559,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>398, 183</value>
+    <value>467, 216</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2718,6 +2721,9 @@
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
+  </data>
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>Manual</value>

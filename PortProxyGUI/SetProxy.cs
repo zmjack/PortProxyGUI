@@ -1,7 +1,6 @@
 ﻿using NStandard;
 using PortProxyGUI.Data;
 using System;
-using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
