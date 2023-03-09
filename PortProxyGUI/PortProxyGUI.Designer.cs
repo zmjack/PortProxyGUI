@@ -37,6 +37,7 @@
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnPingStatus = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem_Enable = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +52,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
             this.imageListProxies = new System.Windows.Forms.ImageList(this.components);
+            this.TimerPingTargets = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +66,7 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
+            this.columnPingStatus,
             this.columnHeader7});
             this.listViewProxies.ContextMenuStrip = this.contextMenuStrip1;
             resources.ApplyResources(this.listViewProxies, "listViewProxies");
@@ -103,6 +106,10 @@
             // 
             this.columnHeader6.Tag = "";
             resources.ApplyResources(this.columnHeader6, "columnHeader6");
+            // 
+            // columnPingStatus
+            // 
+            resources.ApplyResources(this.columnPingStatus, "columnPingStatus");
             // 
             // columnHeader7
             // 
@@ -189,6 +196,12 @@
             this.imageListProxies.Images.SetKeyName(0, "disable.png");
             this.imageListProxies.Images.SetKeyName(1, "enable.png");
             // 
+            // TimerPingTargets
+            // 
+            this.TimerPingTargets.Enabled = true;
+            this.TimerPingTargets.Interval = 5000;
+            this.TimerPingTargets.Tick += new System.EventHandler(this.TimerPingTargets_Tick);
+            // 
             // PortProxyGUI
             // 
             resources.ApplyResources(this, "$this");
@@ -224,6 +237,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         internal System.Windows.Forms.ListView listViewProxies;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_FlushDnsCache;
+        private System.Windows.Forms.ColumnHeader columnPingStatus;
+        private System.Windows.Forms.Timer TimerPingTargets;
     }
 }
 

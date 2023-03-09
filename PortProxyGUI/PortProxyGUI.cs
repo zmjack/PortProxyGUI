@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
 
@@ -46,7 +47,8 @@ namespace PortProxyGUI
                 ListenPort = listenPort,
                 ConnectTo = subItems[4].Text.Trim(),
                 ConnectPort = connectPort,
-                Comment = subItems[6].Text.Trim(),
+                PingStatus = subItems[6].Text.Trim(),
+                Comment = subItems[7].Text.Trim(),
                 Group = item.Group?.Header.Trim(),
             };
             return rule;
@@ -154,7 +156,8 @@ namespace PortProxyGUI
                 new ListViewSubItem(item, rule.ListenPort.ToString()) { Tag = "Number" },
                 new ListViewSubItem(item, rule.ConnectTo),
                 new ListViewSubItem(item, rule.ConnectPort.ToString ()) { Tag = "Number" },
-                new ListViewSubItem(item, rule.Comment ?? ""),
+                new ListViewSubItem(item, rule.PingStatus ?? string.Empty),
+                new ListViewSubItem(item, rule.Comment ?? string.Empty)
             });
 
             if (rule.Group.IsNullOrWhiteSpace()) item.Group = null;
@@ -313,6 +316,29 @@ namespace PortProxyGUI
             {
                 if (e.KeyCode == Keys.Delete) DeleteSelectedProxies();
             }
+        }
+
+        private void TimerPingTargets_Tick(object sender, EventArgs e)
+        {
+            TimerPingTargets.Stop();
+            try
+            {
+                var items = listViewProxies.Items.OfType<ListViewItem>();
+                foreach (var item in items)
+                {
+                    try
+                    {
+                        var rule = ParseRule(item);
+                        //Ping Host
+                        PingCheckerUtil.GetPingResult(rule.ConnectTo, 2, out IPStatus ipStatus, out _, out _);
+                        rule.PingStatus = ipStatus.ToString();
+                        UpdateListViewItem(item, rule, item.ImageIndex);
+                    }
+                    catch { }
+                }
+            }
+            catch { }
+            TimerPingTargets.Start();
         }
     }
 }

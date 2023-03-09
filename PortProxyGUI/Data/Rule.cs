@@ -13,6 +13,7 @@ namespace PortProxyGUI.Data
         public int ConnectPort { get; set; }
         public string Comment { get; set; }
         public string Group { get; set; }
+        public string PingStatus { get; set; }
 
         public bool Valid => ListenPort > 0 && ConnectPort > 0;
 
