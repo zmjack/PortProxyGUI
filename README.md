@@ -8,6 +8,10 @@ A manager for netsh interface portproxy, which is to evaluate TCP/IP port redire
 
 ## Upgrade
 
+- **v1.4.0**
+  - Command line calls have been removed to provide better performance.
+  - New Feature Added: **Remember Window/Colum Size**.
+  - New Feature Added: **Flush DNS Cache**.
 - **v1.3.1 - v1.3.2**
   - Fix program crash caused by wrong rules.
 - **v1.3.0**
