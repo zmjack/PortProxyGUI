@@ -116,17 +116,11 @@
   <data name="toolStripMenuItem_Enable.Text" xml:space="preserve">
     <value>Enable (&amp;E)</value>
   </data>
-  <data name="toolStripMenuItem_Enable.ToolTipText" xml:space="preserve">
-    <value>Enable current Proxy</value>
-  </data>
   <data name="toolStripMenuItem_Disable.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
   </data>
   <data name="toolStripMenuItem_Disable.Text" xml:space="preserve">
     <value>Disable (&amp;I)</value>
-  </data>
-  <data name="toolStripMenuItem_Disable.ToolTipText" xml:space="preserve">
-    <value>Disable Current Proxy</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>177, 6</value>
@@ -156,7 +150,7 @@
     <value>Flush DNS Cache</value>
   </data>
   <data name="toolStripMenuItem_FlushDnsCache.ToolTipText" xml:space="preserve">
-    <value>Click to perform ipconfig/flushDNS</value>
+    <value>Perform ipconfig/flushDNS</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>177, 6</value>
@@ -221,7 +215,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZTeXN0ZW0uV2luZG93cy5Gb3JtcywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAmU3lzdGVtLldpbmRvd3MuRm9ybXMu
         SW1hZ2VMaXN0U3RyZWFtZXIBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA3AgAAAJNU0Z0AUkBTAIBAQIB
-        AAFwAQEBcAEBARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAEQAwABAQEAAQgG
+        AAF4AQEBeAEBARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAEQAwABAQEAAQgG
         AAEEGAABgAIAAYADAAKAAQABgAMAAYABAAGAAQACgAIAA8ABAAHAAdwBwAEAAfABygGmAQABMwUAATMB
         AAEzAQABMwEAAjMCAAMWAQADHAEAAyIBAAMpAQADVQEAA00BAANCAQADOQEAAYABfAH/AQACUAH/AQAB
         kwEAAdYBAAH/AewBzAEAAcYB1gHvAQAB1gLnAQABkAGpAa0CAAH/ATMDAAFmAwABmQMAAcwCAAEzAwAC
