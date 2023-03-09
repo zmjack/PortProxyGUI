@@ -79,6 +79,7 @@
             // button_Set
             // 
             resources.ApplyResources(this.button_Set, "button_Set");
+            this.button_Set.ForeColor = System.Drawing.Color.SteelBlue;
             this.button_Set.Name = "button_Set";
             this.button_Set.UseVisualStyleBackColor = true;
             this.button_Set.Click += new System.EventHandler(this.button_Set_Click);
@@ -136,6 +137,7 @@
             this.AcceptButton = this.button_Set;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Controls.Add(this.comboBox_Group);
             this.Controls.Add(this.label_Group);
             this.Controls.Add(this.textBox_Comment);
@@ -155,6 +157,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SetProxy";
+            this.Opacity = 0.98D;
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetProxyForm_FormClosing);
             this.Load += new System.EventHandler(this.SetProxyForm_Load);

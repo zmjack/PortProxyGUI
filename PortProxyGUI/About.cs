@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace PortProxyGUI
@@ -16,7 +15,7 @@ namespace PortProxyGUI
             InitializeComponent();
             Font = Util.UiFont;
 
-            label_version.Text = label_version.Text + "  v" + Application.ProductVersion;
+            label_version.Text = this.Text = string.Format("Port Proxy GUI v{0}", Program.AppVersion);
         }
 
         private void linkLabel1_Click(object sender, EventArgs e)

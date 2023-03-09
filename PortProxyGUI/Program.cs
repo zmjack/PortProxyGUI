@@ -1,5 +1,6 @@
 using PortProxyGUI.Data;
 using System;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace PortProxyGUI
@@ -7,7 +8,7 @@ namespace PortProxyGUI
     static class Program
     {
         public static readonly ApplicationDbScope SqliteDbScope = ApplicationDbScope.UseDefault();
-
+        public static readonly string AppVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
