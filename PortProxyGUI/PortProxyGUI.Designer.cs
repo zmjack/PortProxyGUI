@@ -28,213 +28,224 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PortProxyGUI));
-            listViewProxies = new System.Windows.Forms.ListView();
-            columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            columnHeader7 = new System.Windows.Forms.ColumnHeader();
-            contextMenuStrip_RightClick = new System.Windows.Forms.ContextMenuStrip(components);
-            toolStripMenuItem_Enable = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripMenuItem_Disable = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripMenuItem_Refresh = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripMenuItem_FlushDnsCache = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripMenuItem_New = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripMenuItem_Modify = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripMenuItem_Delete = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripMenuItem_More = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripMenuItem_Import = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripMenuItem_Export = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
-            imageListProxies = new System.Windows.Forms.ImageList(components);
-            saveFileDialog_Export = new System.Windows.Forms.SaveFileDialog();
-            openFileDialog_Import = new System.Windows.Forms.OpenFileDialog();
-            toolStripMenuItem_ResetWindowSize = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            contextMenuStrip_RightClick.SuspendLayout();
-            SuspendLayout();
+            this.listViewProxies = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.contextMenuStrip_RightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem_Enable = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Disable = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem_Refresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_FlushDnsCache = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem_New = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Modify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem_More = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Import = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Export = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem_ResetWindowSize = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageListProxies = new System.Windows.Forms.ImageList(this.components);
+            this.saveFileDialog_Export = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog_Import = new System.Windows.Forms.OpenFileDialog();
+            this.contextMenuStrip_RightClick.SuspendLayout();
+            this.SuspendLayout();
             // 
             // listViewProxies
             // 
-            listViewProxies.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            listViewProxies.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
-            listViewProxies.ContextMenuStrip = contextMenuStrip_RightClick;
-            resources.ApplyResources(listViewProxies, "listViewProxies");
-            listViewProxies.FullRowSelect = true;
-            listViewProxies.HideSelection = false;
-            listViewProxies.Name = "listViewProxies";
-            listViewProxies.SmallImageList = imageListProxies;
-            listViewProxies.UseCompatibleStateImageBehavior = false;
-            listViewProxies.View = System.Windows.Forms.View.Details;
-            listViewProxies.ColumnClick += listView1_ColumnClick;
-            listViewProxies.ColumnWidthChanged += listViewProxies_ColumnWidthChanged;
-            listViewProxies.DoubleClick += listView1_DoubleClick;
-            listViewProxies.KeyUp += listViewProxies_KeyUp;
-            listViewProxies.MouseUp += listView1_MouseUp;
+            this.listViewProxies.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewProxies.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.listViewProxies.ContextMenuStrip = this.contextMenuStrip_RightClick;
+            resources.ApplyResources(this.listViewProxies, "listViewProxies");
+            this.listViewProxies.FullRowSelect = true;
+            this.listViewProxies.Name = "listViewProxies";
+            this.listViewProxies.SmallImageList = this.imageListProxies;
+            this.listViewProxies.UseCompatibleStateImageBehavior = false;
+            this.listViewProxies.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
-            resources.ApplyResources(columnHeader1, "columnHeader1");
+            resources.ApplyResources(this.columnHeader1, "columnHeader1");
             // 
             // columnHeader2
             // 
-            resources.ApplyResources(columnHeader2, "columnHeader2");
+            resources.ApplyResources(this.columnHeader2, "columnHeader2");
             // 
             // columnHeader3
             // 
-            resources.ApplyResources(columnHeader3, "columnHeader3");
+            resources.ApplyResources(this.columnHeader3, "columnHeader3");
             // 
             // columnHeader4
             // 
-            columnHeader4.Tag = "";
-            resources.ApplyResources(columnHeader4, "columnHeader4");
+            this.columnHeader4.Tag = "";
+            resources.ApplyResources(this.columnHeader4, "columnHeader4");
             // 
             // columnHeader5
             // 
-            resources.ApplyResources(columnHeader5, "columnHeader5");
+            resources.ApplyResources(this.columnHeader5, "columnHeader5");
             // 
             // columnHeader6
             // 
-            columnHeader6.Tag = "";
-            resources.ApplyResources(columnHeader6, "columnHeader6");
+            this.columnHeader6.Tag = "";
+            resources.ApplyResources(this.columnHeader6, "columnHeader6");
             // 
             // columnHeader7
             // 
-            resources.ApplyResources(columnHeader7, "columnHeader7");
+            resources.ApplyResources(this.columnHeader7, "columnHeader7");
             // 
             // contextMenuStrip_RightClick
             // 
-            contextMenuStrip_RightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem_Enable, toolStripMenuItem_Disable, toolStripSeparator3, toolStripMenuItem_Refresh, toolStripMenuItem_FlushDnsCache, toolStripSeparator2, toolStripMenuItem_New, toolStripMenuItem_Modify, toolStripMenuItem_Delete, toolStripSeparator1, toolStripMenuItem_More, toolStripSeparator4, toolStripMenuItem_About });
-            contextMenuStrip_RightClick.Name = "contextMenuStrip1";
-            resources.ApplyResources(contextMenuStrip_RightClick, "contextMenuStrip_RightClick");
-            contextMenuStrip_RightClick.MouseClick += contextMenuStrip_RightClick_MouseClick;
+            this.contextMenuStrip_RightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Enable,
+            this.toolStripMenuItem_Disable,
+            this.toolStripSeparator3,
+            this.toolStripMenuItem_Refresh,
+            this.toolStripMenuItem_FlushDnsCache,
+            this.toolStripSeparator2,
+            this.toolStripMenuItem_New,
+            this.toolStripMenuItem_Modify,
+            this.toolStripMenuItem_Delete,
+            this.toolStripSeparator1,
+            this.toolStripMenuItem_More,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem_About});
+            this.contextMenuStrip_RightClick.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip_RightClick, "contextMenuStrip_RightClick");
             // 
             // toolStripMenuItem_Enable
             // 
-            toolStripMenuItem_Enable.Name = "toolStripMenuItem_Enable";
-            resources.ApplyResources(toolStripMenuItem_Enable, "toolStripMenuItem_Enable");
+            this.toolStripMenuItem_Enable.Name = "toolStripMenuItem_Enable";
+            resources.ApplyResources(this.toolStripMenuItem_Enable, "toolStripMenuItem_Enable");
             // 
             // toolStripMenuItem_Disable
             // 
-            toolStripMenuItem_Disable.Name = "toolStripMenuItem_Disable";
-            resources.ApplyResources(toolStripMenuItem_Disable, "toolStripMenuItem_Disable");
+            this.toolStripMenuItem_Disable.Name = "toolStripMenuItem_Disable";
+            resources.ApplyResources(this.toolStripMenuItem_Disable, "toolStripMenuItem_Disable");
             // 
             // toolStripSeparator3
             // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            resources.ApplyResources(toolStripSeparator3, "toolStripSeparator3");
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // toolStripMenuItem_Refresh
             // 
-            toolStripMenuItem_Refresh.Name = "toolStripMenuItem_Refresh";
-            resources.ApplyResources(toolStripMenuItem_Refresh, "toolStripMenuItem_Refresh");
+            this.toolStripMenuItem_Refresh.Name = "toolStripMenuItem_Refresh";
+            resources.ApplyResources(this.toolStripMenuItem_Refresh, "toolStripMenuItem_Refresh");
             // 
             // toolStripMenuItem_FlushDnsCache
             // 
-            toolStripMenuItem_FlushDnsCache.Name = "toolStripMenuItem_FlushDnsCache";
-            resources.ApplyResources(toolStripMenuItem_FlushDnsCache, "toolStripMenuItem_FlushDnsCache");
+            this.toolStripMenuItem_FlushDnsCache.Name = "toolStripMenuItem_FlushDnsCache";
+            resources.ApplyResources(this.toolStripMenuItem_FlushDnsCache, "toolStripMenuItem_FlushDnsCache");
             // 
             // toolStripSeparator2
             // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(toolStripSeparator2, "toolStripSeparator2");
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // toolStripMenuItem_New
             // 
-            toolStripMenuItem_New.Name = "toolStripMenuItem_New";
-            resources.ApplyResources(toolStripMenuItem_New, "toolStripMenuItem_New");
+            this.toolStripMenuItem_New.Name = "toolStripMenuItem_New";
+            resources.ApplyResources(this.toolStripMenuItem_New, "toolStripMenuItem_New");
             // 
             // toolStripMenuItem_Modify
             // 
-            toolStripMenuItem_Modify.Name = "toolStripMenuItem_Modify";
-            resources.ApplyResources(toolStripMenuItem_Modify, "toolStripMenuItem_Modify");
+            this.toolStripMenuItem_Modify.Name = "toolStripMenuItem_Modify";
+            resources.ApplyResources(this.toolStripMenuItem_Modify, "toolStripMenuItem_Modify");
             // 
             // toolStripMenuItem_Delete
             // 
-            toolStripMenuItem_Delete.Name = "toolStripMenuItem_Delete";
-            resources.ApplyResources(toolStripMenuItem_Delete, "toolStripMenuItem_Delete");
+            this.toolStripMenuItem_Delete.Name = "toolStripMenuItem_Delete";
+            resources.ApplyResources(this.toolStripMenuItem_Delete, "toolStripMenuItem_Delete");
             // 
             // toolStripSeparator1
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // toolStripMenuItem_More
             // 
-            toolStripMenuItem_More.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem_Import, toolStripMenuItem_Export, toolStripSeparator5, toolStripMenuItem_ResetWindowSize });
-            toolStripMenuItem_More.Name = "toolStripMenuItem_More";
-            resources.ApplyResources(toolStripMenuItem_More, "toolStripMenuItem_More");
+            this.toolStripMenuItem_More.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Import,
+            this.toolStripMenuItem_Export,
+            this.toolStripSeparator5,
+            this.toolStripMenuItem_ResetWindowSize});
+            this.toolStripMenuItem_More.Name = "toolStripMenuItem_More";
+            resources.ApplyResources(this.toolStripMenuItem_More, "toolStripMenuItem_More");
             // 
             // toolStripMenuItem_Import
             // 
-            toolStripMenuItem_Import.Name = "toolStripMenuItem_Import";
-            resources.ApplyResources(toolStripMenuItem_Import, "toolStripMenuItem_Import");
-            toolStripMenuItem_Import.Click += toolStripMenuItem_Import_Click;
+            this.toolStripMenuItem_Import.Name = "toolStripMenuItem_Import";
+            resources.ApplyResources(this.toolStripMenuItem_Import, "toolStripMenuItem_Import");
             // 
             // toolStripMenuItem_Export
             // 
-            toolStripMenuItem_Export.Name = "toolStripMenuItem_Export";
-            resources.ApplyResources(toolStripMenuItem_Export, "toolStripMenuItem_Export");
-            toolStripMenuItem_Export.Click += toolStripMenuItem_Export_Click;
-            // 
-            // toolStripSeparator4
-            // 
-            toolStripSeparator4.Name = "toolStripSeparator4";
-            resources.ApplyResources(toolStripSeparator4, "toolStripSeparator4");
-            // 
-            // toolStripMenuItem_About
-            // 
-            toolStripMenuItem_About.Name = "toolStripMenuItem_About";
-            resources.ApplyResources(toolStripMenuItem_About, "toolStripMenuItem_About");
-            // 
-            // imageListProxies
-            // 
-            imageListProxies.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            imageListProxies.ImageStream = (System.Windows.Forms.ImageListStreamer)resources.GetObject("imageListProxies.ImageStream");
-            imageListProxies.TransparentColor = System.Drawing.Color.Transparent;
-            imageListProxies.Images.SetKeyName(0, "disable.png");
-            imageListProxies.Images.SetKeyName(1, "enable.png");
-            // 
-            // saveFileDialog_Export
-            // 
-            resources.ApplyResources(saveFileDialog_Export, "saveFileDialog_Export");
-            // 
-            // openFileDialog_Import
-            // 
-            openFileDialog_Import.FileName = "openFileDialog1";
-            resources.ApplyResources(openFileDialog_Import, "openFileDialog_Import");
-            // 
-            // toolStripMenuItem_ResetWindowSize
-            // 
-            toolStripMenuItem_ResetWindowSize.Name = "toolStripMenuItem_ResetWindowSize";
-            resources.ApplyResources(toolStripMenuItem_ResetWindowSize, "toolStripMenuItem_ResetWindowSize");
-            toolStripMenuItem_ResetWindowSize.Click += toolStripMenuItem_ResetWindowSize_Click;
+            this.toolStripMenuItem_Export.Name = "toolStripMenuItem_Export";
+            resources.ApplyResources(this.toolStripMenuItem_Export, "toolStripMenuItem_Export");
             // 
             // toolStripSeparator5
             // 
-            toolStripSeparator5.Name = "toolStripSeparator5";
-            resources.ApplyResources(toolStripSeparator5, "toolStripSeparator5");
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
+            // 
+            // toolStripMenuItem_ResetWindowSize
+            // 
+            this.toolStripMenuItem_ResetWindowSize.Name = "toolStripMenuItem_ResetWindowSize";
+            resources.ApplyResources(this.toolStripMenuItem_ResetWindowSize, "toolStripMenuItem_ResetWindowSize");
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
+            // toolStripMenuItem_About
+            // 
+            this.toolStripMenuItem_About.Name = "toolStripMenuItem_About";
+            resources.ApplyResources(this.toolStripMenuItem_About, "toolStripMenuItem_About");
+            // 
+            // imageListProxies
+            // 
+            this.imageListProxies.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListProxies.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProxies.ImageStream")));
+            this.imageListProxies.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListProxies.Images.SetKeyName(0, "disable.png");
+            this.imageListProxies.Images.SetKeyName(1, "enable.png");
+            // 
+            // saveFileDialog_Export
+            // 
+            resources.ApplyResources(this.saveFileDialog_Export, "saveFileDialog_Export");
+            // 
+            // openFileDialog_Import
+            // 
+            this.openFileDialog_Import.FileName = "openFileDialog1";
+            resources.ApplyResources(this.openFileDialog_Import, "openFileDialog_Import");
             // 
             // PortProxyGUI
             // 
             resources.ApplyResources(this, "$this");
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(listViewProxies);
-            Name = "PortProxyGUI";
-            FormClosing += PortProxyGUI_FormClosing;
-            Load += PortProxyGUI_Load;
-            Shown += PortProxyGUI_Shown;
-            Resize += PortProxyGUI_Resize;
-            contextMenuStrip_RightClick.ResumeLayout(false);
-            ResumeLayout(false);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listViewProxies);
+            this.Name = "PortProxyGUI";
+            this.contextMenuStrip_RightClick.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

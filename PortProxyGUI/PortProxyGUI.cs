@@ -4,7 +4,6 @@ using PortProxyGUI.UI;
 using PortProxyGUI.Utils;
 using System;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -30,6 +29,7 @@ namespace PortProxyGUI
 
         private void PortProxyGUI_Load(object sender, EventArgs e)
         {
+            this.Text = string.Format("Port Proxy GUI v{0}", Application.ProductVersion);
             AppConfig = Program.Database.GetAppConfig();
 
             var size = AppConfig.MainWindowSize;
