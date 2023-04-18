@@ -4,6 +4,12 @@ A manager for netsh interface portproxy, which is to evaluate TCP/IP port redire
 
 ![UI](https://raw.githubusercontent.com/zmjack/PortProxyGUI/master/docs/ui.png)
 
+
+
+**The software does not configure the firewall.**
+
+**If necessary, manually configure the firewall.**
+
 <br/>
 
 ## Upgrade
