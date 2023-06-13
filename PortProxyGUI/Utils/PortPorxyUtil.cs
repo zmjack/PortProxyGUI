@@ -113,7 +113,7 @@ namespace PortProxyGUI.Utils
             var hManager = NativeMethods.OpenSCManager(null, null, (uint)GenericRights.GENERIC_READ | (uint)ScmRights.SC_MANAGER_CONNECT);
             if (hManager == IntPtr.Zero) throw new InvalidOperationException("Open SC Manager failed.");
 
-            var hService = NativeMethods.OpenService(hManager, ServiceName, ServiceRights.SERVICE_PAUSE_CONTINUE | ServiceRights.SERVICE_START);
+            var hService = NativeMethods.OpenService(hManager, ServiceName, ServiceRights.SERVICE_START);
             if (hService == IntPtr.Zero)
             {
                 NativeMethods.CloseServiceHandle(hManager);
@@ -128,7 +128,7 @@ namespace PortProxyGUI.Utils
 
         public static void ParamChange()
         {
-            var hManager = NativeMethods.OpenSCManager(null, null, (uint)GenericRights.GENERIC_READ | (uint)ScmRights.SC_MANAGER_CONNECT);
+            var hManager = NativeMethods.OpenSCManager(null, null, (uint)GenericRights.GENERIC_READ);
             if (hManager == IntPtr.Zero) throw new InvalidOperationException("Open SC Manager failed.");
 
             var hService = NativeMethods.OpenService(hManager, ServiceName, ServiceRights.SERVICE_PAUSE_CONTINUE);
