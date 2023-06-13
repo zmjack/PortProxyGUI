@@ -4,7 +4,6 @@ using PortProxyGUI.UI;
 using PortProxyGUI.Utils;
 using System;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -224,6 +223,9 @@ namespace PortProxyGUI
             rules = Program.Database.Rules.ToArray();
             InitProxyGroups(rules);
             InitProxyItems(rules, proxies);
+
+            // CheckServiceStatus
+            toolStripStatusLabel_ServiceNotRunning.Visible = !PortPorxyUtil.IsServiceRunning();
         }
 
         private void contextMenuStrip_RightClick_MouseClick(object sender, MouseEventArgs e)
@@ -239,25 +241,30 @@ namespace PortProxyGUI
                     case ToolStripMenuItem item when item == toolStripMenuItem_Disable: DisableSelectedProxies(); break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_New:
-                        if (SetProxyForm == null) SetProxyForm = new SetProxy(this);
+                        SetProxyForm ??= new SetProxy(this);
                         SetProxyForm.UseNormalMode();
                         SetProxyForm.ShowDialog();
                         break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_Modify:
-                        if (SetProxyForm == null) SetProxyForm = new SetProxy(this);
+                        SetProxyForm ??= new SetProxy(this);
                         SetProxyForUpdate(SetProxyForm);
                         SetProxyForm.ShowDialog();
                         break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_Refresh:
                         RefreshProxyList();
-                        break;
-                    case ToolStripMenuItem item when item == toolStripMenuItem_FlushDnsCache:
-                        DnsUtil.FlushCache();
+                        toolStripStatusLabel_Status.Text = $"{DateTime.Now} : Refreshed.";
                         break;
 
-                    case ToolStripMenuItem item when item == toolStripMenuItem_Delete: DeleteSelectedProxies(); break;
+                    case ToolStripMenuItem item when item == toolStripMenuItem_FlushDnsCache:
+                        DnsUtil.FlushCache();
+                        toolStripStatusLabel_Status.Text = $"{DateTime.Now} : DNS cache cleared.";
+                        break;
+
+                    case ToolStripMenuItem item when item == toolStripMenuItem_Delete:
+                        DeleteSelectedProxies();
+                        break;
 
                     case ToolStripMenuItem item when item == toolStripMenuItem_About:
                         if (AboutForm == null)
@@ -290,7 +297,7 @@ namespace PortProxyGUI
                 var selectAny = listView.SelectedItems.OfType<ListViewItem>().Any();
                 if (selectAny)
                 {
-                    if (SetProxyForm == null) SetProxyForm = new SetProxy(this);
+                    SetProxyForm ??= new SetProxy(this);
                     SetProxyForUpdate(SetProxyForm);
                     SetProxyForm.ShowDialog();
                 }
@@ -393,6 +400,12 @@ namespace PortProxyGUI
         {
             AppConfig = new AppConfig();
             ResetWindowSize();
+        }
+
+        private void toolStripStatusLabel_ServiceNotRunning_Click(object sender, EventArgs e)
+        {
+            PortPorxyUtil.StartService();
+            toolStripStatusLabel_ServiceNotRunning.Visible = false;
         }
     }
 }

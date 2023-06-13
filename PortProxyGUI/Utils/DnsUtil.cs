@@ -1,16 +1,13 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using PortProxyGUI.Native;
+using System;
 
 namespace PortProxyGUI.Utils
 {
     internal class DnsUtil
     {
-        [DllImport("dnsapi.dll", EntryPoint = "DnsFlushResolverCache")]
-        static extern uint DnsFlushResolverCache();
-
         public static void FlushCache()
         {
-            var status = DnsFlushResolverCache();
+            var status = NativeMethods.DnsFlushResolverCache();
             if (status == 0) throw new InvalidOperationException("Flush DNS Cache failed.");
         }
 

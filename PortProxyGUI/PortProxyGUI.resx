@@ -164,6 +164,94 @@
   <data name="contextMenuStrip_RightClick.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
   </data>
+  <data name="contextMenuStrip_RightClick.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 226</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip_RightClick.Name" xml:space="preserve">
+    <value>contextMenuStrip_RightClick</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip_RightClick.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="listViewProxies.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="listViewProxies.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 9pt</value>
+  </data>
+  <data name="listViewProxies.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="listViewProxies.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="listViewProxies.Size" type="System.Drawing.Size, System.Drawing">
+    <value>704, 461</value>
+  </data>
+  <data name="imageListProxies.TrayLocation" type="System.Drawing.Point, System.Drawing">
+    <value>239, 17</value>
+  </data>
+  <data name="imageListProxies.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADc
+        CAAAAk1TRnQBSQFMAgEBAgEAAdABAQHYAQEBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wQACvQ0AAH/AZQKFwGU
+        Af8CAAH/AboKlQG6Af8iAAGUDBcBlAIAAboMlQG6IgAOFwIADpUiAAQXARYB9AL/AfQBFgQXAgAOlSIA
+        AxcBFgH/Ab0BFgGUAfQB/wEWAxcCAAWVArsHlSIAAxcB9AG9AhcBlAH/AvQDFwIABJUBugL/AcEGlSIA
+        AxcB/wEWARcBlAH/ApQB/wMXAgADlQG6Af8BwQG6Af8BwQWVIgADFwH/ApQB/wGUARcBFgH/AxcCAAOV
+        Af8BwQKVAboB/wHBBJUiAAMXAvQB/wGUAhcBvQH0AxcCAAiVAboB/wHBA5UiAAMXARYB/wH0AZQBFgG9
+        Af8BFgMXAgAJlQG6Af8DlSIABBcBFgH0Av8B9AEWBBcB/wEADpUB/yEADhcB/wEADpUB/yEAAZQMFwGU
+        AgABugyVAboiAAH/AZQKFwGUAf8CAAH/AboKlQG6Af80AAH/CPQkAAFCAU0BPgcAAT4DAAEoAwABQAMA
+        ARADAAEBAQABAQUAAYAXAAP/AQAB4AEHAv8EAAGAAQEBgAEBBAABgAEBAYABAQQAAYABAQGAAQEEAAGA
+        AQEBgAEBBAABgAEBAYABAQQAAYABAQGAAQEEAAGAAQEBgAEBBAABgAEBAYABAQQAAYABAQGAAQEEAAGA
+        AQEBgAEBBAABgAEAAYAFAAGAAQABgAUAAYABAQGAAQEEAAGAAQEBgAEBBAAC/wHgAQ8aAAs=
+</value>
+  </data>
+  <data name="listViewProxies.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;listViewProxies.Name" xml:space="preserve">
+    <value>listViewProxies</value>
+  </data>
+  <data name="&gt;&gt;listViewProxies.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listViewProxies.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;listViewProxies.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="toolStripMenuItem_Enable.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 22</value>
   </data>
@@ -218,32 +306,32 @@
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>171, 6</value>
   </data>
-  <data name="toolStripMenuItem_Import.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
-  </data>
-  <data name="toolStripMenuItem_Import.Text" xml:space="preserve">
-    <value>Import</value>
-  </data>
-  <data name="toolStripMenuItem_Export.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
-  </data>
-  <data name="toolStripMenuItem_Export.Text" xml:space="preserve">
-    <value>Export</value>
-  </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 6</value>
-  </data>
-  <data name="toolStripMenuItem_ResetWindowSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
-  </data>
-  <data name="toolStripMenuItem_ResetWindowSize.Text" xml:space="preserve">
-    <value>Reset Window</value>
-  </data>
   <data name="toolStripMenuItem_More.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 22</value>
   </data>
   <data name="toolStripMenuItem_More.Text" xml:space="preserve">
     <value>More</value>
+  </data>
+  <data name="toolStripMenuItem_Import.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 22</value>
+  </data>
+  <data name="toolStripMenuItem_Import.Text" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="toolStripMenuItem_Export.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 22</value>
+  </data>
+  <data name="toolStripMenuItem_Export.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 6</value>
+  </data>
+  <data name="toolStripMenuItem_ResetWindowSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 22</value>
+  </data>
+  <data name="toolStripMenuItem_ResetWindowSize.Text" xml:space="preserve">
+    <value>Reset Window</value>
   </data>
   <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
     <value>171, 6</value>
@@ -253,94 +341,6 @@
   </data>
   <data name="toolStripMenuItem_About.Text" xml:space="preserve">
     <value>About</value>
-  </data>
-  <data name="contextMenuStrip_RightClick.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 226</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip_RightClick.Name" xml:space="preserve">
-    <value>contextMenuStrip_RightClick</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip_RightClick.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="listViewProxies.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="listViewProxies.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
-  </data>
-  <data name="listViewProxies.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="listViewProxies.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="listViewProxies.Size" type="System.Drawing.Size, System.Drawing">
-    <value>704, 461</value>
-  </data>
-  <data name="imageListProxies.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>239, 17</value>
-  </data>
-  <data name="imageListProxies.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADc
-        CAAAAk1TRnQBSQFMAgEBAgEAAYwBAQGQAQEBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
-        AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
-        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
-        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
-        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
-        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
-        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
-        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
-        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
-        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
-        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
-        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
-        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
-        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
-        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
-        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
-        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
-        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
-        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
-        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
-        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
-        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
-        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
-        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
-        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
-        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
-        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
-        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
-        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wQACvQ0AAH/AZQKFwGU
-        Af8CAAH/AboKlQG6Af8iAAGUDBcBlAIAAboMlQG6IgAOFwIADpUiAAQXARYB9AL/AfQBFgQXAgAOlSIA
-        AxcBFgH/Ab0BFgGUAfQB/wEWAxcCAAWVArsHlSIAAxcB9AG9AhcBlAH/AvQDFwIABJUBugL/AcEGlSIA
-        AxcB/wEWARcBlAH/ApQB/wMXAgADlQG6Af8BwQG6Af8BwQWVIgADFwH/ApQB/wGUARcBFgH/AxcCAAOV
-        Af8BwQKVAboB/wHBBJUiAAMXAvQB/wGUAhcBvQH0AxcCAAiVAboB/wHBA5UiAAMXARYB/wH0AZQBFgG9
-        Af8BFgMXAgAJlQG6Af8DlSIABBcBFgH0Av8B9AEWBBcB/wEADpUB/yEADhcB/wEADpUB/yEAAZQMFwGU
-        AgABugyVAboiAAH/AZQKFwGUAf8CAAH/AboKlQG6Af80AAH/CPQkAAFCAU0BPgcAAT4DAAEoAwABQAMA
-        ARADAAEBAQABAQUAAYAXAAP/AQAB4AEHAv8EAAGAAQEBgAEBBAABgAEBAYABAQQAAYABAQGAAQEEAAGA
-        AQEBgAEBBAABgAEBAYABAQQAAYABAQGAAQEEAAGAAQEBgAEBBAABgAEBAYABAQQAAYABAQGAAQEEAAGA
-        AQEBgAEBBAABgAEAAYAFAAGAAQABgAUAAYABAQGAAQEEAAGAAQEBgAEBBAAC/wHgAQ8aAAs=
-</value>
-  </data>
-  <data name="listViewProxies.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;listViewProxies.Name" xml:space="preserve">
-    <value>listViewProxies</value>
-  </data>
-  <data name="&gt;&gt;listViewProxies.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listViewProxies.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;listViewProxies.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="saveFileDialog_Export.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>389, 17</value>
@@ -353,6 +353,48 @@
   </data>
   <data name="openFileDialog_Import.Filter" xml:space="preserve">
     <value>Database File|*.db</value>
+  </data>
+  <data name="statusStrip_Footer.TrayLocation" type="System.Drawing.Point, System.Drawing">
+    <value>755, 17</value>
+  </data>
+  <data name="statusStrip_Footer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 439</value>
+  </data>
+  <data name="statusStrip_Footer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>704, 22</value>
+  </data>
+  <data name="statusStrip_Footer.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="statusStrip_Footer.Text" xml:space="preserve">
+    <value>FooterStrip</value>
+  </data>
+  <data name="&gt;&gt;statusStrip_Footer.Name" xml:space="preserve">
+    <value>statusStrip_Footer</value>
+  </data>
+  <data name="&gt;&gt;statusStrip_Footer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusStrip_Footer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusStrip_Footer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="toolStripStatusLabel_Status.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 17</value>
+  </data>
+  <data name="toolStripStatusLabel_Status.Text" xml:space="preserve">
+    <value>Welcome to Port Proxy GUI !</value>
+  </data>
+  <data name="toolStripStatusLabel_ServiceNotRunning.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 17</value>
+  </data>
+  <data name="toolStripStatusLabel_ServiceNotRunning.Text" xml:space="preserve">
+    <value>IP Helper service is not running (Click to start)</value>
+  </data>
+  <data name="toolStripStatusLabel_ServiceNotRunning.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2650,6 +2692,18 @@
   <data name="&gt;&gt;toolStripMenuItem_Export.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
+    <value>toolStripSeparator5</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem_ResetWindowSize.Name" xml:space="preserve">
+    <value>toolStripMenuItem_ResetWindowSize</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem_ResetWindowSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
     <value>toolStripSeparator4</value>
   </data>
@@ -2680,17 +2734,17 @@
   <data name="&gt;&gt;openFileDialog_Import.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem_ResetWindowSize.Name" xml:space="preserve">
-    <value>toolStripMenuItem_ResetWindowSize</value>
+  <data name="&gt;&gt;toolStripStatusLabel_Status.Name" xml:space="preserve">
+    <value>toolStripStatusLabel_Status</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem_ResetWindowSize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;toolStripStatusLabel_Status.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
-    <value>toolStripSeparator5</value>
+  <data name="&gt;&gt;toolStripStatusLabel_ServiceNotRunning.Name" xml:space="preserve">
+    <value>toolStripStatusLabel_ServiceNotRunning</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;toolStripStatusLabel_ServiceNotRunning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>PortProxyGUI</value>

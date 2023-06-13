@@ -197,7 +197,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADc
-        CAAAAk1TRnQBSQFMAgEBAgEAASABAQEwAQEBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CAAAAk1TRnQBSQFMAgEBAgEAASABAQE4AQEBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -2610,5 +2610,14 @@
   </data>
   <data name="toolStripMenuItem_ResetWindowSize.Text" xml:space="preserve">
     <value>重置窗口</value>
+  </data>
+  <data name="statusStrip_Footer.Text" xml:space="preserve">
+    <value>FooterStrip</value>
+  </data>
+  <data name="toolStripStatusLabel_ServiceNotRunning.Text" xml:space="preserve">
+    <value>IP Helper 服务未启动（点击启动）</value>
+  </data>
+  <data name="toolStripStatusLabel_Status.Text" xml:space="preserve">
+    <value>欢迎使用 Port Proxy GUI ！</value>
   </data>
 </root>

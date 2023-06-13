@@ -52,14 +52,18 @@
             toolStripMenuItem_More = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem_Import = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem_Export = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripMenuItem_ResetWindowSize = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             toolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
             imageListProxies = new System.Windows.Forms.ImageList(components);
             saveFileDialog_Export = new System.Windows.Forms.SaveFileDialog();
             openFileDialog_Import = new System.Windows.Forms.OpenFileDialog();
-            toolStripMenuItem_ResetWindowSize = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            statusStrip_Footer = new System.Windows.Forms.StatusStrip();
+            toolStripStatusLabel_Status = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel_ServiceNotRunning = new System.Windows.Forms.ToolStripStatusLabel();
             contextMenuStrip_RightClick.SuspendLayout();
+            statusStrip_Footer.SuspendLayout();
             SuspendLayout();
             // 
             // listViewProxies
@@ -69,7 +73,6 @@
             listViewProxies.ContextMenuStrip = contextMenuStrip_RightClick;
             resources.ApplyResources(listViewProxies, "listViewProxies");
             listViewProxies.FullRowSelect = true;
-            listViewProxies.HideSelection = false;
             listViewProxies.Name = "listViewProxies";
             listViewProxies.SmallImageList = imageListProxies;
             listViewProxies.UseCompatibleStateImageBehavior = false;
@@ -185,6 +188,17 @@
             resources.ApplyResources(toolStripMenuItem_Export, "toolStripMenuItem_Export");
             toolStripMenuItem_Export.Click += toolStripMenuItem_Export_Click;
             // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            resources.ApplyResources(toolStripSeparator5, "toolStripSeparator5");
+            // 
+            // toolStripMenuItem_ResetWindowSize
+            // 
+            toolStripMenuItem_ResetWindowSize.Name = "toolStripMenuItem_ResetWindowSize";
+            resources.ApplyResources(toolStripMenuItem_ResetWindowSize, "toolStripMenuItem_ResetWindowSize");
+            toolStripMenuItem_ResetWindowSize.Click += toolStripMenuItem_ResetWindowSize_Click;
+            // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
@@ -212,21 +226,30 @@
             openFileDialog_Import.FileName = "openFileDialog1";
             resources.ApplyResources(openFileDialog_Import, "openFileDialog_Import");
             // 
-            // toolStripMenuItem_ResetWindowSize
+            // statusStrip_Footer
             // 
-            toolStripMenuItem_ResetWindowSize.Name = "toolStripMenuItem_ResetWindowSize";
-            resources.ApplyResources(toolStripMenuItem_ResetWindowSize, "toolStripMenuItem_ResetWindowSize");
-            toolStripMenuItem_ResetWindowSize.Click += toolStripMenuItem_ResetWindowSize_Click;
+            statusStrip_Footer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel_Status, toolStripStatusLabel_ServiceNotRunning });
+            resources.ApplyResources(statusStrip_Footer, "statusStrip_Footer");
+            statusStrip_Footer.Name = "statusStrip_Footer";
             // 
-            // toolStripSeparator5
+            // toolStripStatusLabel_Status
             // 
-            toolStripSeparator5.Name = "toolStripSeparator5";
-            resources.ApplyResources(toolStripSeparator5, "toolStripSeparator5");
+            toolStripStatusLabel_Status.Name = "toolStripStatusLabel_Status";
+            resources.ApplyResources(toolStripStatusLabel_Status, "toolStripStatusLabel_Status");
+            // 
+            // toolStripStatusLabel_ServiceNotRunning
+            // 
+            toolStripStatusLabel_ServiceNotRunning.IsLink = true;
+            toolStripStatusLabel_ServiceNotRunning.LinkColor = System.Drawing.Color.Red;
+            toolStripStatusLabel_ServiceNotRunning.Name = "toolStripStatusLabel_ServiceNotRunning";
+            resources.ApplyResources(toolStripStatusLabel_ServiceNotRunning, "toolStripStatusLabel_ServiceNotRunning");
+            toolStripStatusLabel_ServiceNotRunning.Click += toolStripStatusLabel_ServiceNotRunning_Click;
             // 
             // PortProxyGUI
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(statusStrip_Footer);
             Controls.Add(listViewProxies);
             Name = "PortProxyGUI";
             FormClosing += PortProxyGUI_FormClosing;
@@ -234,7 +257,10 @@
             Shown += PortProxyGUI_Shown;
             Resize += PortProxyGUI_Resize;
             contextMenuStrip_RightClick.ResumeLayout(false);
+            statusStrip_Footer.ResumeLayout(false);
+            statusStrip_Footer.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -267,6 +293,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog_Import;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ResetWindowSize;
+        private System.Windows.Forms.StatusStrip statusStrip_Footer;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Status;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_ServiceNotRunning;
     }
 }
 
