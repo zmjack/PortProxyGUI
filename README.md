@@ -14,6 +14,9 @@ A manager for netsh interface portproxy, which is to evaluate TCP/IP port redire
 
 ## Upgrade
 
+- **v1.4.1**
+  - Added a status strip at the bottom of the window.
+  - Added a check of the IP Helper service status, if the service is not running, a prompt will be displayed on the bottom status bar.
 - **v1.4.0**
   - Command line calls have been removed to provide better performance.
   - New Feature Added: **Remember Window/Column Size**.
