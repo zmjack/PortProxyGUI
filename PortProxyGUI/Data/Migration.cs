@@ -1,8 +1,7 @@
-﻿namespace PortProxyGUI.Data
+﻿namespace PortProxyGUI.Data;
+
+public class Migration
 {
-    public class Migration
-    {
-        public string MigrationId { get; set; }
-        public string ProductVersion { get; set; }
-    }
+    public string MigrationId { get; set; }
+    public string ProductVersion { get; set; }
 }

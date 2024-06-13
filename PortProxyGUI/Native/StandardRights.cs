@@ -1,7 +1,6 @@
-﻿namespace PortProxyGUI.Native
+﻿namespace PortProxyGUI.Native;
+
+internal enum StandardRights : uint
 {
-    internal enum StandardRights : uint
-    {
-        STANDARD_RIGHTS_REQUIRED = 0x000F0000,
-    }
+    STANDARD_RIGHTS_REQUIRED = 0x000F0000,
 }

@@ -1,8 +1,7 @@
-﻿namespace PortProxyGUI.Data
+﻿namespace PortProxyGUI.Data;
+
+public struct MigrationKey
 {
-    public struct MigrationKey
-    {
-        public string MigrationId { get; set; }
-        public string ProductVersion { get; set; }
-    }
+    public string MigrationId { get; set; }
+    public string ProductVersion { get; set; }
 }

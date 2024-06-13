@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace PortProxyGUI.Native
+namespace PortProxyGUI.Native;
+
+[Flags]
+internal enum ServiceControls : uint
 {
-    [Flags]
-    internal enum ServiceControls : uint
-    {
-        SERVICE_CONTROL_PARAMCHANGE = 0x00000006,
-    }
+    SERVICE_CONTROL_PARAMCHANGE = 0x00000006,
 }
