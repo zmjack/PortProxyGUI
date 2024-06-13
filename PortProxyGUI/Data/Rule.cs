@@ -36,6 +36,11 @@ namespace PortProxyGUI.Data
             set => _realConnectPort = value;
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public bool Equals(Rule other)
         {
             return Id == other.Id

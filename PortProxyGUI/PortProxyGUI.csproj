@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net6.0-windows;net35;net451</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows;net6.0-windows;net35;net451</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Authors>zmjack</Authors>
@@ -14,9 +14,9 @@
     <PackageTags>portproxy TCP/IP redirector</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Copyright>Copyright © nstandard.net 2020</Copyright>
-    <Version>1.4.1</Version>
+    <Version>1.4.2</Version>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <ApplicationDefaultFont>Microsoft Sans Serif, 8pt</ApplicationDefaultFont>
+    <ApplicationDefaultFont>Arial, 8.25pt</ApplicationDefaultFont>
     <AssemblyName>PPGUI</AssemblyName>
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
