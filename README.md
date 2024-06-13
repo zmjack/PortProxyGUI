@@ -6,7 +6,7 @@ A manager for netsh interface portproxy, which is to evaluate TCP/IP port redire
 
 <br/>
 
-> ![Note]
+> [!NOTE]
 >
 > The software does not configure the firewall.
 >
@@ -32,10 +32,10 @@ A manager for netsh interface portproxy, which is to evaluate TCP/IP port redire
 
 | Target framework                                             | Windows                    | Windows Server                    | Link                                                         |
 | ------------------------------------------------------------ | -------------------------- | --------------------------------- | ------------------------------------------------------------ |
-| ![Static Badge](https://img.shields.io/badge/.NET Framework-4.5.1-blue) | ✔️ **8.1 +**<br />➕ Vista + | ✔️ **2012 R2 +**<br />➕ 2008 SP2 + | [Download](https://dotnet.microsoft.com/download/dotnet-framework/net451) |
-| ![Static Badge](https://img.shields.io/badge/.NET Framework-3.5-blue) | ✔️ **7 +**<br />➕ Vista     | ✔️ **2008 R2 SP1 +**<br />➕ 2003 + | [Download](https://dotnet.microsoft.com/download/dotnet-framework/net35-sp1) |
+| ![Static Badge](https://img.shields.io/badge/.NET_Framework-4.5.1-blue) | ✔️ **8.1 +**<br />➕ Vista + | ✔️ **2012 R2 +**<br />➕ 2008 SP2 + | [Download](https://dotnet.microsoft.com/download/dotnet-framework/net451) |
+| ![Static Badge](https://img.shields.io/badge/.NET_Framework-3.5-blue) | ✔️ **7 +**<br />➕ Vista     | ✔️ **2008 R2 SP1 +**<br />➕ 2003 + | [Download](https://dotnet.microsoft.com/download/dotnet-framework/net35-sp1) |
 
-> ![Note]
+> [!NOTE]
 >
 > If you're using Windows 8, Windows Server 2008 R2 SP1, or greater.
 >
